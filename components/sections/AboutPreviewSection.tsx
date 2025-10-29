@@ -4,49 +4,53 @@
 import { Section } from '@/components/ui/Container';
 import { Button } from '@/components/ui/Button';
 import { Heading, Text, Handwritten } from '@/components/ui/Typography';
-import { ArrowRight, Heart } from 'lucide-react';
+import { ArrowRight, Heart, Globe, Users } from 'lucide-react';
 import { motion } from 'framer-motion';
+
+const stats = [
+  { number: '15+', label: 'Jahre Erfahrung' },
+  { number: '2.500+', label: 'Glückliche Reisende' },
+  { number: '35+', label: 'Reisen im Portfolio' },
+  { number: '10+', label: 'Länder bereist' },
+];
 
 export function AboutPreviewSection() {
   return (
-    <Section padding="md" background="white">
+    <Section padding="md" background="cream">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
         {/* Image Side */}
         <motion.div
-          initial={{ opacity: 0, x: -40 }}
+          initial={{ opacity: 0, x: -30 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
           className="relative"
         >
-          <div className="relative rounded-3xl overflow-hidden shadow-strong">
-            <img
-              src="/images/agnes-portrait.jpg"
-              alt="Agnes - Gründerin Loewentouristik"
-              className="w-full h-auto"
-            />
-            {/* Decorative Element */}
-            <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-secondary rounded-full opacity-20 blur-3xl" />
+          <div className="relative aspect-[4/5] rounded-3xl overflow-hidden bg-primary/10">
+            {/* Placeholder for Agnes Portrait */}
+            <div className="absolute inset-0 flex items-center justify-center">
+              <Text size="lg" color="muted">Agnes Portrait</Text>
+            </div>
           </div>
 
-          {/* Stats Card */}
+          {/* Floating Stats Card */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            whileInView={{ opacity: 1, scale: 1 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="absolute -bottom-8 -left-8 bg-white rounded-2xl shadow-strong p-6"
+            className="absolute -bottom-6 -right-6 bg-white rounded-2xl shadow-strong p-6"
           >
-            <div className="flex items-center gap-4">
-              <div className="w-12 h-12 bg-accent-red/10 rounded-full flex items-center justify-center">
-                <Heart className="w-6 h-6 text-accent-red" fill="currentColor" />
+            <div className="flex items-center gap-3">
+              <div className="w-12 h-12 bg-secondary/10 rounded-full flex items-center justify-center">
+                <Heart className="w-6 h-6 text-secondary fill-secondary" />
               </div>
               <div>
-                <Text size="sm" color="muted">
-                  Über
+                <Text size="sm" weight="bold" className="text-primary">
+                  2.500+
                 </Text>
-                <Text size="lg" weight="bold" color="primary">
-                  10+ Jahre Afrika
+                <Text size="xs" color="muted">
+                  Glückliche Reisende
                 </Text>
               </div>
             </div>
@@ -55,60 +59,67 @@ export function AboutPreviewSection() {
 
         {/* Content Side */}
         <motion.div
-          initial={{ opacity: 0, x: 40 }}
+          initial={{ opacity: 0, x: 30 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
           <Handwritten size="md" className="mb-4">
-            Meine Geschichte
+            Über Loewentouristik
           </Handwritten>
 
           <Heading as="h2" level="h2" className="mb-6">
-            Afrika hat mein Herz erobert – und ich möchte es mit dir teilen
+            Afrika liegt mir am Herzen – seit meiner ersten Reise 2009
           </Heading>
 
           <div className="space-y-4 mb-8">
-            <Text size="md" color="default">
-              Hallo, ich bin Agnes. Vor über 10 Jahren bin ich zum ersten Mal nach Afrika gereist
-              – und habe mich sofort verliebt. Die Weite der Landschaften, die Herzlichkeit der
-              Menschen, die unglaubliche Vielfalt der Kulturen.
+            <Text size="lg" className="leading-relaxed">
+              Mein Name ist Agnes, und ich habe mich vor über 15 Jahren in Afrika verliebt. Was als
+              einzelne Reise begann, wurde zu meiner Lebensaufgabe: Authentische, respektvolle
+              Begegnungen zwischen Menschen zu schaffen.
             </Text>
 
-            <Text size="md" color="default">
-              Seitdem bin ich über 20 Mal zurückgekehrt. Ich habe Freundschaften geschlossen,
-              Sprachen gelernt und verstanden: Afrika ist nicht ein Land, sondern ein Kontinent
-              voller Geschichten, die erzählt werden wollen.
+            <Text size="md" color="muted" className="leading-relaxed">
+              Jede Reise, die ich anbiete, habe ich selbst mindestens 10 Mal bereist. Ich kenne die
+              Menschen, die Kulturen, die versteckten Pfade. Und genau diese Authentizität möchte ich
+              mit dir teilen.
             </Text>
 
-            <Text size="md" color="default">
-              Mit Loewentouristik möchte ich authentische Begegnungen ermöglichen. Fernab von
-              Massentourismus. Mit Respekt, Nachhaltigkeit und dem Willen, etwas zurückzugeben.
-            </Text>
-          </div>
-
-          {/* Signature */}
-          <div className="mb-8">
-            <Handwritten size="lg" className="text-primary">
-              Agnes
-            </Handwritten>
-            <Text size="sm" color="muted">
-              Gründerin & Reisebegleiterin
+            <Text size="md" color="muted" className="leading-relaxed">
+              Keine Shows, keine Inszenierungen – nur echte Begegnungen auf Augenhöhe. Das ist mein
+              Versprechen.
             </Text>
           </div>
 
-          <div className="flex flex-col sm:flex-row gap-4">
-            <Button
-              variant="primary"
-              size="lg"
-              rightIcon={<ArrowRight className="w-5 h-5" />}
-            >
-              Mehr über mich
-            </Button>
-            <Button variant="outline" size="lg">
-              Reisephilosophie
-            </Button>
+          {/* Stats Grid */}
+          <div className="grid grid-cols-2 gap-6 mb-8">
+            {stats.map((stat, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="text-center p-4 bg-white rounded-xl shadow-soft"
+              >
+                <Text size="xl" weight="bold" className="text-primary mb-1">
+                  {stat.number}
+                </Text>
+                <Text size="sm" color="muted">
+                  {stat.label}
+                </Text>
+              </motion.div>
+            ))}
           </div>
+
+          {/* CTA */}
+          <Button
+            variant="outline"
+            size="lg"
+            rightIcon={<ArrowRight className="w-5 h-5" />}
+          >
+            Mehr über Agnes erfahren
+          </Button>
         </motion.div>
       </div>
     </Section>

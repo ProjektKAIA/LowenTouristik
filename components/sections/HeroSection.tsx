@@ -9,28 +9,24 @@ import { motion } from 'framer-motion';
 
 export function HeroSection() {
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-transparent z-10" />
-        <img
-          src="/images/hero-africa.jpg"
-          alt="Authentische Afrika-Reisen"
-          className="w-full h-full object-cover"
-        />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70 z-10" />
+        <div className="w-full h-full bg-primary/20" />
       </div>
 
-      {/* Content */}
-      <Container className="relative z-20 py-20 md:py-32">
-        <div className="max-w-3xl">
+      {/* Content - ZENTRIERT wie im HTML */}
+      <Container className="relative z-20 py-32">
+        <div className="max-w-4xl mx-auto text-center">
           {/* Handwritten Accent */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <Handwritten size="lg" className="text-secondary mb-4">
-              Afrika hat mein Herz erobert
+            <Handwritten size="lg" className="text-secondary mb-6">
+              Afrika hat mein Herz erobert – und wird auch deins erobern
             </Handwritten>
           </motion.div>
 
@@ -41,7 +37,7 @@ export function HeroSection() {
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             <Heading as="h1" level="h1" color="white" className="mb-6">
-              Authentische Afrika-Reisen mit persönlicher Note
+              Entdecke das wahre Afrika
             </Heading>
           </motion.div>
 
@@ -51,42 +47,21 @@ export function HeroSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
-            <Text size="lg" color="white" className="mb-8 leading-relaxed opacity-90">
-              Entdecke Afrika authentisch und respektvoll. In kleinen Gruppen von maximal 12
-              Personen. Mit Agnes, die seit über 10 Jahren ihre Herzensländer bereist.
+            <Text size="xl" color="white" className="mb-12 leading-relaxed max-w-3xl mx-auto">
+              Authentische Begegnungen. Kleine Gruppen (max. 12 Personen). Respektvoll & nachhaltig.
+              <br />
+              <span className="text-secondary font-semibold">
+                Jede Reise von Agnes persönlich über 10x bereist.
+              </span>
             </Text>
-          </motion.div>
-
-          {/* Value Badges */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.6 }}
-            className="flex flex-wrap gap-4 mb-10"
-          >
-            <div className="glass px-4 py-2 rounded-full backdrop-blur-md">
-              <Text size="sm" color="white" weight="semibold">
-                ✓ Max. 12 Personen
-              </Text>
-            </div>
-            <div className="glass px-4 py-2 rounded-full backdrop-blur-md">
-              <Text size="sm" color="white" weight="semibold">
-                ✓ 100% CO₂-kompensiert
-              </Text>
-            </div>
-            <div className="glass px-4 py-2 rounded-full backdrop-blur-md">
-              <Text size="sm" color="white" weight="semibold">
-                ✓ 80% lokale Wirtschaft
-              </Text>
-            </div>
           </motion.div>
 
           {/* CTAs */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.8 }}
-            className="flex flex-col sm:flex-row gap-4"
+            transition={{ duration: 0.6, delay: 0.6 }}
+            className="flex flex-col sm:flex-row gap-4 justify-center mb-16"
           >
             <Button
               variant="secondary"
@@ -96,13 +71,42 @@ export function HeroSection() {
               Reisen entdecken
             </Button>
             <Button
-              variant="outline"
+              variant="ghost"
               size="lg"
               leftIcon={<Phone className="w-5 h-5" />}
-              className="border-white text-white hover:bg-white hover:text-primary"
+              className="border-2 border-white text-white hover:bg-white hover:text-primary"
             >
-              Persönliche Beratung
+              +49 (0) 123 456 789
             </Button>
+          </motion.div>
+
+          {/* Value Badges - Horizontal zentriert */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.8 }}
+            className="flex flex-wrap justify-center gap-3"
+          >
+            <div className="glass px-5 py-2.5 rounded-full backdrop-blur-md border border-white/20">
+              <Text size="sm" color="white" weight="semibold">
+                ✓ Max. 12 Personen
+              </Text>
+            </div>
+            <div className="glass px-5 py-2.5 rounded-full backdrop-blur-md border border-white/20">
+              <Text size="sm" color="white" weight="semibold">
+                ✓ 100% CO₂-kompensiert
+              </Text>
+            </div>
+            <div className="glass px-5 py-2.5 rounded-full backdrop-blur-md border border-white/20">
+              <Text size="sm" color="white" weight="semibold">
+                ✓ 80% lokale Wirtschaft
+              </Text>
+            </div>
+            <div className="glass px-5 py-2.5 rounded-full backdrop-blur-md border border-white/20">
+              <Text size="sm" color="white" weight="semibold">
+                ✓ TourCert zertifiziert
+              </Text>
+            </div>
           </motion.div>
         </div>
       </Container>
