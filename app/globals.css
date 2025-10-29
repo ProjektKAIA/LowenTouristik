@@ -1,26 +1,220 @@
-@import "tailwindcss";
+/* app/globals.css */
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&family=Inter:wght@300;400;500;600;700;800&family=Caveat:wght@400;700&display=swap');
 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* CSS Custom Properties */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --font-merriweather: 'Merriweather', Georgia, serif;
+  --font-inter: 'Inter', system-ui, sans-serif;
+  --font-caveat: 'Caveat', cursive;
+  
+  --color-primary: #2A5F6F;
+  --color-secondary: #E8A756;
+  --color-accent-red: #C44536;
+  --color-accent-green: #2C5F3C;
+  --color-neutral-cream: #F5F1E8;
+  --color-neutral-brown: #4A3C2E;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* Base Layer - Global Resets & Defaults */
+@layer base {
+  html {
+    @apply scroll-smooth;
+  }
+  
+  body {
+    @apply bg-neutral-cream text-neutral-brown font-sans antialiased;
+    @apply text-body-md;
+  }
+  
+  /* Typography Base Styles */
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif font-bold;
+  }
+  
+  h1 {
+    @apply text-display-md md:text-display-lg;
+  }
+  
+  h2 {
+    @apply text-heading-xl md:text-display-sm;
+  }
+  
+  h3 {
+    @apply text-heading-lg md:text-heading-xl;
+  }
+  
+  h4 {
+    @apply text-heading-md md:text-heading-lg;
+  }
+  
+  h5 {
+    @apply text-heading-sm md:text-heading-md;
+  }
+  
+  p {
+    @apply text-body-md leading-relaxed;
+  }
+  
+  a {
+    @apply transition-colors duration-200;
+  }
+  
+  /* Focus Styles for Accessibility */
+  *:focus-visible {
+    @apply outline-none ring-2 ring-secondary ring-offset-2 ring-offset-neutral-cream rounded;
+  }
+  
+  /* Selection Styling */
+  ::selection {
+    @apply bg-secondary/30 text-primary;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Components Layer - Reusable Component Patterns */
+@layer components {
+  /* Glassmorphism Effect */
+  .glass {
+    @apply bg-white/80 backdrop-blur-md border border-white/20;
+  }
+  
+  .glass-dark {
+    @apply bg-primary/80 backdrop-blur-md border border-primary/20;
+  }
+  
+  /* Container Variations */
+  .container-custom {
+    @apply w-full mx-auto px-4 sm:px-6 lg:px-8;
+    max-width: 1400px;
+  }
+  
+  .container-narrow {
+    @apply w-full mx-auto px-4 sm:px-6 lg:px-8;
+    max-width: 960px;
+  }
+  
+  /* Section Spacing */
+  .section-padding {
+    @apply py-16 md:py-24 lg:py-32;
+  }
+  
+  .section-padding-sm {
+    @apply py-12 md:py-16 lg:py-20;
+  }
+  
+  /* Gradient Backgrounds */
+  .gradient-primary {
+    @apply bg-gradient-to-br from-primary-400 via-primary-500 to-primary-700;
+  }
+  
+  .gradient-secondary {
+    @apply bg-gradient-to-br from-secondary-400 via-secondary-500 to-secondary-600;
+  }
+  
+  .gradient-earth {
+    @apply bg-gradient-to-br from-secondary-300 via-accent-red-400 to-primary-500;
+  }
+  
+  /* Text Gradients */
+  .text-gradient-primary {
+    @apply bg-gradient-to-r from-primary-500 to-primary-700 bg-clip-text text-transparent;
+  }
+  
+  .text-gradient-secondary {
+    @apply bg-gradient-to-r from-secondary-500 to-accent-red-500 bg-clip-text text-transparent;
+  }
+  
+  /* Card Styles */
+  .card {
+    @apply bg-white rounded-2xl shadow-soft transition-all duration-300;
+  }
+  
+  .card-hover {
+    @apply hover:shadow-medium hover:scale-[1.02] hover:-translate-y-1;
+  }
+  
+  .card-interactive {
+    @apply cursor-pointer active:scale-[0.98];
+  }
+  
+  /* Image Overlays */
+  .overlay-dark {
+    @apply relative before:absolute before:inset-0 before:bg-gradient-to-t before:from-black/70 before:via-black/30 before:to-transparent before:z-10;
+  }
+  
+  .overlay-primary {
+    @apply relative before:absolute before:inset-0 before:bg-gradient-to-t before:from-primary/80 before:via-primary/40 before:to-transparent before:z-10;
+  }
+  
+  /* Handwritten Accent */
+  .handwritten-accent {
+    @apply font-handwritten text-secondary-500 text-2xl md:text-3xl;
+  }
+  
+  /* Button Reset */
+  .btn-reset {
+    @apply inline-flex items-center justify-center font-medium transition-all duration-200;
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2;
+    @apply disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+}
+
+/* Utilities Layer - Custom Utility Classes */
+@layer utilities {
+  /* Animation Delays */
+  .animation-delay-200 {
+    animation-delay: 200ms;
+  }
+  
+  .animation-delay-400 {
+    animation-delay: 400ms;
+  }
+  
+  .animation-delay-600 {
+    animation-delay: 600ms;
+  }
+  
+  .animation-delay-800 {
+    animation-delay: 800ms;
+  }
+  
+  /* Text Balance for Headlines */
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  /* Hide Scrollbar but keep functionality */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Custom Aspect Ratios */
+  .aspect-safari {
+    aspect-ratio: 4 / 3;
+  }
+  
+  .aspect-landscape {
+    aspect-ratio: 16 / 9;
+  }
+  
+  .aspect-portrait {
+    aspect-ratio: 3 / 4;
+  }
+  
+  /* Safe Area for Mobile */
+  .safe-top {
+    padding-top: env(safe-area-inset-top);
+  }
+  
+  .safe-bottom {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
 }
