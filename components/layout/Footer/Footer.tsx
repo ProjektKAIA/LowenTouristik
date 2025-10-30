@@ -2,10 +2,16 @@
 'use client';
 
 import { SITE_INFO, FOOTER_LINKS, ADDRESS, CONTACT, SOCIAL_MEDIA } from '@/lib/constants';
-import type { FooterProps } from './Footer.types';
+import type { FooterProps, FooterSection } from './Footer.types';
 
 export function Footer({ className = '' }: FooterProps) {
   const currentYear = new Date().getFullYear();
+
+  const footerSections: FooterSection[] = [
+    { title: 'Reiseziele', links: FOOTER_LINKS.destinations },
+    { title: 'Über uns', links: FOOTER_LINKS.about },
+    { title: 'Service', links: FOOTER_LINKS.service },
+  ];
 
   return (
     <footer className={`bg-neutral-brown text-white py-16 ${className}`}>
@@ -22,7 +28,7 @@ export function Footer({ className = '' }: FooterProps) {
             <div className="flex items-center gap-4 mt-6">
               {/* Social Icons */}
               <a
-                href="https://facebook.com/loewentouristik"
+                href={SOCIAL_MEDIA.facebook.url}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center transition"
@@ -33,7 +39,7 @@ export function Footer({ className = '' }: FooterProps) {
                 </svg>
               </a>
               <a
-                href="https://instagram.com/loewentouristik"
+                href={SOCIAL_MEDIA.instagram.url}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center transition"

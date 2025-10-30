@@ -17,7 +17,7 @@ export function ValuePropositionsSection() {
         </div>
 
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {values.map((value, index) => (
+          {VALUES.map((value, index) => (
             <div
               key={index}
               className="bg-neutral-cream p-8 rounded-3xl shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all text-center group"
