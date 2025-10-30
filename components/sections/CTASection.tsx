@@ -5,17 +5,17 @@ import { CONTACT, ADDRESS, OPENING_HOURS } from '@/lib/constants';
 
 export function CTASection() {
   return (
-    <section id="kontakt" className="py-24 bg-gradient-to-br from-primary-blue to-accent-green text-white relative overflow-hidden">
+    <section id="kontakt" className="py-24 bg-gradient-to-br from-primary to-accent-green text-white relative overflow-hidden">
       {/* Decorative Elements */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full blur-3xl" />
-      <div className="absolute bottom-0 left-0 w-96 h-96 bg-secondary-ochre/10 rounded-full blur-3xl" />
+      <div className="absolute bottom-0 left-0 w-96 h-96 bg-secondary/10 rounded-full blur-3xl" />
 
       <div className="container mx-auto px-4 md:px-6 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif font-black mb-6">
             Bereit für dein Abenteuer?
           </h2>
-          <p className="text-xl md:text-2xl mb-4 font-handwritten text-secondary-ochre">
+          <p className="text-xl md:text-2xl mb-4 font-handwritten text-secondary">
             Lass uns gemeinsam deine perfekte Reise gestalten
           </p>
           <p className="text-lg mb-12 text-white/90">
@@ -26,7 +26,7 @@ export function CTASection() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12 max-w-5xl mx-auto">
             {/* Phone */}
             <a
-              href="tel:+491725363580"
+              href={CONTACT.phone.href}
               className="bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-2xl hover:bg-white/20 transition-all group"
             >
               <div className="w-16 h-16 bg-accent-red/20 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
@@ -41,12 +41,12 @@ export function CTASection() {
               </div>
               <div className="font-bold text-lg mb-2">Ruf mich an</div>
               <div className="text-white/80 text-sm mb-2">Die schnellste Möglichkeit</div>
-              <div className="text-secondary-ochre font-bold">0172 5363580</div>
+              <div className="text-secondary font-bold">{CONTACT.phone.display}</div>
             </a>
 
             {/* WhatsApp */}
             <a
-              href="https://wa.me/491725363580"
+              href={CONTACT.whatsapp.url}
               target="_blank"
               rel="noopener noreferrer"
               className="bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-2xl hover:bg-white/20 transition-all group"
@@ -58,15 +58,15 @@ export function CTASection() {
               </div>
               <div className="font-bold text-lg mb-2">WhatsApp</div>
               <div className="text-white/80 text-sm mb-2">Modern & bequem</div>
-              <div className="text-secondary-ochre font-bold">Nachricht senden</div>
+              <div className="text-secondary font-bold">Nachricht senden</div>
             </a>
 
             {/* Email */}
             <a
-              href="mailto:agnes.kah@loewentouristik.de"
+              href={`mailto:${CONTACT.email.primary}`}
               className="bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-2xl hover:bg-white/20 transition-all group"
             >
-              <div className="w-16 h-16 bg-secondary-ochre/20 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+              <div className="w-16 h-16 bg-secondary/20 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
                 <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path
                     strokeLinecap="round"
@@ -78,14 +78,14 @@ export function CTASection() {
               </div>
               <div className="font-bold text-lg mb-2">Email</div>
               <div className="text-white/80 text-sm mb-2">Ausführlich & detailliert</div>
-              <div className="text-secondary-ochre font-bold text-sm break-all">agnes.kah@loewentouristik.de</div>
+              <div className="text-secondary font-bold text-sm break-all">{CONTACT.email.primary}</div>
             </a>
           </div>
 
           {/* Office Info */}
           <div className="bg-white/5 backdrop-blur-md border border-white/10 p-8 rounded-2xl inline-block mb-12">
             <div className="flex items-center gap-2 justify-center mb-2">
-              <svg className="w-5 h-5 text-secondary-ochre" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-5 h-5 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -96,8 +96,8 @@ export function CTASection() {
               </svg>
               <span className="font-bold">Unser Büro in Düsseldorf</span>
             </div>
-            <p className="text-white/80">Graf Adolf Straße 41 • 40210 Düsseldorf</p>
-            <p className="text-sm text-white/60 mt-2">Mo-Fr: 9-18 Uhr • Sa: Nach Vereinbarung</p>
+            <p className="text-white/80">{ADDRESS.street} • {ADDRESS.zip} {ADDRESS.city}</p>
+            <p className="text-sm text-white/60 mt-2">{OPENING_HOURS.display}</p>
           </div>
         </div>
       </div>
