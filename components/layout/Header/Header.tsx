@@ -20,7 +20,6 @@ export function Header({ className = '' }: HeaderProps) {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Navigation Links with translations
   const navLinks = [
     { href: '#reisen', label: t('nav.trips') },
     { href: '#agnes', label: t('nav.about') },
@@ -37,7 +36,6 @@ export function Header({ className = '' }: HeaderProps) {
     >
       <nav className="container mx-auto px-4 md:px-6 py-4">
         <div className="flex items-center justify-between">
-          {/* Logo */}
           
             href="#hero"
             className="text-2xl md:text-3xl font-serif font-black text-white hover:text-secondary-ochre transition relative z-10"
@@ -45,7 +43,6 @@ export function Header({ className = '' }: HeaderProps) {
             {SITE_INFO.name}
           </a>
 
-          {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center space-x-8 text-white font-medium">
             {navLinks.map((link) => (
               
@@ -58,9 +55,7 @@ export function Header({ className = '' }: HeaderProps) {
             ))}
           </div>
 
-          {/* CTA Buttons & Language Switcher */}
           <div className="flex items-center gap-3">
-            {/* Language Switcher */}
             <LanguageSwitcher className="hidden md:flex" />
             
             
