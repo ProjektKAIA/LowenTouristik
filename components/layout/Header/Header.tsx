@@ -36,7 +36,7 @@ export function Header({ className = '' }: HeaderProps) {
     >
       <nav className="container mx-auto px-4 md:px-6 py-4">
         <div className="flex items-center justify-between">
-          
+          <a
             href="#hero"
             className="text-2xl md:text-3xl font-serif font-black text-white hover:text-secondary-ochre transition relative z-10"
           >
@@ -45,7 +45,7 @@ export function Header({ className = '' }: HeaderProps) {
 
           <div className="hidden lg:flex items-center space-x-8 text-white font-medium">
             {navLinks.map((link) => (
-              
+              <a
                 key={link.href}
                 href={link.href}
                 className="hover:text-secondary-ochre transition"
@@ -57,8 +57,7 @@ export function Header({ className = '' }: HeaderProps) {
 
           <div className="flex items-center gap-3">
             <LanguageSwitcher className="hidden md:flex" />
-            
-            
+            <a
               href={CONTACT.phone.href}
               className="hidden md:flex items-center gap-2 text-white hover:text-secondary-ochre transition"
             >
@@ -72,7 +71,7 @@ export function Header({ className = '' }: HeaderProps) {
               </svg>
               <span className="font-semibold">{CONTACT.phone.display}</span>
             </a>
-            
+            <a
               href="#kontakt"
               className="btn-primary bg-accent-red hover:bg-accent-red/90 text-white px-6 py-2.5 rounded-full font-bold shadow-xl hover:shadow-2xl hover:scale-105 transition-all"
             >
