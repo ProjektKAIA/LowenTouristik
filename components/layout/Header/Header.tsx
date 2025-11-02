@@ -33,8 +33,12 @@ export function Header({ className = '' }: HeaderProps) {
   return (
     <header
       className={`fixed top-0 w-full z-40 transition-all duration-300 ${
-        scrolled ? 'bg-white shadow-lg py-3' : 'bg-white/10 backdrop-blur-md py-4'
+        scrolled ? 'shadow-lg py-3' : 'py-4'
       } ${className}`}
+      style={{
+        background: 'linear-gradient(135deg, rgba(42, 95, 111, 0.92) 0%, rgba(44, 95, 60, 0.88) 50%, rgba(42, 95, 111, 0.92) 100%)',
+        backdropFilter: 'blur(12px)'
+      }}
     >
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex items-center justify-between">
@@ -42,10 +46,10 @@ export function Header({ className = '' }: HeaderProps) {
           <Link href="/" className="flex items-center gap-3 group">
             <div className="text-3xl group-hover:scale-110 transition-transform">🦁</div>
             <div>
-              <div className={`font-serif font-black text-xl ${scrolled ? 'text-primary' : 'text-white'}`}>
+              <div className="font-serif font-black text-xl text-white">
                 {SITE_INFO.name}
               </div>
-              <div className={`text-xs ${scrolled ? 'text-neutral-brown/60' : 'text-white/80'}`}>
+              <div className="text-xs text-white/80">
                 {SITE_INFO.tagline}
               </div>
             </div>
@@ -58,9 +62,7 @@ export function Header({ className = '' }: HeaderProps) {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`font-medium hover:text-secondary transition ${
-                    scrolled ? 'text-neutral-brown' : 'text-white'
-                  }`}
+                  className="font-medium text-white hover:text-secondary transition"
                 >
                   {link.label}
                 </Link>
@@ -68,9 +70,7 @@ export function Header({ className = '' }: HeaderProps) {
                 <a
                   key={link.href}
                   href={link.href}
-                  className={`font-medium hover:text-secondary transition ${
-                    scrolled ? 'text-neutral-brown' : 'text-white'
-                  }`}
+                  className="font-medium text-white hover:text-secondary transition"
                 >
                   {link.label}
                 </a>
@@ -96,7 +96,7 @@ export function Header({ className = '' }: HeaderProps) {
             aria-label="Toggle menu"
           >
             <svg
-              className={`w-6 h-6 ${scrolled ? 'text-primary' : 'text-white'}`}
+              className="w-6 h-6 text-white"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"

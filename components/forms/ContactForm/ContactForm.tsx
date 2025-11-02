@@ -6,7 +6,7 @@ import { useTranslations } from 'next-intl';
 import type { ContactFormProps, ContactFormData, ContactFormState } from './ContactForm.types';
 
 export function ContactForm({ className = '' }: ContactFormProps) {
-  const t = useTranslations('contactPage.form');
+  const t = useTranslations('contact.form');
   
   const [formData, setFormData] = useState<ContactFormData>({
     firstName: '',
@@ -54,6 +54,7 @@ export function ContactForm({ className = '' }: ContactFormProps) {
     <form onSubmit={handleSubmit} className={`space-y-6 ${className}`}>
       {/* Name Fields */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {/* First Name */}
         <div>
           <label htmlFor="firstName" className="block text-sm font-medium text-neutral-brown mb-2">
             {t('firstName')} <span className="text-accent-red">*</span>
@@ -69,6 +70,7 @@ export function ContactForm({ className = '' }: ContactFormProps) {
           />
         </div>
 
+        {/* Last Name */}
         <div>
           <label htmlFor="lastName" className="block text-sm font-medium text-neutral-brown mb-2">
             {t('lastName')} <span className="text-accent-red">*</span>
