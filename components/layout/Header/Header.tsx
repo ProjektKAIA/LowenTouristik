@@ -2,11 +2,14 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { NAV_LINKS, SITE_INFO, CONTACT } from '@/lib/constants';
+import { useTranslations } from 'next-intl';
+import { LanguageSwitcher } from '@/components/ui/LanguageSwitcher';
+import { SITE_INFO, CONTACT } from '@/lib/constants';
 import type { HeaderProps } from './Header.types';
 
 export function Header({ className = '' }: HeaderProps) {
   const [scrolled, setScrolled] = useState(false);
+  const t = useTranslations();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -17,6 +20,15 @@ export function Header({ className = '' }: HeaderProps) {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Navigation Links with translations
+  const navLinks = [
+    { href: '#reisen', label: t('nav.trips') },
+    { href: '#agnes', label: t('nav.about') },
+    { href: '#werte', label: t('nav.values') },
+    { href: '#testimonials', label: t('nav.testimonials') },
+    { href: '#kontakt', label: t('nav.contact') },
+  ];
+
   return (
     <header
       className={`fixed top-0 w-full z-40 transition-all duration-300 ${
@@ -26,7 +38,7 @@ export function Header({ className = '' }: HeaderProps) {
       <nav className="container mx-auto px-4 md:px-6 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <a
+          
             href="#hero"
             className="text-2xl md:text-3xl font-serif font-black text-white hover:text-secondary-ochre transition relative z-10"
           >
@@ -35,8 +47,8 @@ export function Header({ className = '' }: HeaderProps) {
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center space-x-8 text-white font-medium">
-            {NAV_LINKS.map((link) => (
-              <a
+            {navLinks.map((link) => (
+              
                 key={link.href}
                 href={link.href}
                 className="hover:text-secondary-ochre transition"
@@ -46,9 +58,12 @@ export function Header({ className = '' }: HeaderProps) {
             ))}
           </div>
 
-          {/* CTA Buttons */}
+          {/* CTA Buttons & Language Switcher */}
           <div className="flex items-center gap-3">
-            <a
+            {/* Language Switcher */}
+            <LanguageSwitcher className="hidden md:flex" />
+            
+            
               href={CONTACT.phone.href}
               className="hidden md:flex items-center gap-2 text-white hover:text-secondary-ochre transition"
             >
@@ -62,11 +77,11 @@ export function Header({ className = '' }: HeaderProps) {
               </svg>
               <span className="font-semibold">{CONTACT.phone.display}</span>
             </a>
-            <a
+            
               href="#kontakt"
               className="btn-primary bg-accent-red hover:bg-accent-red/90 text-white px-6 py-2.5 rounded-full font-bold shadow-xl hover:shadow-2xl hover:scale-105 transition-all"
             >
-              Reise anfragen
+              {t('cta.requestTrip')}
             </a>
           </div>
         </div>

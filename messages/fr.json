@@ -1,0 +1,37 @@
+{
+  "site": {
+    "name": "Loewentouristik"
+  },
+  "nav": {
+    "trips": "Voyages",
+    "about": "À propos d'Agnes",
+    "values": "Nos Valeurs",
+    "testimonials": "Témoignages",
+    "contact": "Contact"
+  },
+  "cta": {
+    "requestTrip": "Demander un Voyage",
+    "becomeFamily": "Rejoignez la Famille",
+    "bookNow": "Réserver Maintenant"
+  },
+  "contact": {
+    "phone": "0172 5363580"
+  },
+  "hero": {
+    "title": "Découvrez l'Afrique Authentique",
+    "subtitle": "Safaris sur mesure avec accompagnement personnel",
+    "description": "Créons des expériences africaines inoubliables depuis 2009"
+  },
+  "values": {
+    "title": "Nos Valeurs",
+    "subtitle": "Ce qui nous distingue"
+  },
+  "testimonials": {
+    "title": "Ce que Disent Nos Voyageurs",
+    "subtitle": "Expériences réelles de vraies personnes",
+    "footer": "Plus de 2 500 voyageurs satisfaits depuis 2009"
+  },
+  "whatsapp": {
+    "label": "Contact WhatsApp"
+  }
+}

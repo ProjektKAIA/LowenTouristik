@@ -1,0 +1,37 @@
+{
+  "site": {
+    "name": "Loewentouristik"
+  },
+  "nav": {
+    "trips": "Reisen",
+    "about": "Über Agnes",
+    "values": "Unsere Werte",
+    "testimonials": "Erfahrungen",
+    "contact": "Kontakt"
+  },
+  "cta": {
+    "requestTrip": "Reise anfragen",
+    "becomeFamily": "Werde Teil der Familie",
+    "bookNow": "Jetzt buchen"
+  },
+  "contact": {
+    "phone": "0172 5363580"
+  },
+  "hero": {
+    "title": "Erlebe Afrika authentisch",
+    "subtitle": "Maßgeschneiderte Safari-Reisen mit persönlicher Betreuung",
+    "description": "Seit 2009 gestalten wir unvergessliche Afrika-Erlebnisse"
+  },
+  "values": {
+    "title": "Unsere Werte",
+    "subtitle": "Was uns auszeichnet"
+  },
+  "testimonials": {
+    "title": "Was unsere Reisenden sagen",
+    "subtitle": "Echte Erfahrungen von echten Menschen",
+    "footer": "Über 2.500 zufriedene Reisende seit 2009"
+  },
+  "whatsapp": {
+    "label": "WhatsApp Kontakt"
+  }
+}
