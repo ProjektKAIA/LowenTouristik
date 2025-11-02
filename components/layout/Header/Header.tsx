@@ -3,12 +3,14 @@
 
 import { useEffect, useState } from 'react';
 import { useTranslations } from 'next-intl';
+import { Link } from '@/i18n/routing';
 import { LanguageSwitcher } from '@/components/ui/LanguageSwitcher';
 import { SITE_INFO, CONTACT } from '@/lib/constants';
 import type { HeaderProps } from './Header.types';
 
 export function Header({ className = '' }: HeaderProps) {
   const [scrolled, setScrolled] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const t = useTranslations();
 
   useEffect(() => {
@@ -21,65 +23,131 @@ export function Header({ className = '' }: HeaderProps) {
   }, []);
 
   const navLinks = [
-    { href: '#reisen', label: t('nav.trips') },
-    { href: '#agnes', label: t('nav.about') },
-    { href: '#werte', label: t('nav.values') },
-    { href: '#testimonials', label: t('nav.testimonials') },
-    { href: '#kontakt', label: t('nav.contact') },
+    { href: '/#reisen', label: t('nav.trips') },
+    { href: '/#agnes', label: t('nav.about') },
+    { href: '/#werte', label: t('nav.values') },
+    { href: '/#testimonials', label: t('nav.testimonials') },
+    { href: '/kontakt', label: t('nav.contact'), isRoute: true },
   ];
 
   return (
     <header
       className={`fixed top-0 w-full z-40 transition-all duration-300 ${
-        scrolled ? 'bg-primary-blue/95 backdrop-blur-sm shadow-2xl' : ''
+        scrolled ? 'bg-white shadow-lg py-3' : 'bg-white/10 backdrop-blur-md py-4'
       } ${className}`}
     >
-      <nav className="container mx-auto px-4 md:px-6 py-4">
+      <div className="container mx-auto px-4 md:px-6">
         <div className="flex items-center justify-between">
-          <a
-            href="#hero"
-            className="text-2xl md:text-3xl font-serif font-black text-white hover:text-secondary-ochre transition relative z-10"
-          >
-            {SITE_INFO.name}
-          </a>
+          {/* Logo */}
+          <Link href="/" className="flex items-center gap-3 group">
+            <div className="text-3xl group-hover:scale-110 transition-transform">🦁</div>
+            <div>
+              <div className={`font-serif font-black text-xl ${scrolled ? 'text-primary' : 'text-white'}`}>
+                {SITE_INFO.name}
+              </div>
+              <div className={`text-xs ${scrolled ? 'text-neutral-brown/60' : 'text-white/80'}`}>
+                {SITE_INFO.tagline}
+              </div>
+            </div>
+          </Link>
 
-          <div className="hidden lg:flex items-center space-x-8 text-white font-medium">
+          {/* Desktop Navigation */}
+          <nav className="hidden lg:flex items-center gap-8">
             {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                className="hover:text-secondary-ochre transition"
-              >
-                {link.label}
-              </a>
+              link.isRoute ? (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className={`font-medium hover:text-secondary transition ${
+                    scrolled ? 'text-neutral-brown' : 'text-white'
+                  }`}
+                >
+                  {link.label}
+                </Link>
+              ) : (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  className={`font-medium hover:text-secondary transition ${
+                    scrolled ? 'text-neutral-brown' : 'text-white'
+                  }`}
+                >
+                  {link.label}
+                </a>
+              )
             ))}
-          </div>
+          </nav>
 
-          <div className="flex items-center gap-3">
-            <LanguageSwitcher className="hidden md:flex" />
+          {/* Right Side - Desktop */}
+          <div className="hidden lg:flex items-center gap-4">
+            <LanguageSwitcher />
             <a
               href={CONTACT.phone.href}
-              className="hidden md:flex items-center gap-2 text-white hover:text-secondary-ochre transition"
+              className="bg-secondary hover:bg-secondary/90 text-white px-6 py-2.5 rounded-full font-bold transition-all"
             >
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-                />
-              </svg>
-              <span className="font-semibold">{CONTACT.phone.display}</span>
-            </a>
-            <a
-              href="#kontakt"
-              className="btn-primary bg-accent-red hover:bg-accent-red/90 text-white px-6 py-2.5 rounded-full font-bold shadow-xl hover:shadow-2xl hover:scale-105 transition-all"
-            >
-              {t('cta.requestTrip')}
+              {CONTACT.phone.display}
             </a>
           </div>
+
+          {/* Mobile Menu Button */}
+          <button
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="lg:hidden p-2"
+            aria-label="Toggle menu"
+          >
+            <svg
+              className={`w-6 h-6 ${scrolled ? 'text-primary' : 'text-white'}`}
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              {mobileMenuOpen ? (
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              ) : (
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              )}
+            </svg>
+          </button>
         </div>
-      </nav>
+
+        {/* Mobile Menu */}
+        {mobileMenuOpen && (
+          <div className="lg:hidden mt-4 py-4 bg-white rounded-2xl shadow-xl">
+            <nav className="flex flex-col gap-2 px-4">
+              {navLinks.map((link) => (
+                link.isRoute ? (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="px-4 py-3 text-neutral-brown hover:bg-neutral-cream rounded-lg transition"
+                  >
+                    {link.label}
+                  </Link>
+                ) : (
+                  <a
+                    key={link.href}
+                    href={link.href}
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="px-4 py-3 text-neutral-brown hover:bg-neutral-cream rounded-lg transition"
+                  >
+                    {link.label}
+                  </a>
+                )
+              ))}
+            </nav>
+            <div className="mt-4 px-4 pt-4 border-t border-neutral-cream">
+              <LanguageSwitcher className="mb-3" />
+              <a
+                href={CONTACT.phone.href}
+                className="block text-center bg-secondary hover:bg-secondary/90 text-white px-6 py-3 rounded-full font-bold transition-all"
+              >
+                {CONTACT.phone.display}
+              </a>
+            </div>
+          </div>
+        )}
+      </div>
     </header>
   );
 }

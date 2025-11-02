@@ -1,0 +1,21 @@
+{
+  "title": "Kontakt",
+  "subtitle": "Lass uns über deine Traumreise sprechen",
+  "form": {
+    "firstName": "Vorname",
+    "lastName": "Nachname",
+    "email": "E-Mail",
+    "phone": "Telefon (optional)",
+    "message": "Deine Nachricht",
+    "submit": "Nachricht senden",
+    "submitting": "Wird gesendet...",
+    "success": "Danke! Wir melden uns bald bei dir.",
+    "error": "Etwas ist schiefgelaufen. Bitte versuche es erneut."
+  },
+  "info": {
+    "phone": "Telefon",
+    "email": "E-Mail",
+    "address": "Adresse",
+    "hours": "Öffnungszeiten"
+  }
+}

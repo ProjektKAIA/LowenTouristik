@@ -1,0 +1,21 @@
+{
+  "title": "Contact",
+  "subtitle": "Parlons de votre voyage de rêve",
+  "form": {
+    "firstName": "Prénom",
+    "lastName": "Nom",
+    "email": "Email",
+    "phone": "Téléphone (optionnel)",
+    "message": "Votre Message",
+    "submit": "Envoyer le Message",
+    "submitting": "Envoi en cours...",
+    "success": "Merci! Nous vous contacterons bientôt.",
+    "error": "Une erreur s'est produite. Veuillez réessayer."
+  },
+  "info": {
+    "phone": "Téléphone",
+    "email": "Email",
+    "address": "Adresse",
+    "hours": "Heures d'ouverture"
+  }
+}

@@ -11,8 +11,24 @@ export default getRequestConfig(async ({ requestLocale }) => {
     locale = routing.defaultLocale;
   }
 
+  // Load homepage messages (main JSON file)
+  const homepageMessages = (await import(`@/messages/${locale}.json`)).default;
+
+  // Load subpage messages (from locale folders)
+  let contactMessages = {};
+  
+  try {
+    contactMessages = (await import(`@/messages/${locale}/contact.json`)).default;
+  } catch (error) {
+    // If contact.json doesn't exist yet, use empty object
+    console.warn(`Contact messages for locale "${locale}" not found`);
+  }
+
   return {
     locale,
-    messages: (await import(`@/messages/${locale}.json`)).default
+    messages: {
+      ...homepageMessages,
+      contact: contactMessages,
+    }
   };
 });
