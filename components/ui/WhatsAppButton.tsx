@@ -1,16 +1,19 @@
 // components/ui/WhatsAppButton.tsx
 'use client';
 
+import { useTranslations } from 'next-intl';
 import { CONTACT } from '@/lib/constants';
 
 export function WhatsAppButton() {
+  const t = useTranslations();
+
   return (
     <a
       href={CONTACT.whatsapp.url}
       target="_blank"
       rel="noopener noreferrer"
       className="fixed bottom-6 right-6 z-50 w-16 h-16 bg-accent-green hover:bg-accent-green/90 rounded-full shadow-2xl flex items-center justify-center group animate-float"
-      aria-label="WhatsApp Kontakt"
+      aria-label={t('whatsapp.label')}
     >
       <svg
         className="w-8 h-8 text-white group-hover:scale-110 transition-transform"

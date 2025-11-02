@@ -18,18 +18,176 @@
     "phone": "0172 5363580"
   },
   "hero": {
-    "title": "Experience Africa Authentically",
-    "subtitle": "Tailor-made safari trips with personal care",
-    "description": "Creating unforgettable African experiences since 2009"
+    "badge": "Over 2,500 satisfied Africa travelers",
+    "title": "Africa has captured my heart",
+    "subtitle": "Over 2,500 travelers now understand why",
+    "description": "Authentic encounters. Respectful travel. Maximum 12 people. Every route personally traveled by Agnes 10+ times.",
+    "cta": {
+      "discover": "Discover Trips",
+      "call": "Call Now"
+    },
+    "stats": {
+      "travelers": "Happy Travelers",
+      "groupSize": "Max. Group Size",
+      "experience": "Years of Expertise"
+    },
+    "scroll": "Scroll"
   },
   "values": {
     "title": "Our Values",
-    "subtitle": "What sets us apart"
+    "subtitle": "What sets us apart",
+    "mainTitle": "What Makes Us Different",
+    "mainSubtitle": "Mass tourism destroys exactly what travelers seek. We do it differently.",
+    "comparison1": {
+      "standard": {
+        "title": "Standard Tours",
+        "description": "2-hour visit with group photo and \"traditional dance\""
+      },
+      "ours": {
+        "title": "With Us",
+        "description": "3 days in the village – by personal invitation. Learn hunting techniques, stories by the fire, real friendships."
+      }
+    },
+    "comparison2": {
+      "standard": {
+        "title": "Large Groups",
+        "description": "16-25 people, loud, intrusive, superficial"
+      },
+      "ours": {
+        "title": "With Us",
+        "description": "Maximum 12 people. Small enough for genuine encounters, large enough for community."
+      }
+    },
+    "comparison3": {
+      "standard": {
+        "title": "Desk-Planned",
+        "description": "Catalog products without personal experience"
+      },
+      "ours": {
+        "title": "With Us",
+        "description": "Every route personally traveled by Agnes 10+ times. I know every path, every family, every insider tip."
+      }
+    },
+    "comparison4": {
+      "standard": {
+        "title": "Staged Shows",
+        "description": "\"Folklore\" for tourists, not real culture"
+      },
+      "ours": {
+        "title": "With Us",
+        "description": "Real life. No shows. Cultures present themselves – as they truly are."
+      }
+    },
+    "badge": "100% CO₂ compensated • 80% local economy • TourCert certified"
+  },
+  "about": {
+    "label": "The Founder",
+    "title": "Agnes Kah - My Heart Beats for Africa",
+    "paragraph1": "Africa touched me for the first time in 2009. What began as curiosity became passion and finally my calling.",
+    "paragraph2": {
+      "bold": "I don't travel to Africa – I live there.",
+      "text": "I have personally traveled every route over 10 times. I know the families who host us. I know where the best sunsets are and which encounters will touch your heart."
+    },
+    "paragraph3": "My mission: To show you Africa as I love it – authentic, respectful, and with genuine encounters that will change you.",
+    "cta": {
+      "talk": "Talk to Me",
+      "video": "Watch Video"
+    },
+    "stats": {
+      "routes": "Perfected Routes",
+      "countries": "Country Expertise",
+      "personal": "Personally Traveled"
+    },
+    "badge": "Years in Africa",
+    "imageAlt": "Agnes in Africa"
+  },
+  "trips": {
+    "title": "Our Trips",
+    "subtitle": "12 countries. 30+ routes. Every single one personally traveled by Agnes 10+ times.",
+    "description": "No standard tours. No staged shows. Only authentic experiences.",
+    "maxLabel": "Max.",
+    "fromLabel": "from",
+    "detailsButton": "Details",
+    "allRoutesButton": "Discover All 30+ Routes",
+    "items": {
+      "cameroon": {
+        "country": "CAMEROON",
+        "title": "With Baka Pygmies in the Rainforest",
+        "description": "3 days of authentic village life. Learn hunting techniques, plant knowledge and stories by the fire.",
+        "duration": "14 days",
+        "maxPersons": "12 people",
+        "badge": "Bestseller"
+      },
+      "sierraLeone": {
+        "country": "SIERRA LEONE",
+        "title": "Pristine Beaches & Rainforest",
+        "description": "Dreamlike coasts, friendly people and authentic village visits without mass tourism.",
+        "duration": "12 days",
+        "maxPersons": "12 people"
+      },
+      "senegal": {
+        "country": "SENEGAL",
+        "title": "Dakar, Desert & Pink Lake",
+        "description": "Vibrant culture, colonial history and spectacular natural phenomena.",
+        "duration": "10 days",
+        "maxPersons": "12 people"
+      }
+    }
   },
   "testimonials": {
     "title": "What Our Travelers Say",
     "subtitle": "Real experiences from real people",
-    "footer": "Over 2,500 satisfied travelers since 2009"
+    "footer": "Over 2,500 satisfied travelers since 2009",
+    "trips": {
+      "cameroon": "Cameroon • Baka Pygmies",
+      "senegal": "Senegal • Dakar & Pink Lake",
+      "sierraLeone": "Sierra Leone • Beaches & Rainforest"
+    },
+    "items": {
+      "sarah": "Agnes showed us Africa as it really is. The 3 days with the Baka were the most intense experience of my life. Not a show, but real life.",
+      "michael": "I've been on many trips, but this was different. Small group, personal care and encounters on equal footing. Thank you Agnes!",
+      "anna": "The beaches of Sierra Leone are paradise - and almost deserted! Agnes knows every corner and showed us places no guidebook knows."
+    }
+  },
+  "ctaSection": {
+    "title": "Ready for Your Adventure?",
+    "subtitle": "Let's create your perfect trip together",
+    "description": "Personal. Authentic. Unforgettable.",
+    "contact": {
+      "phone": {
+        "title": "Call Me",
+        "subtitle": "The fastest way"
+      },
+      "whatsapp": {
+        "title": "WhatsApp",
+        "subtitle": "Modern & convenient",
+        "cta": "Send Message"
+      },
+      "email": {
+        "title": "Email",
+        "subtitle": "Detailed & comprehensive"
+      }
+    },
+    "office": {
+      "title": "Our Office in Düsseldorf"
+    }
+  },
+  "footer": {
+    "brand": {
+      "tagline": "Authentic Africa Travel",
+      "since": "since 2009"
+    },
+    "destinations": {
+      "title": "Destinations"
+    },
+    "about": {
+      "title": "About Us"
+    },
+    "service": {
+      "title": "Service"
+    },
+    "copyright": "© {year} Loewentouristik. All rights reserved.",
+    "madeWith": "Made with ❤️ by"
   },
   "whatsapp": {
     "label": "WhatsApp Contact"

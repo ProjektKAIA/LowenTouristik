@@ -1,16 +1,18 @@
 // components/layout/Footer/Footer.tsx
 'use client';
 
+import { useTranslations } from 'next-intl';
 import { SITE_INFO, FOOTER_LINKS, ADDRESS, CONTACT, SOCIAL_MEDIA } from '@/lib/constants';
 import type { FooterProps, FooterSection } from './Footer.types';
 
 export function Footer({ className = '' }: FooterProps) {
+  const t = useTranslations('footer');
   const currentYear = new Date().getFullYear();
 
   const footerSections: FooterSection[] = [
-    { title: 'Reiseziele', links: FOOTER_LINKS.destinations },
-    { title: 'Über uns', links: FOOTER_LINKS.about },
-    { title: 'Service', links: FOOTER_LINKS.service },
+    { title: t('destinations.title'), links: FOOTER_LINKS.destinations },
+    { title: t('about.title'), links: FOOTER_LINKS.about },
+    { title: t('service.title'), links: FOOTER_LINKS.service },
   ];
 
   return (
@@ -21,9 +23,9 @@ export function Footer({ className = '' }: FooterProps) {
           <div>
             <h3 className="text-2xl font-serif font-bold mb-4">Loewentouristik</h3>
             <p className="text-white/70 leading-relaxed mb-4">
-              Authentische Afrika-Reisen
+              {t('brand.tagline')}
               <br />
-              seit 2009
+              {t('brand.since')}
             </p>
             <div className="flex items-center gap-4 mt-6">
               {/* Social Icons */}
@@ -72,9 +74,9 @@ export function Footer({ className = '' }: FooterProps) {
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-white/10">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-white/60 text-sm">
-            <p>© {currentYear} Loewentouristik. Alle Rechte vorbehalten.</p>
+            <p>{t('copyright', { year: currentYear })}</p>
             <p>
-              Made with ❤️ by{' '}
+              {t('madeWith')}{' '}
               <a
                 href="https://kaiashapes.de"
                 target="_blank"

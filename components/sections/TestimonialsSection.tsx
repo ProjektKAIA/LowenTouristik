@@ -2,41 +2,40 @@
 'use client';
 
 import { useRef } from 'react';
+import { useTranslations } from 'next-intl';
 
 export function TestimonialsSection() {
+  const t = useTranslations();
   const scrollRef = useRef<HTMLDivElement>(null);
 
   const testimonials = [
     {
-      name: 'Michael S.',
-      trip: 'Kamerun-Reise, Oktober 2024',
-      rating: 5,
-      text: 'Die 3 Tage bei den Baka-Pygmäen haben mein Leben verändert. Keine Show, keine Inszenierung – einfach echtes Leben. Agnes hat uns nicht nur hingebracht, sie hat uns zur Familie gemacht.',
-      initial: 'M',
-    },
-    {
-      name: 'Sarah & Tom K.',
-      trip: 'Sierra Leone-Reise, August 2024',
-      rating: 5,
-      text: 'Wir haben schon viele Reisen gemacht, aber diese war anders. Die kleine Gruppe, Agnes\' Leidenschaft und die respektvolle Art der Begegnungen – das war wahrhaftig unvergesslich.',
+      name: 'Sarah M.',
       initial: 'S',
+      trip: t('testimonials.trips.cameroon'),
+      text: t('testimonials.items.sarah'),
+      rating: 5,
     },
     {
-      name: 'Lisa M.',
-      trip: 'Senegal-Reise, Juni 2024',
+      name: 'Michael K.',
+      initial: 'M',
+      trip: t('testimonials.trips.senegal'),
+      text: t('testimonials.items.michael'),
       rating: 5,
-      text: 'Ich hatte Angst vor "Poverty Tourism". Bei Loewentouristik war alles anders – respektvoll, auf Augenhöhe, echt. Ich habe Freunde gefunden, nicht Fotomotive.',
-      initial: 'L',
+    },
+    {
+      name: 'Anna L.',
+      initial: 'A',
+      trip: t('testimonials.trips.sierraLeone'),
+      text: t('testimonials.items.anna'),
+      rating: 5,
     },
   ];
 
   const scroll = (direction: 'left' | 'right') => {
     if (scrollRef.current) {
-      const scrollAmount = 520;
-      scrollRef.current.scrollBy({
-        left: direction === 'left' ? -scrollAmount : scrollAmount,
-        behavior: 'smooth',
-      });
+      const scrollAmount = direction === 'left' ? -400 : 400;
+      scrollRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
     }
   };
 
@@ -45,24 +44,25 @@ export function TestimonialsSection() {
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif font-black text-primary mb-6">
-            Was unsere Reisenden sagen
+            {t('testimonials.title')}
           </h2>
-          <p className="text-xl text-neutral-brown/80">Echte Erfahrungen von echten Menschen</p>
+          <p className="text-xl md:text-2xl font-handwritten text-secondary mb-4">
+            {t('testimonials.subtitle')}
+          </p>
         </div>
 
-        {/* Testimonial Slider */}
-        <div className="max-w-6xl mx-auto relative">
+        <div className="relative max-w-6xl mx-auto">
           <div
             ref={scrollRef}
-            className="flex gap-8 overflow-x-auto scroll-smooth snap-x snap-mandatory scrollbar-hide pb-4"
+            className="flex gap-6 overflow-x-auto scrollbar-hide snap-x snap-mandatory pb-4"
             style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
           >
             {testimonials.map((testimonial, index) => (
               <div
                 key={index}
-                className="min-w-full md:min-w-[500px] bg-white p-8 rounded-3xl shadow-xl snap-center"
+                className="flex-shrink-0 w-full md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] bg-white p-8 rounded-3xl shadow-xl snap-start"
               >
-                {/* Rating Stars */}
+                {/* Rating */}
                 <div className="flex items-center gap-1 mb-4">
                   {[...Array(testimonial.rating)].map((_, i) => (
                     <svg key={i} className="w-5 h-5 text-secondary" fill="currentColor" viewBox="0 0 20 20">
@@ -111,12 +111,12 @@ export function TestimonialsSection() {
 
         {/* CTA */}
         <div className="text-center mt-12">
-          <p className="text-neutral-brown/70 mb-4">Über 2.500 zufriedene Reisende seit 2009</p>
+          <p className="text-neutral-brown/70 mb-4">{t('testimonials.footer')}</p>
           <a
             href="#kontakt"
             className="inline-block bg-accent-red hover:bg-accent-red/90 text-white px-10 py-4 rounded-full font-bold text-lg shadow-xl hover:shadow-2xl hover:scale-105 transition-all"
           >
-            Werde Teil der Familie
+            {t('cta.becomeFamily')}
           </a>
         </div>
       </div>

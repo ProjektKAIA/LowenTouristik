@@ -18,18 +18,176 @@
     "phone": "0172 5363580"
   },
   "hero": {
-    "title": "Découvrez l'Afrique Authentique",
-    "subtitle": "Safaris sur mesure avec accompagnement personnel",
-    "description": "Créons des expériences africaines inoubliables depuis 2009"
+    "badge": "Plus de 2 500 voyageurs africains satisfaits",
+    "title": "L'Afrique a conquis mon cœur",
+    "subtitle": "Plus de 2 500 voyageurs comprennent maintenant pourquoi",
+    "description": "Rencontres authentiques. Voyages respectueux. Maximum 12 personnes. Chaque itinéraire personnellement parcouru par Agnes 10+ fois.",
+    "cta": {
+      "discover": "Découvrir les Voyages",
+      "call": "Appeler Maintenant"
+    },
+    "stats": {
+      "travelers": "Voyageurs Heureux",
+      "groupSize": "Taille Maximale du Groupe",
+      "experience": "Années d'Expertise"
+    },
+    "scroll": "Défiler"
   },
   "values": {
     "title": "Nos Valeurs",
-    "subtitle": "Ce qui nous distingue"
+    "subtitle": "Ce qui nous distingue",
+    "mainTitle": "Ce Qui Nous Rend Différents",
+    "mainSubtitle": "Le tourisme de masse détruit exactement ce que les voyageurs recherchent. Nous faisons différemment.",
+    "comparison1": {
+      "standard": {
+        "title": "Circuits Standards",
+        "description": "Visite de 2 heures avec photo de groupe et \"danse traditionnelle\""
+      },
+      "ours": {
+        "title": "Chez Nous",
+        "description": "3 jours au village – sur invitation personnelle. Apprendre les techniques de chasse, histoires au coin du feu, vraies amitiés."
+      }
+    },
+    "comparison2": {
+      "standard": {
+        "title": "Grands Groupes",
+        "description": "16-25 personnes, bruyant, intrusif, superficiel"
+      },
+      "ours": {
+        "title": "Chez Nous",
+        "description": "Maximum 12 personnes. Assez petit pour de vraies rencontres, assez grand pour la communauté."
+      }
+    },
+    "comparison3": {
+      "standard": {
+        "title": "Planifié au Bureau",
+        "description": "Produits de catalogue sans expérience personnelle"
+      },
+      "ours": {
+        "title": "Chez Nous",
+        "description": "Chaque itinéraire personnellement parcouru par Agnes 10+ fois. Je connais chaque chemin, chaque famille, chaque conseil d'initié."
+      }
+    },
+    "comparison4": {
+      "standard": {
+        "title": "Spectacles Mis en Scène",
+        "description": "\"Folklore\" pour touristes, pas de vraie culture"
+      },
+      "ours": {
+        "title": "Chez Nous",
+        "description": "Vraie vie. Pas de spectacles. Les cultures se présentent elles-mêmes – comme elles sont vraiment."
+      }
+    },
+    "badge": "100% compensé en CO₂ • 80% économie locale • certifié TourCert"
+  },
+  "about": {
+    "label": "La Fondatrice",
+    "title": "Agnes Kah - Mon Cœur Bat pour l'Afrique",
+    "paragraph1": "L'Afrique m'a touchée pour la première fois en 2009. Ce qui a commencé comme curiosité est devenu passion et finalement ma vocation.",
+    "paragraph2": {
+      "bold": "Je ne voyage pas en Afrique – j'y vis.",
+      "text": "J'ai personnellement parcouru chaque itinéraire plus de 10 fois. Je connais les familles qui nous accueillent. Je sais où sont les meilleurs couchers de soleil et quelles rencontres toucheront votre cœur."
+    },
+    "paragraph3": "Ma mission : Vous montrer l'Afrique comme je l'aime – authentique, respectueuse et avec de vraies rencontres qui vous changeront.",
+    "cta": {
+      "talk": "Parlez-moi",
+      "video": "Regarder la Vidéo"
+    },
+    "stats": {
+      "routes": "Itinéraires Perfectionnés",
+      "countries": "Expertise Pays",
+      "personal": "Parcouru Personnellement"
+    },
+    "badge": "Années en Afrique",
+    "imageAlt": "Agnes en Afrique"
+  },
+  "trips": {
+    "title": "Nos Voyages",
+    "subtitle": "12 pays. 30+ itinéraires. Chacun personnellement parcouru par Agnes 10+ fois.",
+    "description": "Pas de circuits standards. Pas de spectacles mis en scène. Seulement des expériences authentiques.",
+    "maxLabel": "Max.",
+    "fromLabel": "à partir de",
+    "detailsButton": "Détails",
+    "allRoutesButton": "Découvrir Tous les 30+ Itinéraires",
+    "items": {
+      "cameroon": {
+        "country": "CAMEROUN",
+        "title": "Avec les Pygmées Baka dans la Forêt Tropicale",
+        "description": "3 jours de vie authentique au village. Apprendre les techniques de chasse, la connaissance des plantes et les histoires au coin du feu.",
+        "duration": "14 jours",
+        "maxPersons": "12 personnes",
+        "badge": "Bestseller"
+      },
+      "sierraLeone": {
+        "country": "SIERRA LEONE",
+        "title": "Plages Vierges & Forêt Tropicale",
+        "description": "Côtes de rêve, gens sympathiques et visites authentiques de villages sans tourisme de masse.",
+        "duration": "12 jours",
+        "maxPersons": "12 personnes"
+      },
+      "senegal": {
+        "country": "SÉNÉGAL",
+        "title": "Dakar, Désert & Lac Rose",
+        "description": "Culture vibrante, histoire coloniale et phénomènes naturels spectaculaires.",
+        "duration": "10 jours",
+        "maxPersons": "12 personnes"
+      }
+    }
   },
   "testimonials": {
     "title": "Ce que Disent Nos Voyageurs",
     "subtitle": "Expériences réelles de vraies personnes",
-    "footer": "Plus de 2 500 voyageurs satisfaits depuis 2009"
+    "footer": "Plus de 2 500 voyageurs satisfaits depuis 2009",
+    "trips": {
+      "cameroon": "Cameroun • Pygmées Baka",
+      "senegal": "Sénégal • Dakar & Lac Rose",
+      "sierraLeone": "Sierra Leone • Plages & Forêt Tropicale"
+    },
+    "items": {
+      "sarah": "Agnes nous a montré l'Afrique telle qu'elle est vraiment. Les 3 jours avec les Baka ont été l'expérience la plus intense de ma vie. Pas de spectacle, mais la vraie vie.",
+      "michael": "J'ai fait de nombreux voyages, mais celui-ci était différent. Petit groupe, attention personnelle et rencontres d'égal à égal. Merci Agnes!",
+      "anna": "Les plages de Sierra Leone sont paradisiaques - et presque désertes! Agnes connaît chaque recoin et nous a montré des endroits qu'aucun guide ne connaît."
+    }
+  },
+  "ctaSection": {
+    "title": "Prêt pour Votre Aventure ?",
+    "subtitle": "Créons ensemble votre voyage parfait",
+    "description": "Personnel. Authentique. Inoubliable.",
+    "contact": {
+      "phone": {
+        "title": "Appelez-moi",
+        "subtitle": "Le moyen le plus rapide"
+      },
+      "whatsapp": {
+        "title": "WhatsApp",
+        "subtitle": "Moderne & pratique",
+        "cta": "Envoyer un Message"
+      },
+      "email": {
+        "title": "Email",
+        "subtitle": "Détaillé & complet"
+      }
+    },
+    "office": {
+      "title": "Notre Bureau à Düsseldorf"
+    }
+  },
+  "footer": {
+    "brand": {
+      "tagline": "Voyages Authentiques en Afrique",
+      "since": "depuis 2009"
+    },
+    "destinations": {
+      "title": "Destinations"
+    },
+    "about": {
+      "title": "À Propos"
+    },
+    "service": {
+      "title": "Service"
+    },
+    "copyright": "© {year} Loewentouristik. Tous droits réservés.",
+    "madeWith": "Fait avec ❤️ par"
   },
   "whatsapp": {
     "label": "Contact WhatsApp"

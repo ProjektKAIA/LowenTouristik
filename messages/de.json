@@ -18,18 +18,176 @@
     "phone": "0172 5363580"
   },
   "hero": {
-    "title": "Erlebe Afrika authentisch",
-    "subtitle": "Maßgeschneiderte Safari-Reisen mit persönlicher Betreuung",
-    "description": "Seit 2009 gestalten wir unvergessliche Afrika-Erlebnisse"
+    "badge": "Über 2.500 zufriedene Afrika-Reisende",
+    "title": "Afrika hat mein Herz erobert",
+    "subtitle": "Über 2.500 Reisende verstehen jetzt, warum",
+    "description": "Authentische Begegnungen. Respektvolle Reisen. Maximal 12 Personen. Jede Route von Agnes persönlich über 10× bereist.",
+    "cta": {
+      "discover": "Reisen entdecken",
+      "call": "Jetzt anrufen"
+    },
+    "stats": {
+      "travelers": "Glückliche Reisende",
+      "groupSize": "Max. Gruppengröße",
+      "experience": "Jahre Expertise"
+    },
+    "scroll": "Scroll"
   },
   "values": {
     "title": "Unsere Werte",
-    "subtitle": "Was uns auszeichnet"
+    "subtitle": "Was uns auszeichnet",
+    "mainTitle": "Was uns anders macht",
+    "mainSubtitle": "Massentourismus zerstört genau das, was Reisende suchen. Wir machen es anders.",
+    "comparison1": {
+      "standard": {
+        "title": "Standard-Touren",
+        "description": "2-Stunden-Besuch mit Gruppenfoto und \"traditionellem Tanz\""
+      },
+      "ours": {
+        "title": "Bei uns",
+        "description": "3 Tage im Dorf – auf persönliche Einladung. Jagdtechniken lernen, Geschichten am Feuer, echte Freundschaften."
+      }
+    },
+    "comparison2": {
+      "standard": {
+        "title": "Große Gruppen",
+        "description": "16-25 Menschen, laut, aufdringlich, oberflächlich"
+      },
+      "ours": {
+        "title": "Bei uns",
+        "description": "Maximal 12 Personen. Klein genug für echte Begegnungen, groß genug für Gemeinschaft."
+      }
+    },
+    "comparison3": {
+      "standard": {
+        "title": "Vom Schreibtisch geplant",
+        "description": "Katalog-Ware ohne persönliche Erfahrung"
+      },
+      "ours": {
+        "title": "Bei uns",
+        "description": "Jede Route von Agnes persönlich über 10× bereist. Ich kenne jeden Weg, jede Familie, jeden Geheimtipp."
+      }
+    },
+    "comparison4": {
+      "standard": {
+        "title": "Inszenierte Shows",
+        "description": "\"Folklore\" für Touristen, keine echte Kultur"
+      },
+      "ours": {
+        "title": "Bei uns",
+        "description": "Echtes Leben. Keine Shows. Kulturen präsentieren sich selbst – wie sie wirklich sind."
+      }
+    },
+    "badge": "100% CO₂-kompensiert • 80% lokale Wirtschaft • TourCert zertifiziert"
+  },
+  "about": {
+    "label": "Die Gründerin",
+    "title": "Agnes Kah - Mein Herz schlägt für Afrika",
+    "paragraph1": "2009 hat mich Afrika zum ersten Mal berührt. Was als Neugierde begann, wurde zur Leidenschaft und schließlich zu meiner Berufung.",
+    "paragraph2": {
+      "bold": "Ich reise nicht nach Afrika – ich lebe dort.",
+      "text": "Jede Route habe ich über 10 Mal persönlich bereist. Ich kenne die Familien, die uns beherbergen. Ich weiß, wo die besten Sonnenuntergänge sind und welche Begegnungen dein Herz berühren werden."
+    },
+    "paragraph3": "Meine Mission: Dir Afrika so zu zeigen, wie ich es liebe – authentisch, respektvoll und mit echten Begegnungen, die dich verändern werden.",
+    "cta": {
+      "talk": "Sprich mit mir",
+      "video": "Video ansehen"
+    },
+    "stats": {
+      "routes": "Perfektionierte Routen",
+      "countries": "Länder-Expertise",
+      "personal": "Persönlich bereist"
+    },
+    "badge": "Jahre in Afrika",
+    "imageAlt": "Agnes in Afrika"
+  },
+  "trips": {
+    "title": "Unsere Reisen",
+    "subtitle": "12 Länder. 30+ Routen. Jede einzelne von Agnes persönlich über 10× bereist.",
+    "description": "Keine Standard-Touren. Keine inszenierten Shows. Nur authentische Erlebnisse.",
+    "maxLabel": "Max.",
+    "fromLabel": "ab",
+    "detailsButton": "Details",
+    "allRoutesButton": "Alle 30+ Routen entdecken",
+    "items": {
+      "cameroon": {
+        "country": "KAMERUN",
+        "title": "Bei den Baka-Pygmäen im Regenwald",
+        "description": "3 Tage authentisches Leben im Dorf. Lernt Jagdtechniken, Pflanzenkunde und Geschichten am Feuer kennen.",
+        "duration": "14 Tage",
+        "maxPersons": "12 Pers.",
+        "badge": "Bestseller"
+      },
+      "sierraLeone": {
+        "country": "SIERRA LEONE",
+        "title": "Unberührte Strände & Regenwald",
+        "description": "Traumhafte Küsten, freundliche Menschen und authentische Dorfbesuche ohne Massentourismus.",
+        "duration": "12 Tage",
+        "maxPersons": "12 Pers."
+      },
+      "senegal": {
+        "country": "SENEGAL",
+        "title": "Dakar, Wüste & Pink Lake",
+        "description": "Lebendige Kultur, koloniale Geschichte und spektakuläre Naturphänomene.",
+        "duration": "10 Tage",
+        "maxPersons": "12 Pers."
+      }
+    }
   },
   "testimonials": {
     "title": "Was unsere Reisenden sagen",
     "subtitle": "Echte Erfahrungen von echten Menschen",
-    "footer": "Über 2.500 zufriedene Reisende seit 2009"
+    "footer": "Über 2.500 zufriedene Reisende seit 2009",
+    "trips": {
+      "cameroon": "Kamerun • Baka-Pygmäen",
+      "senegal": "Senegal • Dakar & Pink Lake",
+      "sierraLeone": "Sierra Leone • Strände & Regenwald"
+    },
+    "items": {
+      "sarah": "Agnes hat uns Afrika so gezeigt, wie es wirklich ist. Die 3 Tage bei den Baka waren das intensivste Erlebnis meines Lebens. Keine Show, sondern echtes Leben.",
+      "michael": "Ich habe schon viele Reisen gemacht, aber das hier war anders. Kleine Gruppe, persönliche Betreuung und Begegnungen auf Augenhöhe. Danke Agnes!",
+      "anna": "Die Strände von Sierra Leone sind paradiesisch – und fast menschenleer! Agnes kennt jeden Winkel und hat uns Orte gezeigt, die kein Reiseführer kennt."
+    }
+  },
+  "ctaSection": {
+    "title": "Bereit für dein Abenteuer?",
+    "subtitle": "Lass uns gemeinsam deine perfekte Reise gestalten",
+    "description": "Persönlich. Authentisch. Unvergesslich.",
+    "contact": {
+      "phone": {
+        "title": "Ruf mich an",
+        "subtitle": "Die schnellste Möglichkeit"
+      },
+      "whatsapp": {
+        "title": "WhatsApp",
+        "subtitle": "Modern & bequem",
+        "cta": "Nachricht senden"
+      },
+      "email": {
+        "title": "Email",
+        "subtitle": "Ausführlich & detailliert"
+      }
+    },
+    "office": {
+      "title": "Unser Büro in Düsseldorf"
+    }
+  },
+  "footer": {
+    "brand": {
+      "tagline": "Authentische Afrika-Reisen",
+      "since": "seit 2009"
+    },
+    "destinations": {
+      "title": "Reiseziele"
+    },
+    "about": {
+      "title": "Über uns"
+    },
+    "service": {
+      "title": "Service"
+    },
+    "copyright": "© {year} Loewentouristik. Alle Rechte vorbehalten.",
+    "madeWith": "Made with ❤️ by"
   },
   "whatsapp": {
     "label": "WhatsApp Kontakt"
