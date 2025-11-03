@@ -1,0 +1,72 @@
+{
+  "hero": {
+    "title": "Our Values",
+    "subtitle": "How we truly travel",
+    "description": "Respectful, sustainable and authentic – not just empty words, but lived practice. Discover why our trips are different."
+  },
+  "principles": {
+    "title": "What defines us",
+    "subtitle": "6 principles that shape every one of our trips",
+    "sustainability": {
+      "title": "Sustainability",
+      "description": "We compensate 100% of our CO₂ emissions and only work with partners who think long-term.",
+      "point1": "Climate-neutral travel through certified compensation",
+      "point2": "Preference for local transport and accommodation",
+      "point3": "Minimization of single-use plastic and waste"
+    },
+    "respect": {
+      "title": "Respect",
+      "description": "We meet everyone as equals. We are guests, not conquerors.",
+      "point1": "Fair payment of all local partners and guides",
+      "point2": "Prior clarification: We ask for permission, not forgiveness",
+      "point3": "Cultural sensitivity in all encounters"
+    },
+    "community": {
+      "title": "Community",
+      "description": "Small groups (max. 12 people) create real connections – between travelers and with locals.",
+      "point1": "Personal atmosphere instead of mass tourism",
+      "point2": "Time for real conversations and encounters",
+      "point3": "Shared experiences that connect"
+    },
+    "authenticity": {
+      "title": "Authenticity",
+      "description": "No staged shows. Cultures present themselves as they really are – unfiltered and genuine.",
+      "point1": "Visit real villages, not tourist attractions",
+      "point2": "Spontaneous encounters instead of planned performances",
+      "point3": "Real insights into people's daily lives"
+    },
+    "fairness": {
+      "title": "Fair Prices",
+      "description": "80% of the trip price flows directly into the local economy. Transparency is important to us.",
+      "point1": "Direct partnerships without intermediaries",
+      "point2": "Fair compensation for local service providers",
+      "point3": "Support for social projects on site"
+    },
+    "responsibility": {
+      "title": "Responsibility",
+      "description": "We leave more than we take. Through long-term partnerships and social projects.",
+      "point1": "Long-term relationships with local communities",
+      "point2": "Support for education and health projects",
+      "point3": "Promotion of sustainable tourism structures"
+    }
+  },
+  "commitment": {
+    "title": "Our Promise",
+    "description": "These values are non-negotiable. They are the foundation of every single trip we organize. When you travel with us, you travel according to these principles.",
+    "stat1": {
+      "icon": "🌱",
+      "value": "100%",
+      "label": "CO₂ compensated"
+    },
+    "stat2": {
+      "icon": "💰",
+      "value": "80%",
+      "label": "Local value creation"
+    },
+    "stat3": {
+      "icon": "👥",
+      "value": "max. 12",
+      "label": "People per group"
+    }
+  }
+}

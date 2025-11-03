@@ -1,0 +1,72 @@
+{
+  "hero": {
+    "title": "Unsere Werte",
+    "subtitle": "Wie wir wirklich reisen",
+    "description": "Respektvoll, nachhaltig und authentisch – nicht nur leere Worte, sondern gelebte Praxis. Erfahre, warum unsere Reisen anders sind."
+  },
+  "principles": {
+    "title": "Was uns ausmacht",
+    "subtitle": "6 Prinzipien, die jede unserer Reisen prägen",
+    "sustainability": {
+      "title": "Nachhaltigkeit",
+      "description": "Wir kompensieren 100% unserer CO₂-Emissionen und arbeiten nur mit Partnern, die langfristig denken.",
+      "point1": "Klimaneutrales Reisen durch zertifizierte Kompensation",
+      "point2": "Bevorzugung lokaler Transport- und Unterkunftsmöglichkeiten",
+      "point3": "Minimierung von Einwegplastik und Abfall"
+    },
+    "respect": {
+      "title": "Respekt",
+      "description": "Wir begegnen allen Menschen auf Augenhöhe. Wir sind Gäste, keine Eroberer.",
+      "point1": "Faire Bezahlung aller lokalen Partner und Guides",
+      "point2": "Vorab-Klärung: Wir fragen um Erlaubnis, nicht um Vergebung",
+      "point3": "Kulturelle Sensibilität in allen Begegnungen"
+    },
+    "community": {
+      "title": "Gemeinschaft",
+      "description": "Kleine Gruppen (max. 12 Personen) schaffen echte Verbindungen – zwischen Reisenden und mit Einheimischen.",
+      "point1": "Persönliche Atmosphäre statt Massentourismus",
+      "point2": "Zeit für echte Gespräche und Begegnungen",
+      "point3": "Gemeinsame Erlebnisse, die verbinden"
+    },
+    "authenticity": {
+      "title": "Authentizität",
+      "description": "Keine inszenierten Shows. Kulturen zeigen sich, wie sie wirklich sind – ungefiltert und echt.",
+      "point1": "Besuch echter Dörfer, keine Touristen-Attraktionen",
+      "point2": "Spontane Begegnungen statt geplante Performances",
+      "point3": "Echte Einblicke in den Alltag der Menschen"
+    },
+    "fairness": {
+      "title": "Faire Preise",
+      "description": "80% des Reisepreises fließen direkt in die lokale Wirtschaft. Transparenz ist uns wichtig.",
+      "point1": "Direkte Partnerschaften ohne Zwischenhändler",
+      "point2": "Gerechte Entlohnung lokaler Dienstleister",
+      "point3": "Unterstützung sozialer Projekte vor Ort"
+    },
+    "responsibility": {
+      "title": "Verantwortung",
+      "description": "Wir hinterlassen mehr, als wir mitnehmen. Durch langfristige Partnerschaften und soziale Projekte.",
+      "point1": "Langfristige Beziehungen zu lokalen Communities",
+      "point2": "Unterstützung von Bildungs- und Gesundheitsprojekten",
+      "point3": "Förderung nachhaltiger Tourismusstrukturen"
+    }
+  },
+  "commitment": {
+    "title": "Unser Versprechen",
+    "description": "Diese Werte sind nicht verhandelbar. Sie sind das Fundament jeder einzelnen Reise, die wir organisieren. Wenn du mit uns reist, reist du nach diesen Prinzipien.",
+    "stat1": {
+      "icon": "🌱",
+      "value": "100%",
+      "label": "CO₂-kompensiert"
+    },
+    "stat2": {
+      "icon": "💰",
+      "value": "80%",
+      "label": "Lokale Wertschöpfung"
+    },
+    "stat3": {
+      "icon": "👥",
+      "value": "max. 12",
+      "label": "Personen pro Gruppe"
+    }
+  }
+}

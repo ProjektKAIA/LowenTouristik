@@ -1,0 +1,72 @@
+{
+  "hero": {
+    "title": "Nos Valeurs",
+    "subtitle": "Comment nous voyageons vraiment",
+    "description": "Respectueux, durable et authentique – pas seulement des mots vides, mais une pratique vécue. Découvrez pourquoi nos voyages sont différents."
+  },
+  "principles": {
+    "title": "Ce qui nous définit",
+    "subtitle": "6 principes qui façonnent chacun de nos voyages",
+    "sustainability": {
+      "title": "Durabilité",
+      "description": "Nous compensons 100% de nos émissions de CO₂ et ne travaillons qu'avec des partenaires qui pensent à long terme.",
+      "point1": "Voyages climatiquement neutres grâce à une compensation certifiée",
+      "point2": "Préférence pour les transports et hébergements locaux",
+      "point3": "Minimisation du plastique à usage unique et des déchets"
+    },
+    "respect": {
+      "title": "Respect",
+      "description": "Nous rencontrons tout le monde d'égal à égal. Nous sommes des invités, pas des conquérants.",
+      "point1": "Rémunération équitable de tous les partenaires et guides locaux",
+      "point2": "Clarification préalable : Nous demandons la permission, pas le pardon",
+      "point3": "Sensibilité culturelle dans toutes les rencontres"
+    },
+    "community": {
+      "title": "Communauté",
+      "description": "Les petits groupes (max. 12 personnes) créent de vraies connexions – entre voyageurs et avec les habitants.",
+      "point1": "Atmosphère personnelle au lieu du tourisme de masse",
+      "point2": "Du temps pour de vraies conversations et rencontres",
+      "point3": "Des expériences partagées qui connectent"
+    },
+    "authenticity": {
+      "title": "Authenticité",
+      "description": "Pas de spectacles mis en scène. Les cultures se présentent telles qu'elles sont vraiment – sans filtre et authentiques.",
+      "point1": "Visite de vrais villages, pas d'attractions touristiques",
+      "point2": "Rencontres spontanées au lieu de performances planifiées",
+      "point3": "Véritables aperçus de la vie quotidienne des gens"
+    },
+    "fairness": {
+      "title": "Prix Équitables",
+      "description": "80% du prix du voyage va directement dans l'économie locale. La transparence est importante pour nous.",
+      "point1": "Partenariats directs sans intermédiaires",
+      "point2": "Rémunération équitable des prestataires de services locaux",
+      "point3": "Soutien aux projets sociaux sur place"
+    },
+    "responsibility": {
+      "title": "Responsabilité",
+      "description": "Nous laissons plus que nous ne prenons. Grâce à des partenariats à long terme et des projets sociaux.",
+      "point1": "Relations à long terme avec les communautés locales",
+      "point2": "Soutien aux projets d'éducation et de santé",
+      "point3": "Promotion de structures touristiques durables"
+    }
+  },
+  "commitment": {
+    "title": "Notre Promesse",
+    "description": "Ces valeurs ne sont pas négociables. Elles sont le fondement de chaque voyage que nous organisons. Lorsque vous voyagez avec nous, vous voyagez selon ces principes.",
+    "stat1": {
+      "icon": "🌱",
+      "value": "100%",
+      "label": "CO₂ compensé"
+    },
+    "stat2": {
+      "icon": "💰",
+      "value": "80%",
+      "label": "Création de valeur locale"
+    },
+    "stat3": {
+      "icon": "👥",
+      "value": "max. 12",
+      "label": "Personnes par groupe"
+    }
+  }
+}

@@ -25,7 +25,7 @@ export function Header({ className = '' }: HeaderProps) {
   const navLinks = [
     { href: '/#reisen', label: t('nav.trips') },
     { href: '/#agnes', label: t('nav.about') },
-    { href: '/#werte', label: t('nav.values') },
+    { href: '/unsere-werte', label: t('nav.values'), isRoute: true },
     { href: '/#testimonials', label: t('nav.testimonials') },
     { href: '/kontakt', label: t('nav.contact'), isRoute: true },
   ];
