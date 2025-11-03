@@ -1,0 +1,79 @@
+{
+  "hero": {
+    "label": "The Founder",
+    "title": "Agnes Kah",
+    "subtitle": "My Heart Beats for Africa",
+    "description": "Since 2009, I've been connecting travelers with Africa – authentically, respectfully, and with genuine passion. I've personally traveled every route over 10 times.",
+    "stat1": {
+      "value": "15+",
+      "label": "Years Experience"
+    },
+    "stat2": {
+      "value": "12",
+      "label": "Countries"
+    },
+    "stat3": {
+      "value": "2,500+",
+      "label": "Happy Travelers"
+    }
+  },
+  "story": {
+    "title": "My Story",
+    "paragraph1": "Africa touched me for the first time in 2009. What began as curiosity became passion and finally my calling. I quickly realized: mass tourism destroys exactly what travelers seek – genuine encounters, authentic culture, and unspoiled nature.",
+    "paragraph2": {
+      "bold": "I don't travel to Africa – I live there.",
+      "text": "I have personally traveled every route over 10 times. I know the families who host us. I know where the best sunsets are and which encounters will touch your heart."
+    },
+    "paragraph3": "My mission is simple: to show you Africa as I love it – authentic, respectful, and with real encounters that will change you. Not planned from a desk, but from years of personal experience.",
+    "paragraph4": "I firmly believe that travel connects the world and brings people closer together. But only when done right – with respect, sustainability, and genuine interest in people and their culture.",
+    "cta": {
+      "contact": "Talk to Me",
+      "video": "Watch Video"
+    },
+    "badge": "Years in Africa",
+    "imageAlt": "Agnes Kah in Africa"
+  },
+  "mission": {
+    "title": "My Mission",
+    "description": "To show Africa as it really is – with respect, authenticity, and genuine encounters. No shows, no staging, just real life.",
+    "expertiseTitle": "What Sets Me Apart",
+    "expertise1": {
+      "title": "Personally Traveled",
+      "description": "Every route experienced 10+ times myself. I know every path, every family, every insider tip."
+    },
+    "expertise2": {
+      "title": "Real Relationships",
+      "description": "Long-term partnerships with local communities. No intermediaries, only direct contacts."
+    },
+    "expertise3": {
+      "title": "12 Countries Expertise",
+      "description": "From Cameroon to South Africa – I know the diversity and uniqueness of each country."
+    },
+    "expertise4": {
+      "title": "Small Groups",
+      "description": "Maximum 12 people. Large enough for community, small enough for genuine encounters."
+    },
+    "expertise5": {
+      "title": "100% Sustainable",
+      "description": "CO₂ compensated, fair prices, and 80% of money flows into local economy."
+    },
+    "expertise6": {
+      "title": "Personal Care",
+      "description": "From first inquiry to return – I'm here for you."
+    },
+    "certificationsTitle": "Certifications & Awards",
+    "certificationsDescription": "Quality and sustainability are not empty promises",
+    "cert1": {
+      "title": "TourCert",
+      "description": "Certified for sustainable tourism"
+    },
+    "cert2": {
+      "title": "CO₂ Compensation",
+      "description": "100% climate-neutral travel"
+    },
+    "cert3": {
+      "title": "Customer Satisfaction",
+      "description": "4.9/5 stars from over 2,500 reviews"
+    }
+  }
+}

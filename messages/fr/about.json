@@ -1,0 +1,79 @@
+{
+  "hero": {
+    "label": "La Fondatrice",
+    "title": "Agnes Kah",
+    "subtitle": "Mon Cœur Bat pour l'Afrique",
+    "description": "Depuis 2009, je connecte les voyageurs avec l'Afrique – authentiquement, respectueusement et avec une passion sincère. J'ai personnellement parcouru chaque itinéraire plus de 10 fois.",
+    "stat1": {
+      "value": "15+",
+      "label": "Années d'Expérience"
+    },
+    "stat2": {
+      "value": "12",
+      "label": "Pays"
+    },
+    "stat3": {
+      "value": "2 500+",
+      "label": "Voyageurs Heureux"
+    }
+  },
+  "story": {
+    "title": "Mon Histoire",
+    "paragraph1": "L'Afrique m'a touchée pour la première fois en 2009. Ce qui a commencé comme curiosité est devenu passion et finalement ma vocation. J'ai vite réalisé : le tourisme de masse détruit exactement ce que les voyageurs recherchent – de vraies rencontres, une culture authentique et une nature préservée.",
+    "paragraph2": {
+      "bold": "Je ne voyage pas en Afrique – j'y vis.",
+      "text": "J'ai personnellement parcouru chaque itinéraire plus de 10 fois. Je connais les familles qui nous accueillent. Je sais où sont les meilleurs couchers de soleil et quelles rencontres toucheront votre cœur."
+    },
+    "paragraph3": "Ma mission est simple : vous montrer l'Afrique comme je l'aime – authentique, respectueuse et avec de vraies rencontres qui vous changeront. Pas planifié depuis un bureau, mais à partir d'années d'expérience personnelle.",
+    "paragraph4": "Je crois fermement que le voyage connecte le monde et rapproche les gens. Mais seulement quand c'est bien fait – avec respect, durabilité et véritable intérêt pour les gens et leur culture.",
+    "cta": {
+      "contact": "Parlez-moi",
+      "video": "Regarder la Vidéo"
+    },
+    "badge": "Années en Afrique",
+    "imageAlt": "Agnes Kah en Afrique"
+  },
+  "mission": {
+    "title": "Ma Mission",
+    "description": "Montrer l'Afrique telle qu'elle est vraiment – avec respect, authenticité et vraies rencontres. Pas de spectacles, pas de mise en scène, juste la vraie vie.",
+    "expertiseTitle": "Ce Qui Me Distingue",
+    "expertise1": {
+      "title": "Parcourue Personnellement",
+      "description": "Chaque itinéraire vécu 10+ fois moi-même. Je connais chaque chemin, chaque famille, chaque conseil d'initié."
+    },
+    "expertise2": {
+      "title": "Vraies Relations",
+      "description": "Partenariats à long terme avec les communautés locales. Pas d'intermédiaires, seulement des contacts directs."
+    },
+    "expertise3": {
+      "title": "Expertise de 12 Pays",
+      "description": "Du Cameroun à l'Afrique du Sud – je connais la diversité et l'unicité de chaque pays."
+    },
+    "expertise4": {
+      "title": "Petits Groupes",
+      "description": "Maximum 12 personnes. Assez grand pour la communauté, assez petit pour de vraies rencontres."
+    },
+    "expertise5": {
+      "title": "100% Durable",
+      "description": "Compensé en CO₂, prix équitables et 80% de l'argent va dans l'économie locale."
+    },
+    "expertise6": {
+      "title": "Accompagnement Personnel",
+      "description": "De la première demande au retour – je suis là pour vous."
+    },
+    "certificationsTitle": "Certifications & Récompenses",
+    "certificationsDescription": "La qualité et la durabilité ne sont pas des promesses vides",
+    "cert1": {
+      "title": "TourCert",
+      "description": "Certifié pour le tourisme durable"
+    },
+    "cert2": {
+      "title": "Compensation CO₂",
+      "description": "Voyages 100% climatiquement neutres"
+    },
+    "cert3": {
+      "title": "Satisfaction Client",
+      "description": "4,9/5 étoiles sur plus de 2 500 avis"
+    }
+  }
+}

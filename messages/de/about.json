@@ -1,0 +1,79 @@
+{
+  "hero": {
+    "label": "Die Gründerin",
+    "title": "Agnes Kah",
+    "subtitle": "Mein Herz schlägt für Afrika",
+    "description": "Seit 2009 bringe ich Reisende und Afrika zusammen – authentisch, respektvoll und mit echter Leidenschaft. Jede Route habe ich über 10 Mal persönlich bereist.",
+    "stat1": {
+      "value": "15+",
+      "label": "Jahre Erfahrung"
+    },
+    "stat2": {
+      "value": "12",
+      "label": "Länder"
+    },
+    "stat3": {
+      "value": "2.500+",
+      "label": "Glückliche Reisende"
+    }
+  },
+  "story": {
+    "title": "Meine Geschichte",
+    "paragraph1": "2009 hat mich Afrika zum ersten Mal berührt. Was als Neugierde begann, wurde zur Leidenschaft und schließlich zu meiner Berufung. Ich habe schnell gemerkt: Der Massentourismus zerstört genau das, was Reisende suchen – echte Begegnungen, authentische Kultur und unverfälschte Natur.",
+    "paragraph2": {
+      "bold": "Ich reise nicht nach Afrika – ich lebe dort.",
+      "text": "Jede Route habe ich über 10 Mal persönlich bereist. Ich kenne die Familien, die uns beherbergen. Ich weiß, wo die besten Sonnenuntergänge sind und welche Begegnungen dein Herz berühren werden."
+    },
+    "paragraph3": "Meine Mission ist einfach: Dir Afrika so zu zeigen, wie ich es liebe – authentisch, respektvoll und mit echten Begegnungen, die dich verändern werden. Nicht vom Schreibtisch aus geplant, sondern aus jahrelanger persönlicher Erfahrung.",
+    "paragraph4": "Ich glaube fest daran, dass Reisen die Welt verbindet und Menschen einander näherbringt. Aber nur, wenn es richtig gemacht wird – mit Respekt, Nachhaltigkeit und echtem Interesse an den Menschen und ihrer Kultur.",
+    "cta": {
+      "contact": "Sprich mit mir",
+      "video": "Video ansehen"
+    },
+    "badge": "Jahre in Afrika",
+    "imageAlt": "Agnes Kah in Afrika"
+  },
+  "mission": {
+    "title": "Meine Mission",
+    "description": "Afrika so zu zeigen, wie es wirklich ist – mit Respekt, Authentizität und echten Begegnungen. Keine Shows, keine Inszenierungen, nur das wahre Leben.",
+    "expertiseTitle": "Was mich auszeichnet",
+    "expertise1": {
+      "title": "Persönlich bereist",
+      "description": "Jede Route über 10× selbst erlebt. Ich kenne jeden Weg, jede Familie, jeden Geheimtipp."
+    },
+    "expertise2": {
+      "title": "Echte Beziehungen",
+      "description": "Langfristige Partnerschaften mit lokalen Communities. Keine Zwischenhändler, nur direkte Kontakte."
+    },
+    "expertise3": {
+      "title": "12 Länder Expertise",
+      "description": "Von Kamerun bis Südafrika – ich kenne die Vielfalt und Besonderheiten jedes Landes."
+    },
+    "expertise4": {
+      "title": "Kleine Gruppen",
+      "description": "Maximal 12 Personen. Groß genug für Gemeinschaft, klein genug für echte Begegnungen."
+    },
+    "expertise5": {
+      "title": "100% Nachhaltig",
+      "description": "CO₂-kompensiert, faire Preise und 80% des Geldes fließt in lokale Wirtschaft."
+    },
+    "expertise6": {
+      "title": "Persönliche Betreuung",
+      "description": "Von der ersten Anfrage bis zur Rückkehr – ich bin für dich da."
+    },
+    "certificationsTitle": "Zertifizierungen & Auszeichnungen",
+    "certificationsDescription": "Qualität und Nachhaltigkeit sind keine leeren Versprechen",
+    "cert1": {
+      "title": "TourCert",
+      "description": "Zertifiziert für nachhaltigen Tourismus"
+    },
+    "cert2": {
+      "title": "CO₂-Kompensation",
+      "description": "100% klimaneutrale Reisen"
+    },
+    "cert3": {
+      "title": "Kundenzufriedenheit",
+      "description": "4.9/5 Sterne bei über 2.500 Bewertungen"
+    }
+  }
+}
