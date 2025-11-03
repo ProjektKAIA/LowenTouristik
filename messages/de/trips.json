@@ -1,0 +1,58 @@
+{
+  "card": {
+    "days": "Tage",
+    "priceFrom": "ab",
+    "viewDetails": "Details ansehen",
+    "availability": {
+      "available": "Verfügbar",
+      "limited": "Plätze frei",
+      "spotsLeft": "Plätze frei",
+      "full": "Ausgebucht"
+    }
+  },
+  "overview": {
+    "hero": {
+      "title": "Unsere Reisen durch Afrika",
+      "subtitle": "12 Länder. 30+ Routen. Jede einzelne von Agnes persönlich über 10x bereist.",
+      "maxPersons": "Max. 12 Personen",
+      "co2Compensated": "100% CO₂-kompensiert",
+      "localEconomy": "80% lokale Wertschöpfung"
+    },
+    "filter": {
+      "all": "Alle Reisen",
+      "central": "Zentralafrika",
+      "west": "Westafrika",
+      "east": "Ostafrika",
+      "southern": "Südliches Afrika"
+    }
+  },
+  "detail": {
+    "days": "Tage",
+    "maxPersons": "Max. 12 Personen",
+    "priceFrom": "ab",
+    "highlights": {
+      "title": "Highlights dieser Reise"
+    },
+    "itinerary": {
+      "title": "Reiseverlauf - Tag für Tag",
+      "activities": "Aktivitäten"
+    },
+    "included": {
+      "title": "Leistungen & Inklusionen",
+      "includedTitle": "Im Preis enthalten",
+      "notIncludedTitle": "Nicht im Preis enthalten"
+    },
+    "booking": {
+      "title": "Bereit für diese unvergessliche Reise?",
+      "subtitle": "Lass uns gemeinsam deine perfekte Reise gestalten.",
+      "tagline": "Persönlich. Authentisch. Unvergesslich.",
+      "selectedTrip": "Ausgewählte Reise",
+      "priceFrom": "Preis ab",
+      "perPerson": "pro Person",
+      "requestButton": "Jetzt anfragen",
+      "feature1": "Kostenlose Beratung",
+      "feature2": "Flexible Termine",
+      "feature3": "100% CO₂-kompensiert"
+    }
+  }
+}

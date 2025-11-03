@@ -1,0 +1,58 @@
+{
+  "card": {
+    "days": "Days",
+    "priceFrom": "from",
+    "viewDetails": "View Details",
+    "availability": {
+      "available": "Available",
+      "limited": "spots left",
+      "spotsLeft": "spots left",
+      "full": "Fully Booked"
+    }
+  },
+  "overview": {
+    "hero": {
+      "title": "Our Journeys Through Africa",
+      "subtitle": "12 Countries. 30+ Routes. Each one personally traveled by Agnes 10+ times.",
+      "maxPersons": "Max. 12 People",
+      "co2Compensated": "100% CO₂-compensated",
+      "localEconomy": "80% local economy"
+    },
+    "filter": {
+      "all": "All Trips",
+      "central": "Central Africa",
+      "west": "West Africa",
+      "east": "East Africa",
+      "southern": "Southern Africa"
+    }
+  },
+  "detail": {
+    "days": "Days",
+    "maxPersons": "Max. 12 People",
+    "priceFrom": "from",
+    "highlights": {
+      "title": "Trip Highlights"
+    },
+    "itinerary": {
+      "title": "Day-by-Day Itinerary",
+      "activities": "Activities"
+    },
+    "included": {
+      "title": "Services & Inclusions",
+      "includedTitle": "Included in Price",
+      "notIncludedTitle": "Not Included in Price"
+    },
+    "booking": {
+      "title": "Ready for this unforgettable journey?",
+      "subtitle": "Let's create your perfect trip together.",
+      "tagline": "Personal. Authentic. Unforgettable.",
+      "selectedTrip": "Selected Trip",
+      "priceFrom": "Price from",
+      "perPerson": "per person",
+      "requestButton": "Request Now",
+      "feature1": "Free Consultation",
+      "feature2": "Flexible Dates",
+      "feature3": "100% CO₂-compensated"
+    }
+  }
+}

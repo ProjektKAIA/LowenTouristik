@@ -1,0 +1,58 @@
+{
+  "card": {
+    "days": "Jours",
+    "priceFrom": "à partir de",
+    "viewDetails": "Voir les détails",
+    "availability": {
+      "available": "Disponible",
+      "limited": "places restantes",
+      "spotsLeft": "places restantes",
+      "full": "Complet"
+    }
+  },
+  "overview": {
+    "hero": {
+      "title": "Nos Voyages à Travers l'Afrique",
+      "subtitle": "12 Pays. 30+ Itinéraires. Chacun parcouru personnellement par Agnes 10+ fois.",
+      "maxPersons": "Max. 12 Personnes",
+      "co2Compensated": "100% compensé en CO₂",
+      "localEconomy": "80% économie locale"
+    },
+    "filter": {
+      "all": "Tous les Voyages",
+      "central": "Afrique Centrale",
+      "west": "Afrique de l'Ouest",
+      "east": "Afrique de l'Est",
+      "southern": "Afrique Australe"
+    }
+  },
+  "detail": {
+    "days": "Jours",
+    "maxPersons": "Max. 12 Personnes",
+    "priceFrom": "à partir de",
+    "highlights": {
+      "title": "Points Forts du Voyage"
+    },
+    "itinerary": {
+      "title": "Itinéraire Jour par Jour",
+      "activities": "Activités"
+    },
+    "included": {
+      "title": "Services & Inclusions",
+      "includedTitle": "Inclus dans le Prix",
+      "notIncludedTitle": "Non Inclus dans le Prix"
+    },
+    "booking": {
+      "title": "Prêt pour ce voyage inoubliable?",
+      "subtitle": "Créons ensemble votre voyage parfait.",
+      "tagline": "Personnel. Authentique. Inoubliable.",
+      "selectedTrip": "Voyage Sélectionné",
+      "priceFrom": "Prix à partir de",
+      "perPerson": "par personne",
+      "requestButton": "Demander Maintenant",
+      "feature1": "Consultation Gratuite",
+      "feature2": "Dates Flexibles",
+      "feature3": "100% compensé en CO₂"
+    }
+  }
+}

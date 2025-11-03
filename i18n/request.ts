@@ -17,7 +17,7 @@ export default getRequestConfig(async ({ requestLocale }) => {
   // Load subpage messages (from locale folders)
   let contactMessages = {};
   let valuesMessages = {};
-  let aboutMessages = {};
+  let tripsMessages = {};
   
   try {
     contactMessages = (await import(`@/messages/${locale}/contact.json`)).default;
@@ -32,9 +32,9 @@ export default getRequestConfig(async ({ requestLocale }) => {
   }
 
   try {
-    aboutMessages = (await import(`@/messages/${locale}/about.json`)).default;
+    tripsMessages = (await import(`@/messages/${locale}/trips.json`)).default;
   } catch (error) {
-    console.warn(`About messages for locale "${locale}" not found`);
+    console.warn(`Trips messages for locale "${locale}" not found`);
   }
 
   return {
@@ -43,7 +43,7 @@ export default getRequestConfig(async ({ requestLocale }) => {
       ...homepageMessages,
       contact: contactMessages,
       values: valuesMessages,
-      about: aboutMessages,
+      trips: tripsMessages,
     }
   };
 });
