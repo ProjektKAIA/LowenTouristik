@@ -26,12 +26,37 @@
       "southern": "Southern Africa"
     }
   },
+  "custom": {
+    "title": "Your Individual Dream Journey",
+    "subtitle": "Have your own vision? Let's create your perfect Africa journey together. I combine my expertise with your wishes.",
+    "feature1": {
+      "title": "Tailor-Made",
+      "description": "Your route, your pace, your priorities"
+    },
+    "feature2": {
+      "title": "Private or Group",
+      "description": "Alone, with family or friends"
+    },
+    "feature3": {
+      "title": "Personal Consultation",
+      "description": "Plan directly with Agnes"
+    },
+    "cta": "Request Individual Trip"
+  },
   "detail": {
     "days": "Days",
     "maxPersons": "Max. 12 People",
     "priceFrom": "from",
     "highlights": {
       "title": "Trip Highlights"
+    },
+    "map": {
+      "title": "Your Travel Route",
+      "subtitle": "From Douala through {country}",
+      "legend": {
+        "stations": "Travel Stations",
+        "route": "Travel Route"
+      }
     },
     "itinerary": {
       "title": "Day-by-Day Itinerary",

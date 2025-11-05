@@ -8,13 +8,14 @@ import { WhatsAppButton } from '@/components/ui/WhatsAppButton';
 import { TripsHeroSection } from '@/components/sections/TripsHeroSection';
 import { TripsFilterSection } from '@/components/sections/TripsFilterSection';
 import { TripsGridSection } from '@/components/sections/TripsGridSection';
+import { CustomTripSection } from '@/components/sections/CustomTripSection';
 import { CTASection } from '@/components/sections/CTASection';
 import { getAllTrips } from '@/lib/sanity/api';
-import type { TripCardProps } from '@/components/ui/TripCard.types';
+import type { TripCardData } from '@/lib/types/trip';
 
 export default function ReisenPage() {
-  const [trips, setTrips] = useState<TripCardProps['trip'][]>([]);
-  const [filteredTrips, setFilteredTrips] = useState<TripCardProps['trip'][]>([]);
+  const [trips, setTrips] = useState<TripCardData[]>([]);
+  const [filteredTrips, setFilteredTrips] = useState<TripCardData[]>([]);
   const [selectedRegion, setSelectedRegion] = useState('all');
   const [loading, setLoading] = useState(true);
 
@@ -67,6 +68,7 @@ export default function ReisenPage() {
           onRegionChange={setSelectedRegion}
         />
         <TripsGridSection trips={filteredTrips} locale="de" />
+        <CustomTripSection />
         <CTASection />
       </main>
       <Footer />

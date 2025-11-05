@@ -4,6 +4,7 @@ import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { WhatsAppButton } from '@/components/ui/WhatsAppButton';
 import { TripDetailHeroSection } from '@/components/sections/TripDetailHeroSection';
+import { TripMapSection } from '@/components/sections/TripMapSection';
 import { TripItinerarySection } from '@/components/sections/TripItinerarySection';
 import { TripIncludedSection } from '@/components/sections/TripIncludedSection';
 import { TripBookingSection } from '@/components/sections/TripBookingSection';
@@ -37,6 +38,14 @@ export default async function TripDetailPage({ params }: TripDetailPageProps) {
           shortDescription={trip.shortDescription}
           mainImage={trip.mainImage}
         />
+        
+        {trip.mapStations && trip.mapStations.length > 0 && (
+          <TripMapSection 
+            stations={trip.mapStations} 
+            country={trip.country}
+          />
+        )}
+        
         <TripItinerarySection
           itinerary={trip.itinerary}
           highlights={trip.highlights}

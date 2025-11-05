@@ -34,6 +34,7 @@ export async function getTripBySlug(slug: string, isDraft = false) {
       title,
       "slug": slug.current,
       region,
+      country,
       duration,
       price,
       shortDescription,
@@ -58,6 +59,14 @@ export async function getTripBySlug(slug: string, isDraft = false) {
         activities,
         accommodation,
         meals
+      },
+      mapStations[] {
+        day,
+        name,
+        lat,
+        lng,
+        title,
+        description
       },
       included,
       notIncluded,

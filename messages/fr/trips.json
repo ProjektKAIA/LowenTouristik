@@ -26,12 +26,37 @@
       "southern": "Afrique Australe"
     }
   },
+  "custom": {
+    "title": "Votre Voyage de Rêve Personnalisé",
+    "subtitle": "Vous avez votre propre vision? Créons ensemble votre voyage parfait en Afrique. Je combine mon expertise avec vos souhaits.",
+    "feature1": {
+      "title": "Sur Mesure",
+      "description": "Votre itinéraire, votre rythme, vos priorités"
+    },
+    "feature2": {
+      "title": "Privé ou Groupe",
+      "description": "Seul, en famille ou entre amis"
+    },
+    "feature3": {
+      "title": "Consultation Personnelle",
+      "description": "Planifier directement avec Agnes"
+    },
+    "cta": "Demander un Voyage Personnalisé"
+  },
   "detail": {
     "days": "Jours",
     "maxPersons": "Max. 12 Personnes",
     "priceFrom": "à partir de",
     "highlights": {
       "title": "Points Forts du Voyage"
+    },
+    "map": {
+      "title": "Votre Itinéraire de Voyage",
+      "subtitle": "De Douala à travers {country}",
+      "legend": {
+        "stations": "Étapes du Voyage",
+        "route": "Parcours"
+      }
     },
     "itinerary": {
       "title": "Itinéraire Jour par Jour",

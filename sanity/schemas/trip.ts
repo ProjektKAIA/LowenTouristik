@@ -25,7 +25,7 @@ export const tripSchema = defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
-      name: 'description',
+      name: 'shortDescription',
       title: 'Kurzbeschreibung',
       type: 'text',
       rows: 3,
@@ -39,6 +39,20 @@ export const tripSchema = defineType({
     }),
 
     // LOCATION
+    defineField({
+      name: 'region',
+      title: 'Region',
+      type: 'string',
+      options: {
+        list: [
+          { title: 'Zentralafrika', value: 'Zentralafrika' },
+          { title: 'Westafrika', value: 'Westafrika' },
+          { title: 'Ostafrika', value: 'Ostafrika' },
+          { title: 'Südliches Afrika', value: 'Südliches Afrika' },
+        ],
+      },
+      validation: (Rule) => Rule.required(),
+    }),
     defineField({
       name: 'country',
       title: 'Land',
@@ -58,6 +72,7 @@ export const tripSchema = defineType({
       title: 'Maximale Teilnehmerzahl',
       type: 'number',
       validation: (Rule) => Rule.min(1),
+      initialValue: 12,
     }),
     defineField({
       name: 'difficulty',
@@ -79,6 +94,29 @@ export const tripSchema = defineType({
       title: 'Preis (ab, in Euro)',
       type: 'number',
       validation: (Rule) => Rule.required().min(0),
+    }),
+
+    // AVAILABILITY
+    defineField({
+      name: 'availability',
+      title: 'Verfügbarkeit',
+      type: 'string',
+      options: {
+        list: [
+          { title: 'Verfügbar', value: 'available' },
+          { title: 'Wenige Plätze', value: 'limited' },
+          { title: 'Ausgebucht', value: 'full' },
+        ],
+        layout: 'radio',
+      },
+      initialValue: 'available',
+    }),
+    defineField({
+      name: 'spotsLeft',
+      title: 'Restplätze',
+      type: 'number',
+      description: 'Nur bei "Wenige Plätze" relevant',
+      validation: (Rule) => Rule.min(0).max(12),
     }),
 
     // MEDIA
@@ -189,6 +227,70 @@ export const tripSchema = defineType({
       ],
     }),
 
+    // MAP STATIONS - NEU!
+    defineField({
+      name: 'mapStations',
+      title: 'Karten-Stationen (für interaktive Karte)',
+      type: 'array',
+      description: 'GPS-Koordinaten der Reisestationen für die interaktive Karte',
+      of: [
+        {
+          type: 'object',
+          fields: [
+            {
+              name: 'day',
+              title: 'Tag',
+              type: 'number',
+              validation: (Rule) => Rule.required(),
+            },
+            {
+              name: 'name',
+              title: 'Ortsname',
+              type: 'string',
+              validation: (Rule) => Rule.required(),
+            },
+            {
+              name: 'lat',
+              title: 'Breitengrad (Latitude)',
+              type: 'number',
+              validation: (Rule) => Rule.required().min(-90).max(90),
+            },
+            {
+              name: 'lng',
+              title: 'Längengrad (Longitude)',
+              type: 'number',
+              validation: (Rule) => Rule.required().min(-180).max(180),
+            },
+            {
+              name: 'title',
+              title: 'Station Titel',
+              type: 'string',
+              validation: (Rule) => Rule.required(),
+            },
+            {
+              name: 'description',
+              title: 'Kurzbeschreibung',
+              type: 'text',
+              rows: 2,
+            },
+          ],
+          preview: {
+            select: {
+              day: 'day',
+              name: 'name',
+              title: 'title',
+            },
+            prepare({ day, name, title }) {
+              return {
+                title: `Tag ${day}: ${name}`,
+                subtitle: title,
+              };
+            },
+          },
+        },
+      ],
+    }),
+
     // INCLUDED / NOT INCLUDED
     defineField({
       name: 'included',
@@ -227,6 +329,7 @@ export const tripSchema = defineType({
               { title: '5 Sterne', value: '5' },
               { title: 'Boutique', value: 'boutique' },
               { title: 'Lodge', value: 'lodge' },
+              { title: 'Camping', value: 'camping' },
             ],
           },
         },
