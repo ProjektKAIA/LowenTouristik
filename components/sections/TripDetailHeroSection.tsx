@@ -2,6 +2,7 @@
 'use client';
 
 import { useTranslations } from 'next-intl';
+import Image from 'next/image';
 
 interface TripDetailHeroSectionProps {
   title: string;
@@ -31,10 +32,14 @@ export function TripDetailHeroSection({
     <section className="relative pt-32 pb-24 overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
-        <img
+        <Image
           src={mainImage.asset.url}
           alt={mainImage.alt || title}
-          className="w-full h-full object-cover"
+          fill
+          sizes="100vw"
+          className="object-cover"
+          priority
+          quality={85}
         />
         <div className="absolute inset-0 bg-gradient-to-br from-primary/90 to-accent-green/80"></div>
       </div>

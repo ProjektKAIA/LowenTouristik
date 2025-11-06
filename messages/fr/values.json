@@ -1,9 +1,52 @@
 {
+  "mainTitle": "Ce Qui Nous Rend Différents",
+  "mainSubtitle": "Le tourisme de masse détruit exactement ce que les voyageurs recherchent. Nous faisons différemment.",
   "hero": {
     "title": "Nos Valeurs",
     "subtitle": "Comment nous voyageons vraiment",
     "description": "Respectueux, durable et authentique – pas seulement des mots vides, mais une pratique vécue. Découvrez pourquoi nos voyages sont différents."
   },
+  "comparison1": {
+    "standard": {
+      "title": "Circuits Standards",
+      "description": "Visite de 2 heures avec photo de groupe et \"danse traditionnelle\""
+    },
+    "ours": {
+      "title": "Chez Nous",
+      "description": "3 jours au village – sur invitation personnelle. Apprendre les techniques de chasse, histoires au coin du feu, vraies amitiés."
+    }
+  },
+  "comparison2": {
+    "standard": {
+      "title": "Grands Groupes",
+      "description": "16-25 personnes, bruyant, intrusif, superficiel"
+    },
+    "ours": {
+      "title": "Chez Nous",
+      "description": "Maximum 12 personnes. Assez petit pour de vraies rencontres, assez grand pour la communauté."
+    }
+  },
+  "comparison3": {
+    "standard": {
+      "title": "Planifié au Bureau",
+      "description": "Produits de catalogue sans expérience personnelle"
+    },
+    "ours": {
+      "title": "Chez Nous",
+      "description": "Chaque itinéraire personnellement parcouru par Agnes 10+ fois. Je connais chaque chemin, chaque famille, chaque conseil d'initié."
+    }
+  },
+  "comparison4": {
+    "standard": {
+      "title": "Spectacles Mis en Scène",
+      "description": "\"Folklore\" pour touristes, pas de vraie culture"
+    },
+    "ours": {
+      "title": "Chez Nous",
+      "description": "Vraie vie. Pas de spectacles. Les cultures se présentent elles-mêmes – comme elles sont vraiment."
+    }
+  },
+  "badge": "100% compensé en CO₂ • 80% économie locale • certifié TourCert",
   "principles": {
     "title": "Ce qui nous définit",
     "subtitle": "6 principes qui façonnent chacun de nos voyages",

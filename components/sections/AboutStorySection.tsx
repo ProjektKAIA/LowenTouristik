@@ -2,6 +2,7 @@
 'use client';
 
 import { useTranslations } from 'next-intl';
+import Image from 'next/image';
 
 export function AboutStorySection() {
   const t = useTranslations('about');
@@ -15,12 +16,16 @@ export function AboutStorySection() {
             <div className="order-2 md:order-1">
               <div className="relative">
                 <div className="absolute -top-6 -left-6 w-full h-full bg-secondary/20 rounded-3xl" />
-                <img
-                  src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=800&h=1000&fit=crop"
-                  alt={t('story.imageAlt')}
-                  className="relative rounded-3xl shadow-2xl w-full object-cover aspect-[3/4]"
-                  loading="lazy"
-                />
+                <div className="relative rounded-3xl shadow-2xl overflow-hidden aspect-[3/4]">
+                  <Image
+                    src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=800&h=1000&fit=crop"
+                    alt={t('story.imageAlt')}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    className="object-cover"
+                    priority={false}
+                  />
+                </div>
                 <div className="absolute bottom-8 right-8 bg-white p-6 rounded-2xl shadow-xl">
                   <div className="text-center">
                     <div className="text-5xl font-black text-primary mb-1">15+</div>
@@ -46,22 +51,17 @@ export function AboutStorySection() {
 
                 <p>{t('story.paragraph3')}</p>
 
-                <p>{t('story.paragraph4')}</p>
-              </div>
-
-              <div className="mt-10 flex flex-wrap gap-4">
-                <a
-                  href="/kontakt"
-                  className="bg-accent-red hover:bg-accent-red/90 text-white px-8 py-4 rounded-full font-bold shadow-xl hover:shadow-2xl hover:scale-105 transition-all"
-                >
-                  {t('story.cta.contact')}
-                </a>
-                <button className="flex items-center gap-3 bg-neutral-cream hover:bg-white border-2 border-primary text-primary px-8 py-4 rounded-full font-bold shadow-lg hover:shadow-xl transition-all">
-                  <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
-                    <path d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" />
-                  </svg>
-                  {t('story.cta.video')}
-                </button>
+                <div className="flex flex-wrap gap-3 pt-4">
+                  <span className="bg-white px-4 py-2 rounded-full text-sm font-bold text-primary">
+                    🌍 Authentisch
+                  </span>
+                  <span className="bg-white px-4 py-2 rounded-full text-sm font-bold text-primary">
+                    🤝 Respektvoll
+                  </span>
+                  <span className="bg-white px-4 py-2 rounded-full text-sm font-bold text-primary">
+                    💚 Nachhaltig
+                  </span>
+                </div>
               </div>
             </div>
           </div>

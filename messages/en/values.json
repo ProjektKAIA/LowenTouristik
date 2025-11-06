@@ -1,17 +1,60 @@
 {
+  "mainTitle": "What Makes Us Different",
+  "mainSubtitle": "Mass tourism destroys exactly what travelers seek. We do it differently.",
   "hero": {
     "title": "Our Values",
-    "subtitle": "How we truly travel",
-    "description": "Respectful, sustainable and authentic – not just empty words, but lived practice. Discover why our trips are different."
+    "subtitle": "How we really travel",
+    "description": "Respectful, sustainable, and authentic – not just empty words, but lived practice. Discover why our trips are different."
   },
+  "comparison1": {
+    "standard": {
+      "title": "Standard Tours",
+      "description": "2-hour visit with group photo and \"traditional dance\""
+    },
+    "ours": {
+      "title": "With Us",
+      "description": "3 days in the village – by personal invitation. Learning hunting techniques, campfire stories, real friendships."
+    }
+  },
+  "comparison2": {
+    "standard": {
+      "title": "Large Groups",
+      "description": "16-25 people, loud, intrusive, superficial"
+    },
+    "ours": {
+      "title": "With Us",
+      "description": "Max. 12 people. Small enough for real encounters, large enough for community."
+    }
+  },
+  "comparison3": {
+    "standard": {
+      "title": "Planned at a Desk",
+      "description": "Catalog products without personal experience"
+    },
+    "ours": {
+      "title": "With Us",
+      "description": "Every route personally traveled by Agnes 10+ times. I know every path, every family, every insider tip."
+    }
+  },
+  "comparison4": {
+    "standard": {
+      "title": "Staged Shows",
+      "description": "\"Folklore\" for tourists, no real culture"
+    },
+    "ours": {
+      "title": "With Us",
+      "description": "Real life. No shows. Cultures present themselves – as they really are."
+    }
+  },
+  "badge": "100% CO₂ compensated • 80% local economy • TourCert certified",
   "principles": {
-    "title": "What defines us",
-    "subtitle": "6 principles that shape every one of our trips",
+    "title": "What Defines Us",
+    "subtitle": "6 principles that shape each of our trips",
     "sustainability": {
       "title": "Sustainability",
-      "description": "We compensate 100% of our CO₂ emissions and only work with partners who think long-term.",
+      "description": "We offset 100% of our CO₂ emissions and only work with partners who think long-term.",
       "point1": "Climate-neutral travel through certified compensation",
-      "point2": "Preference for local transport and accommodation",
+      "point2": "Preference for local transport and accommodations",
       "point3": "Minimization of single-use plastic and waste"
     },
     "respect": {
@@ -30,17 +73,17 @@
     },
     "authenticity": {
       "title": "Authenticity",
-      "description": "No staged shows. Cultures present themselves as they really are – unfiltered and genuine.",
+      "description": "No staged shows. Cultures present themselves – as they really are, unfiltered and genuine.",
       "point1": "Visit real villages, not tourist attractions",
       "point2": "Spontaneous encounters instead of planned performances",
       "point3": "Real insights into people's daily lives"
     },
     "fairness": {
       "title": "Fair Prices",
-      "description": "80% of the trip price flows directly into the local economy. Transparency is important to us.",
+      "description": "80% of the trip price goes directly into the local economy. Transparency is important to us.",
       "point1": "Direct partnerships without intermediaries",
-      "point2": "Fair compensation for local service providers",
-      "point3": "Support for social projects on site"
+      "point2": "Fair payment of local service providers",
+      "point3": "Support for social projects on-site"
     },
     "responsibility": {
       "title": "Responsibility",
@@ -52,7 +95,7 @@
   },
   "commitment": {
     "title": "Our Promise",
-    "description": "These values are non-negotiable. They are the foundation of every single trip we organize. When you travel with us, you travel according to these principles.",
+    "description": "These values are non-negotiable. They are the foundation of every single trip we organize. When you travel with us, you travel by these principles.",
     "stat1": {
       "icon": "🌱",
       "value": "100%",
