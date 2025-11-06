@@ -1,4 +1,6 @@
 {
+  "mainTitle": "Unsere Reisen",
+  "mainSubtitle": "12 Länder. 30+ Routen. Jede einzelne von Agnes persönlich über 10x bereist.",
   "card": {
     "days": "Tage",
     "priceFrom": "ab",
@@ -26,37 +28,12 @@
       "southern": "Südliches Afrika"
     }
   },
-  "custom": {
-    "title": "Deine individuelle Traumreise",
-    "subtitle": "Du hast eine ganz eigene Vorstellung? Lass uns gemeinsam deine perfekte Afrika-Reise gestalten. Ich kombiniere meine Expertise mit deinen Wünschen.",
-    "feature1": {
-      "title": "Maßgeschneidert",
-      "description": "Deine Route, dein Tempo, deine Schwerpunkte"
-    },
-    "feature2": {
-      "title": "Privat oder Gruppe",
-      "description": "Allein, mit Familie oder Freunden"
-    },
-    "feature3": {
-      "title": "Persönliche Beratung",
-      "description": "Direkt mit Agnes planen"
-    },
-    "cta": "Individuelle Reise anfragen"
-  },
   "detail": {
     "days": "Tage",
     "maxPersons": "Max. 12 Personen",
     "priceFrom": "ab",
     "highlights": {
       "title": "Highlights dieser Reise"
-    },
-    "map": {
-      "title": "Deine Reiseroute",
-      "subtitle": "Von Douala durch {country}",
-      "legend": {
-        "stations": "Reisestationen",
-        "route": "Reiseverlauf"
-      }
     },
     "itinerary": {
       "title": "Reiseverlauf - Tag für Tag",

@@ -39,6 +39,7 @@ export default async function TripDetailPage({ params }: TripDetailPageProps) {
           mainImage={trip.mainImage}
         />
         
+        {/* Map nur anzeigen wenn Stationen vorhanden */}
         {trip.mapStations && trip.mapStations.length > 0 && (
           <TripMapSection 
             stations={trip.mapStations} 
@@ -46,14 +47,22 @@ export default async function TripDetailPage({ params }: TripDetailPageProps) {
           />
         )}
         
-        <TripItinerarySection
-          itinerary={trip.itinerary}
-          highlights={trip.highlights}
-        />
-        <TripIncludedSection
-          included={trip.included}
-          notIncluded={trip.notIncluded}
-        />
+        {/* Itinerary nur anzeigen wenn Highlights ODER Itinerary vorhanden */}
+        {((trip.highlights && trip.highlights.length > 0) || (trip.itinerary && trip.itinerary.length > 0)) && (
+          <TripItinerarySection
+            itinerary={trip.itinerary || []}
+            highlights={trip.highlights || []}
+          />
+        )}
+        
+        {/* Included/Not Included nur anzeigen wenn Daten vorhanden */}
+        {((trip.included && trip.included.length > 0) || (trip.notIncluded && trip.notIncluded.length > 0)) && (
+          <TripIncludedSection
+            included={trip.included || []}
+            notIncluded={trip.notIncluded || []}
+          />
+        )}
+        
         <TripBookingSection
           tripTitle={trip.title}
           price={trip.price}
