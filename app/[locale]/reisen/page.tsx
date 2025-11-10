@@ -10,7 +10,7 @@ import { TripsFilterSection } from '@/components/sections/TripsFilterSection';
 import { TripsGridSection } from '@/components/sections/TripsGridSection';
 import { CustomTripSection } from '@/components/sections/CustomTripSection';
 import { CTASection } from '@/components/sections/CTASection';
-import { getAllTrips } from '@/lib/sanity/api';
+import { getAllTrips } from '@/lib/services/trip.service';
 import type { TripCardData } from '@/lib/types/trip';
 
 export default function ReisenPage() {

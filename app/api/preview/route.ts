@@ -1,7 +1,7 @@
 // app/api/preview/route.ts
 import { draftMode } from 'next/headers';
 import { redirect } from 'next/navigation';
-import { getTripBySlug } from '@/lib/sanity/api';
+import { getTripBySlug } from '@/lib/services/trip.service';
 
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);

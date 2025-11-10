@@ -8,7 +8,7 @@ import { TripMapSection } from '@/components/sections/TripMapSection';
 import { TripItinerarySection } from '@/components/sections/TripItinerarySection';
 import { TripIncludedSection } from '@/components/sections/TripIncludedSection';
 import { TripBookingSection } from '@/components/sections/TripBookingSection';
-import { getTripBySlug } from '@/lib/sanity/api';
+import { getTripBySlug } from '@/lib/services/trip.service';
 
 interface TripDetailPageProps {
   params: Promise<{

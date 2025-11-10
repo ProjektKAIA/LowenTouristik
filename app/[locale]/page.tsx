@@ -6,7 +6,7 @@ import { WhatsAppButton } from '@/components/ui/WhatsAppButton';
 import { HeroSection } from '@/components/sections/HeroSection';
 import { ValuePropositionsSection } from '@/components/sections/ValuePropositionsSection';
 import { FeaturedTripsSection } from '@/components/sections/FeaturedTripsSection';
-import { getFeaturedTrips, getAllTrips } from '@/lib/sanity/api';
+import { getFeaturedTrips, getAllTrips } from '@/lib/services/trip.service';
 import { Suspense } from 'react';
 import { AboutPreviewSection } from '@/components/sections/AboutPreviewSection';
 import { TestimonialsSection } from '@/components/sections/TestimonialsSection';
