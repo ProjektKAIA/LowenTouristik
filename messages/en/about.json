@@ -3,9 +3,9 @@
     "label": "The Founder",
     "title": "Agnes Kah",
     "subtitle": "My Heart Beats for Africa",
-    "description": "Since 2009, I've been connecting travelers with Africa – authentically, respectfully, and with genuine passion. I've personally traveled every route over 10 times.",
+    "description": "Since 2006, I've been connecting travelers with Africa – authentically, respectfully, and with genuine passion.",
     "stat1": {
-      "value": "15+",
+      "value": "19+",
       "label": "Years Experience"
     },
     "stat2": {
@@ -19,61 +19,80 @@
   },
   "story": {
     "title": "My Story",
-    "paragraph1": "Africa touched me for the first time in 2009. What began as curiosity became passion and finally my calling. I quickly realized: mass tourism destroys exactly what travelers seek – genuine encounters, authentic culture, and unspoiled nature.",
-    "paragraph2": {
-      "bold": "I don't travel to Africa – I live there.",
-      "text": "I have personally traveled every route over 10 times. I know the families who host us. I know where the best sunsets are and which encounters will touch your heart."
+    "intro": "Loewentouristik was founded in 2006 by graduate business administrator Agnes Kah.",
+    "paragraph1": "Growing up in Cameroon, with extensive tourism experience in other African countries and studies and degrees in Europe – I have all the qualifications and experience to harmoniously connect the European and African worlds, offering you unforgettable travel experiences.",
+    "paragraph2": "After studying Anthropology and Sociology at the University of Douala, I continued my studies as a scholarship holder in Germany. To utilize and further expand my experiences gained in the French-English speaking area and German cultural and educational space, I enrolled at the International School of Management.",
+    "paragraph3": "With my degree in Tourism and Hotel Management and a diploma thesis on Cameroon's tourism sector, I combine academic knowledge with practical experience. This elite education included extensive studies, internships, and event management in Hawaii, Paris, London, the Florida Keys, Miami, Frankfurt/Main, Tyrol, and Bavaria.",
+    "languages": {
+      "title": "Languages",
+      "description": "I speak French and English as native languages and am also fluent in German."
     },
-    "paragraph3": "My mission is simple: to show you Africa as I love it – authentic, respectful, and with real encounters that will change you. Not planned from a desk, but from years of personal experience.",
-    "paragraph4": "I firmly believe that travel connects the world and brings people closer together. But only when done right – with respect, sustainability, and genuine interest in people and their culture.",
-    "cta": {
-      "contact": "Talk to Me",
-      "video": "Watch Video"
+    "representative": {
+      "title": "Official Tourism Representative",
+      "description": "As official tourism representative for Cameroon, I bring authentic insights and direct contacts."
     },
-    "badge": "Years in Africa",
+    "badge": "Years of Experience",
     "imageAlt": "Agnes Kah in Africa"
+  },
+  "education": {
+    "title": "Education & Qualifications",
+    "subtitle": "Academic excellence meets practical experience",
+    "degree1": {
+      "title": "Anthropology & Sociology",
+      "institution": "University of Douala, Cameroon",
+      "description": "Deep understanding of cultural contexts and social structures"
+    },
+    "degree2": {
+      "title": "Tourism & Hotel Management",
+      "institution": "International School of Management, Germany",
+      "description": "Graduate degree with thesis on Cameroon's tourism sector"
+    },
+    "experience": {
+      "title": "International Experience",
+      "locations": "Internships and event management in Hawaii, Paris, London, Florida Keys, Miami, Frankfurt/Main, Tyrol, and Bavaria"
+    }
   },
   "mission": {
     "title": "My Mission",
-    "description": "To show Africa as it really is – with respect, authenticity, and genuine encounters. No shows, no staging, just real life.",
+    "description": "To harmoniously connect the European and African worlds and create unforgettable travel experiences.",
     "expertiseTitle": "What Sets Me Apart",
     "expertise1": {
-      "title": "Personally Traveled",
-      "description": "Every route experienced 10+ times myself. I know every path, every family, every insider tip."
+      "title": "Cultural Bridge",
+      "description": "Raised in Cameroon, educated in Europe – I understand both worlds and connect them authentically."
     },
     "expertise2": {
-      "title": "Real Relationships",
-      "description": "Long-term partnerships with local communities. No intermediaries, only direct contacts."
+      "title": "Academic Background",
+      "description": "Studies in Anthropology, Sociology, and Tourism Management for solid expertise."
     },
     "expertise3": {
-      "title": "12 Countries Expertise",
-      "description": "From Cameroon to South Africa – I know the diversity and uniqueness of each country."
+      "title": "Practical Experience",
+      "description": "Over 19 years of experience organizing unforgettable African journeys."
     },
     "expertise4": {
-      "title": "Small Groups",
-      "description": "Maximum 12 people. Large enough for community, small enough for genuine encounters."
+      "title": "Multilingualism",
+      "description": "French and English as native languages, fluent German."
     },
     "expertise5": {
-      "title": "100% Sustainable",
-      "description": "CO₂ compensated, fair prices, and 80% of money flows into local economy."
+      "title": "Official Representation",
+      "description": "Official tourism representative for Cameroon with direct local contacts."
     },
     "expertise6": {
       "title": "Personal Care",
-      "description": "From first inquiry to return – I'm here for you."
+      "description": "Every journey is personally planned and accompanied by me."
     },
-    "certificationsTitle": "Certifications & Awards",
-    "certificationsDescription": "Quality and sustainability are not empty promises",
+    "certificationsTitle": "Qualifications",
+    "certificationsDescription": "Academic excellence and practical experience united",
     "cert1": {
-      "title": "TourCert",
-      "description": "Certified for sustainable tourism"
+      "title": "Graduate Business Administrator",
+      "description": "International School of Management"
     },
     "cert2": {
-      "title": "CO₂ Compensation",
-      "description": "100% climate-neutral travel"
+      "title": "Tourism Representative",
+      "description": "Official representative for Cameroon"
     },
     "cert3": {
-      "title": "Customer Satisfaction",
-      "description": "4.9/5 stars from over 2,500 reviews"
+      "title": "19+ Years Experience",
+      "description": "Creating unforgettable journeys since 2006"
     }
   }
 }

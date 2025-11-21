@@ -3,9 +3,9 @@
     "label": "Die Gründerin",
     "title": "Agnes Kah",
     "subtitle": "Mein Herz schlägt für Afrika",
-    "description": "Seit 2009 bringe ich Reisende und Afrika zusammen – authentisch, respektvoll und mit echter Leidenschaft. Jede Route habe ich über 10 Mal persönlich bereist.",
+    "description": "Seit 2006 bringe ich Reisende und Afrika zusammen – authentisch, respektvoll und mit echter Leidenschaft.",
     "stat1": {
-      "value": "15+",
+      "value": "19+",
       "label": "Jahre Erfahrung"
     },
     "stat2": {
@@ -19,61 +19,80 @@
   },
   "story": {
     "title": "Meine Geschichte",
-    "paragraph1": "2009 hat mich Afrika zum ersten Mal berührt. Was als Neugierde begann, wurde zur Leidenschaft und schließlich zu meiner Berufung. Ich habe schnell gemerkt: Der Massentourismus zerstört genau das, was Reisende suchen – echte Begegnungen, authentische Kultur und unverfälschte Natur.",
-    "paragraph2": {
-      "bold": "Ich reise nicht nach Afrika – ich lebe dort.",
-      "text": "Jede Route habe ich über 10 Mal persönlich bereist. Ich kenne die Familien, die uns beherbergen. Ich weiß, wo die besten Sonnenuntergänge sind und welche Begegnungen dein Herz berühren werden."
+    "intro": "Loewentouristik wurde 2006 von der Diplom-Kauffrau Agnes Kah gegründet.",
+    "paragraph1": "Aufgewachsen in Kamerun, mit zahlreichen touristischen Erfahrungen in anderen Ländern auf dem afrikanischen Kontinent sowie Studien und Abschlüssen in Europa – ich verfüge über alle Qualifikationen und Erfahrungen, um die europäische und die afrikanische Welt harmonisch zu verbinden und Ihnen dadurch unvergessliche Erlebnisreisen zu bieten.",
+    "paragraph2": "Nach dem Studium der Anthropologie und Soziologie an der Universität von Douala setzte ich meine Studien als Stipendiatin in Deutschland fort. Um meine im französisch-englischen Sprachraum sowie im deutschen Kultur- und Bildungsraum gesammelten Erfahrungen nutzen und weiter ausbauen zu können, schrieb ich mich an der International School of Management ein.",
+    "paragraph3": "Mit meinem Abschluss im Fachbereich Tourismus- und Hotel Management und einer Diplomarbeit über das Tourismuswesen Kameruns verbinde ich akademisches Wissen mit praktischer Erfahrung. Diese Eliteausbildung schloss extensive Studien, Praktika und Event Management in Hawaii, Paris, London, den Florida Keys, Miami, Frankfurt/Main, Tirol und Bayern ein.",
+    "languages": {
+      "title": "Sprachen",
+      "description": "Ich spreche Französisch und Englisch als doppelte Muttersprachen und bin auch in Deutsch verhandlungssicher."
     },
-    "paragraph3": "Meine Mission ist einfach: Dir Afrika so zu zeigen, wie ich es liebe – authentisch, respektvoll und mit echten Begegnungen, die dich verändern werden. Nicht vom Schreibtisch aus geplant, sondern aus jahrelanger persönlicher Erfahrung.",
-    "paragraph4": "Ich glaube fest daran, dass Reisen die Welt verbindet und Menschen einander näherbringt. Aber nur, wenn es richtig gemacht wird – mit Respekt, Nachhaltigkeit und echtem Interesse an den Menschen und ihrer Kultur.",
-    "cta": {
-      "contact": "Sprich mit mir",
-      "video": "Video ansehen"
+    "representative": {
+      "title": "Offizielle Tourismus-Vertreterin",
+      "description": "Als offizielle Tourismus-Vertreterin für Kamerun bringe ich authentische Einblicke und direkte Kontakte mit."
     },
-    "badge": "Jahre in Afrika",
+    "badge": "Jahre Erfahrung",
     "imageAlt": "Agnes Kah in Afrika"
+  },
+  "education": {
+    "title": "Ausbildung & Qualifikationen",
+    "subtitle": "Akademische Exzellenz trifft praktische Erfahrung",
+    "degree1": {
+      "title": "Anthropologie & Soziologie",
+      "institution": "Universität Douala, Kamerun",
+      "description": "Fundiertes Verständnis für kulturelle Zusammenhänge und gesellschaftliche Strukturen"
+    },
+    "degree2": {
+      "title": "Tourismus- & Hotel Management",
+      "institution": "International School of Management, Deutschland",
+      "description": "Abschluss als Diplom-Kauffrau mit Diplomarbeit über das Tourismuswesen Kameruns"
+    },
+    "experience": {
+      "title": "Internationale Erfahrung",
+      "locations": "Praktika und Event Management in Hawaii, Paris, London, Florida Keys, Miami, Frankfurt/Main, Tirol und Bayern"
+    }
   },
   "mission": {
     "title": "Meine Mission",
-    "description": "Afrika so zu zeigen, wie es wirklich ist – mit Respekt, Authentizität und echten Begegnungen. Keine Shows, keine Inszenierungen, nur das wahre Leben.",
+    "description": "Die europäische und afrikanische Welt harmonisch zu verbinden und unvergessliche Erlebnisreisen zu schaffen.",
     "expertiseTitle": "Was mich auszeichnet",
     "expertise1": {
-      "title": "Persönlich bereist",
-      "description": "Jede Route über 10× selbst erlebt. Ich kenne jeden Weg, jede Familie, jeden Geheimtipp."
+      "title": "Kulturelle Brücke",
+      "description": "Aufgewachsen in Kamerun, ausgebildet in Europa – ich verstehe beide Welten und verbinde sie authentisch."
     },
     "expertise2": {
-      "title": "Echte Beziehungen",
-      "description": "Langfristige Partnerschaften mit lokalen Communities. Keine Zwischenhändler, nur direkte Kontakte."
+      "title": "Akademischer Hintergrund",
+      "description": "Studium der Anthropologie, Soziologie und Tourismus-Management für fundiertes Fachwissen."
     },
     "expertise3": {
-      "title": "12 Länder Expertise",
-      "description": "Von Kamerun bis Südafrika – ich kenne die Vielfalt und Besonderheiten jedes Landes."
+      "title": "Praktische Erfahrung",
+      "description": "Über 19 Jahre Erfahrung in der Organisation unvergesslicher Afrika-Reisen."
     },
     "expertise4": {
-      "title": "Kleine Gruppen",
-      "description": "Maximal 12 Personen. Groß genug für Gemeinschaft, klein genug für echte Begegnungen."
+      "title": "Mehrsprachigkeit",
+      "description": "Französisch und Englisch als Muttersprachen, verhandlungssicheres Deutsch."
     },
     "expertise5": {
-      "title": "100% Nachhaltig",
-      "description": "CO₂-kompensiert, faire Preise und 80% des Geldes fließt in lokale Wirtschaft."
+      "title": "Offizielle Vertretung",
+      "description": "Offizielle Tourismus-Vertreterin für Kamerun mit direkten Kontakten vor Ort."
     },
     "expertise6": {
       "title": "Persönliche Betreuung",
-      "description": "Von der ersten Anfrage bis zur Rückkehr – ich bin für dich da."
+      "description": "Jede Reise wird von mir persönlich geplant und begleitet."
     },
-    "certificationsTitle": "Zertifizierungen & Auszeichnungen",
-    "certificationsDescription": "Qualität und Nachhaltigkeit sind keine leeren Versprechen",
+    "certificationsTitle": "Qualifikationen",
+    "certificationsDescription": "Akademische Exzellenz und praktische Erfahrung vereint",
     "cert1": {
-      "title": "TourCert",
-      "description": "Zertifiziert für nachhaltigen Tourismus"
+      "title": "Diplom-Kauffrau",
+      "description": "International School of Management"
     },
     "cert2": {
-      "title": "CO₂-Kompensation",
-      "description": "100% klimaneutrale Reisen"
+      "title": "Tourismus-Vertreterin",
+      "description": "Offizielle Vertreterin für Kamerun"
     },
     "cert3": {
-      "title": "Kundenzufriedenheit",
-      "description": "4.9/5 Sterne bei über 2.500 Bewertungen"
+      "title": "19+ Jahre Erfahrung",
+      "description": "Seit 2006 unvergessliche Reisen"
     }
   }
 }
