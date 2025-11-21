@@ -2,6 +2,7 @@
 import { defineConfig } from 'sanity';
 import { structureTool } from 'sanity/structure';
 import { visionTool } from '@sanity/vision';
+import { documentInternationalization } from '@sanity/document-internationalization';
 import { schemaTypes } from './sanity/schemas';
 import { structure } from './sanity/structure';
 
@@ -22,6 +23,15 @@ export default defineConfig({
       structure,
     }),
     visionTool(),
+    documentInternationalization({
+      supportedLanguages: [
+        { id: 'de', title: 'Deutsch' },
+        { id: 'en', title: 'English' },
+        { id: 'fr', title: 'Français' },
+      ],
+      schemaTypes: ['trip', 'testimonial', 'page'],
+      // weakReferences: true, // Optional: Falls du schwache Referenzen brauchst
+    }),
   ],
 
   schema: {
