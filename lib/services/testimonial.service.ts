@@ -5,17 +5,9 @@ import {
   ALL_TESTIMONIALS_QUERY,
   FEATURED_TESTIMONIALS_QUERY,
   TESTIMONIALS_BY_TRIP_QUERY,
+  VIDEO_TESTIMONIALS_QUERY,
+  GALLERY_TESTIMONIALS_QUERY,
 } from '@/lib/queries/testimonial.queries';
-
-/**
- * Testimonial Service
- * 
- * Verantwortlich für:
- * - Datenabruf von Sanity
- * - Caching-Strategien
- * - Error Handling
- * - Business Logic
- */
 
 /**
  * Alle Testimonials abrufen
@@ -24,7 +16,7 @@ export async function getAllTestimonials() {
   try {
     return await client.fetch(ALL_TESTIMONIALS_QUERY, {}, {
       cache: 'force-cache',
-      next: { revalidate: 3600 }, // 1 Stunde
+      next: { revalidate: 3600 },
     });
   } catch (error) {
     console.error('Error fetching all testimonials:', error);
@@ -66,6 +58,44 @@ export async function getTestimonialsByTrip(tripTitle: string) {
     );
   } catch (error) {
     console.error(`Error fetching testimonials for trip "${tripTitle}":`, error);
+    return [];
+  }
+}
+
+/**
+ * Testimonials mit Videos abrufen
+ */
+export async function getVideoTestimonials() {
+  try {
+    return await client.fetch(
+      VIDEO_TESTIMONIALS_QUERY,
+      {},
+      {
+        cache: 'force-cache',
+        next: { revalidate: 3600 },
+      }
+    );
+  } catch (error) {
+    console.error('Error fetching video testimonials:', error);
+    return [];
+  }
+}
+
+/**
+ * Testimonials mit Bildergalerie abrufen
+ */
+export async function getGalleryTestimonials() {
+  try {
+    return await client.fetch(
+      GALLERY_TESTIMONIALS_QUERY,
+      {},
+      {
+        cache: 'force-cache',
+        next: { revalidate: 3600 },
+      }
+    );
+  } catch (error) {
+    console.error('Error fetching gallery testimonials:', error);
     return [];
   }
 }
