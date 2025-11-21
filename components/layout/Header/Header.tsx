@@ -26,7 +26,7 @@ export function Header({ className = '' }: HeaderProps) {
     { href: '/reisen', label: t('nav.trips'), isRoute: true },
     { href: '/ueber-agnes', label: t('nav.about'), isRoute: true },
     { href: '/unsere-werte', label: t('nav.values'), isRoute: true },
-    { href: '/#testimonials', label: t('nav.testimonials') },
+    { href: '/erfahrungen', label: t('nav.testimonials'), isRoute: true }, // GEÄNDERT: Von #testimonials zu /erfahrungen
     { href: '/kontakt', label: t('nav.contact'), isRoute: true },
   ];
 

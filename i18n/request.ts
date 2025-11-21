@@ -18,6 +18,7 @@ export default getRequestConfig(async ({ requestLocale }) => {
   let contactMessages = {};
   let valuesMessages = {};
   let tripsMessages = {};
+  let testimonialsMessages = {}; // NEU
   
   try {
     contactMessages = (await import(`@/messages/${locale}/contact.json`)).default;
@@ -37,6 +38,13 @@ export default getRequestConfig(async ({ requestLocale }) => {
     console.warn(`Trips messages for locale "${locale}" not found`);
   }
 
+  // NEU: Testimonials Messages laden
+  try {
+    testimonialsMessages = (await import(`@/messages/${locale}/testimonials.json`)).default;
+  } catch (error) {
+    console.warn(`Testimonials messages for locale "${locale}" not found`);
+  }
+
   return {
     locale,
     messages: {
@@ -44,6 +52,7 @@ export default getRequestConfig(async ({ requestLocale }) => {
       contact: contactMessages,
       values: valuesMessages,
       trips: tripsMessages,
+      testimonials: testimonialsMessages, // NEU
     }
   };
 });

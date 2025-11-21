@@ -1,0 +1,46 @@
+{
+  "hero": {
+    "label": "Erfahrungen",
+    "title": "Echte Geschichten, echte Menschen",
+    "subtitle": "Über 2.500 zufriedene Reisende seit 2009",
+    "description": "Lies, was unsere Reisenden über ihre Erlebnisse mit uns berichten. Authentische Begegnungen, die das Leben verändern.",
+    "stats": {
+      "travelers": {
+        "value": "2.500+",
+        "label": "Zufriedene Reisende"
+      },
+      "rating": {
+        "value": "4.9",
+        "label": "⭐ Durchschnitt"
+      },
+      "recommendation": {
+        "value": "98%",
+        "label": "Weiterempfehlung"
+      }
+    }
+  },
+  "filter": {
+    "all": "Alle Erfahrungen",
+    "featured": "Highlights",
+    "video": "Mit Video",
+    "recent": "Neueste"
+  },
+  "card": {
+    "featured": "Highlight",
+    "video": "Video",
+    "photos": "Fotos",
+    "readMore": "Mehr lesen"
+  },
+  "videoSection": {
+    "title": "Video-Testimonials",
+    "subtitle": "Sieh und höre selbst, was unsere Reisenden erzählen"
+  },
+  "gallerySection": {
+    "title": "Foto-Galerie",
+    "subtitle": "Eindrücke unserer Reisen"
+  },
+  "empty": {
+    "title": "Noch keine Erfahrungsberichte",
+    "description": "Bald werden hier die ersten Reiseberichte erscheinen."
+  }
+}

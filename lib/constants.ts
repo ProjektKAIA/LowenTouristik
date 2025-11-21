@@ -106,13 +106,13 @@ export const FOOTER_LINKS = {
     { label: 'Alle 12 Länder', href: '/reisen' },
   ],
   about: [
-    { label: 'Über Agnes', href: '#agnes' },
-    { label: 'Unsere Werte', href: '#werte' },
+    { label: 'Über Agnes', href: '/ueber-agnes' },
+    { label: 'Unsere Werte', href: '/unsere-werte' },
     { label: 'Nachhaltigkeit', href: '/nachhaltigkeit' },
-    { label: 'Erfahrungsberichte', href: '#testimonials' },
+    { label: 'Erfahrungsberichte', href: '/erfahrungen' }, // GEÄNDERT
   ],
   service: [
-    { label: 'Reiseberatung', href: '#kontakt' },
+    { label: 'Reiseberatung', href: '/kontakt' },
     { label: 'FAQ', href: '/faq' },
     { label: 'Reisebedingungen', href: '/agb' },
     { label: 'Datenschutz', href: '/datenschutz' },

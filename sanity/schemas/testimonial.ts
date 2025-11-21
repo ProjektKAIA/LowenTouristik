@@ -68,6 +68,54 @@ export const testimonialSchema = defineType({
       description: 'Wird auf der Homepage angezeigt',
       initialValue: false,
     }),
+
+    // ============================================
+    // NEU: VIDEO URL
+    // ============================================
+    defineField({
+      name: 'videoUrl',
+      title: 'Video URL (Optional)',
+      type: 'url',
+      description: 'YouTube oder Vimeo Embed-URL (z.B. https://www.youtube.com/embed/VIDEO_ID)',
+      validation: (Rule) =>
+        Rule.uri({
+          scheme: ['http', 'https'],
+        }),
+    }),
+
+    // ============================================
+    // NEU: BILDERGALERIE
+    // ============================================
+    defineField({
+      name: 'gallery',
+      title: 'Bildergalerie (Optional)',
+      type: 'array',
+      description: 'Zusätzliche Fotos von der Reise',
+      of: [
+        {
+          type: 'image',
+          options: {
+            hotspot: true,
+          },
+          fields: [
+            {
+              name: 'alt',
+              title: 'Alt Text',
+              type: 'string',
+              validation: (Rule) => Rule.required(),
+            },
+            {
+              name: 'caption',
+              title: 'Bildunterschrift (Optional)',
+              type: 'string',
+            },
+          ],
+        },
+      ],
+      options: {
+        layout: 'grid',
+      },
+    }),
   ],
 
   preview: {
@@ -76,12 +124,17 @@ export const testimonialSchema = defineType({
       trip: 'trip',
       rating: 'rating',
       media: 'image',
+      hasVideo: 'videoUrl',
+      galleryCount: 'gallery',
     },
-    prepare({ name, trip, rating, media }) {
+    prepare({ name, trip, rating, media, hasVideo, galleryCount }) {
       const stars = '⭐'.repeat(rating);
+      const videoIndicator = hasVideo ? ' 🎥' : '';
+      const galleryIndicator = galleryCount?.length > 0 ? ` 📷${galleryCount.length}` : '';
+      
       return {
         title: name,
-        subtitle: `${trip} • ${stars}`,
+        subtitle: `${trip} • ${stars}${videoIndicator}${galleryIndicator}`,
         media,
       };
     },

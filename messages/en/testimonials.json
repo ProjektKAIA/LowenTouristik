@@ -1,0 +1,46 @@
+{
+  "hero": {
+    "label": "Testimonials",
+    "title": "Real Stories, Real People",
+    "subtitle": "Over 2,500 satisfied travelers since 2009",
+    "description": "Read what our travelers say about their experiences with us. Authentic encounters that change lives.",
+    "stats": {
+      "travelers": {
+        "value": "2,500+",
+        "label": "Happy Travelers"
+      },
+      "rating": {
+        "value": "4.9",
+        "label": "⭐ Average"
+      },
+      "recommendation": {
+        "value": "98%",
+        "label": "Recommendation"
+      }
+    }
+  },
+  "filter": {
+    "all": "All Testimonials",
+    "featured": "Highlights",
+    "video": "With Video",
+    "recent": "Recent"
+  },
+  "card": {
+    "featured": "Highlight",
+    "video": "Video",
+    "photos": "Photos",
+    "readMore": "Read more"
+  },
+  "videoSection": {
+    "title": "Video Testimonials",
+    "subtitle": "See and hear what our travelers have to say"
+  },
+  "gallerySection": {
+    "title": "Photo Gallery",
+    "subtitle": "Impressions from our journeys"
+  },
+  "empty": {
+    "title": "No testimonials yet",
+    "description": "The first travel reports will appear here soon."
+  }
+}

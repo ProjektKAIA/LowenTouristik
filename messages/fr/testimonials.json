@@ -1,0 +1,46 @@
+{
+  "hero": {
+    "label": "Témoignages",
+    "title": "Vraies Histoires, Vraies Personnes",
+    "subtitle": "Plus de 2 500 voyageurs satisfaits depuis 2009",
+    "description": "Lisez ce que nos voyageurs disent de leurs expériences avec nous. Rencontres authentiques qui changent la vie.",
+    "stats": {
+      "travelers": {
+        "value": "2 500+",
+        "label": "Voyageurs Heureux"
+      },
+      "rating": {
+        "value": "4.9",
+        "label": "⭐ Moyenne"
+      },
+      "recommendation": {
+        "value": "98%",
+        "label": "Recommandation"
+      }
+    }
+  },
+  "filter": {
+    "all": "Tous les Témoignages",
+    "featured": "Points Forts",
+    "video": "Avec Vidéo",
+    "recent": "Récents"
+  },
+  "card": {
+    "featured": "Point Fort",
+    "video": "Vidéo",
+    "photos": "Photos",
+    "readMore": "Lire plus"
+  },
+  "videoSection": {
+    "title": "Témoignages Vidéo",
+    "subtitle": "Voyez et écoutez ce que nos voyageurs ont à dire"
+  },
+  "gallerySection": {
+    "title": "Galerie Photos",
+    "subtitle": "Impressions de nos voyages"
+  },
+  "empty": {
+    "title": "Pas encore de témoignages",
+    "description": "Les premiers récits de voyage apparaîtront bientôt ici."
+  }
+}
