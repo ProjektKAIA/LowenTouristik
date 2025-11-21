@@ -5,6 +5,7 @@ import { visionTool } from '@sanity/vision';
 import { documentInternationalization } from '@sanity/document-internationalization';
 import { schemaTypes } from './sanity/schemas';
 import { structure } from './sanity/structure';
+import { translateAction } from './sanity/actions/translateAction';
 
 const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || '2bs691r5';
 const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET || 'production';
@@ -36,5 +37,12 @@ export default defineConfig({
 
   schema: {
     types: schemaTypes,
+  },
+
+  document: {
+    actions: (prev, context) => {
+      // Translate Action zu allen Document Actions hinzufügen
+      return [...prev, translateAction];
+    },
   },
 });
