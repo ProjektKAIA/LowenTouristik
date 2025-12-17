@@ -6,6 +6,7 @@ import {
   TRIP_BY_SLUG_QUERY,
   FEATURED_TRIPS_QUERY,
   TRIPS_BY_REGION_QUERY,
+  ALL_TRIP_SLUGS_QUERY,
 } from '@/lib/queries/trip.queries';
 
 /**
@@ -29,6 +30,21 @@ export async function getAllTrips() {
     });
   } catch (error) {
     console.error('Error fetching all trips:', error);
+    return [];
+  }
+}
+
+/**
+ * Alle Trip Slugs abrufen (für SSG / generateStaticParams)
+ */
+export async function getAllTripSlugs(): Promise<string[]> {
+  try {
+    return await client.fetch(ALL_TRIP_SLUGS_QUERY, {}, {
+      cache: 'force-cache',
+      next: { revalidate: 3600 },
+    });
+  } catch (error) {
+    console.error('Error fetching trip slugs:', error);
     return [];
   }
 }
