@@ -5,7 +5,7 @@ import { Link } from '@/i18n/routing';
 import { useTranslations } from 'next-intl';
 import type { TripCardProps } from './TripCard.types';
 
-export function TripCard({ trip, locale }: TripCardProps) {
+export function TripCard({ trip }: TripCardProps) {
   const t = useTranslations('trips.card');
 
   const getRegionColor = (region: string) => {
