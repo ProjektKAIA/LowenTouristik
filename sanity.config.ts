@@ -1,4 +1,4 @@
-// sanity.config.ts (Root Level)
+// sanity.config.ts
 import { defineConfig } from 'sanity';
 import { structureTool } from 'sanity/structure';
 import { visionTool } from '@sanity/vision';
@@ -43,7 +43,6 @@ export default defineConfig({
 
   document: {
     actions: (prev, context) => {
-      // Für Singletons: Nur bestimmte Actions erlauben (kein Löschen, kein Duplizieren)
       if (SINGLETON_IDS.includes(context.schemaType)) {
         return prev.filter(
           (action) =>
@@ -52,10 +51,8 @@ export default defineConfig({
             action.action !== 'unpublish'
         );
       }
-      // Translate Action zu allen Document Actions hinzufügen
       return [...prev, translateAction];
     },
-    // Singletons: Neue Dokumente erstellen verhindern
     newDocumentOptions: (prev, { creationContext }) => {
       if (creationContext.type === 'global') {
         return prev.filter(
