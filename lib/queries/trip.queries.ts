@@ -117,3 +117,9 @@ export const TRIPS_BY_REGION_QUERY = `
     ${tripListProjection}
   }
 `;
+/**
+ * Query: Alle Slugs für SSG (generateStaticParams)
+ */
+export const ALL_TRIP_SLUGS_QUERY = `
+  *[_type == "trip" && defined(slug.current)].slug.current
+`;

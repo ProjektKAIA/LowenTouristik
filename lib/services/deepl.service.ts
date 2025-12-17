@@ -30,22 +30,28 @@ export async function translateText(
     throw new Error('DEEPL_API_KEY nicht in .env gesetzt');
   }
 
+  // Leere Strings nicht übersetzen
+  if (!text || text.trim() === '') {
+    return text;
+  }
+
   try {
     const response = await fetch('https://api-free.deepl.com/v2/translate', {
       method: 'POST',
       headers: {
         'Authorization': `DeepL-Auth-Key ${apiKey}`,
-        'Content-Type': 'application/x-www-form-urlencoded',
+        'Content-Type': 'application/json',
       },
-      body: new URLSearchParams({
-        text,
+      body: JSON.stringify({
+        text: [text],
         source_lang: sourceLang,
         target_lang: targetLang,
       }),
     });
 
     if (!response.ok) {
-      throw new Error(`DeepL API Error: ${response.status}`);
+      const errorText = await response.text();
+      throw new Error(`DeepL API Error: ${response.status} - ${errorText}`);
     }
 
     const data: DeepLResponse = await response.json();
@@ -70,30 +76,54 @@ export async function translateMultiple(
     throw new Error('DEEPL_API_KEY nicht in .env gesetzt');
   }
 
+  // Leere Arrays
+  if (!texts || texts.length === 0) {
+    return texts;
+  }
+
+  // Filtere leere Strings, merke Positionen
+  const nonEmptyIndices: number[] = [];
+  const nonEmptyTexts: string[] = [];
+  
+  texts.forEach((text, index) => {
+    if (text && text.trim() !== '') {
+      nonEmptyIndices.push(index);
+      nonEmptyTexts.push(text);
+    }
+  });
+
+  if (nonEmptyTexts.length === 0) {
+    return texts;
+  }
+
   try {
-    const params = new URLSearchParams({
-      source_lang: sourceLang,
-      target_lang: targetLang,
-    });
-
-    // Mehrere "text" Parameter hinzufügen
-    texts.forEach(text => params.append('text', text));
-
     const response = await fetch('https://api-free.deepl.com/v2/translate', {
       method: 'POST',
       headers: {
         'Authorization': `DeepL-Auth-Key ${apiKey}`,
-        'Content-Type': 'application/x-www-form-urlencoded',
+        'Content-Type': 'application/json',
       },
-      body: params,
+      body: JSON.stringify({
+        text: nonEmptyTexts,
+        source_lang: sourceLang,
+        target_lang: targetLang,
+      }),
     });
 
     if (!response.ok) {
-      throw new Error(`DeepL API Error: ${response.status}`);
+      const errorText = await response.text();
+      throw new Error(`DeepL API Error: ${response.status} - ${errorText}`);
     }
 
     const data: DeepLResponse = await response.json();
-    return data.translations.map(t => t.text);
+    
+    // Ergebnis zusammenbauen mit originalen leeren Strings
+    const result = [...texts];
+    data.translations.forEach((translation, i) => {
+      result[nonEmptyIndices[i]] = translation.text;
+    });
+    
+    return result;
   } catch (error) {
     console.error('DeepL Translation Error:', error);
     throw error;
@@ -104,10 +134,10 @@ export async function translateMultiple(
  * Sanity Document übersetzen (für Trips, Testimonials, Pages)
  */
 export async function translateDocument(
-  document: any,
+  document: Record<string, unknown>,
   targetLang: 'EN' | 'FR',
   fieldsToTranslate: string[]
-): Promise<any> {
+): Promise<Record<string, unknown>> {
   const translatedDoc = { ...document };
 
   for (const field of fieldsToTranslate) {
@@ -121,23 +151,44 @@ export async function translateDocument(
     }
 
     // Array von Strings übersetzen
-    if (Array.isArray(value) && value.every(v => typeof v === 'string')) {
-      translatedDoc[field] = await translateMultiple(value, targetLang);
+    if (Array.isArray(value) && value.length > 0 && typeof value[0] === 'string') {
+      translatedDoc[field] = await translateMultiple(value as string[], targetLang);
     }
 
-    // Array von Objekten (z.B. Itinerary)
-    if (Array.isArray(value) && value.some(v => typeof v === 'object')) {
+    // Array von Objekten (z.B. Itinerary, mapStations)
+    if (Array.isArray(value) && value.length > 0 && typeof value[0] === 'object') {
       translatedDoc[field] = await Promise.all(
-        value.map(async (item) => {
+        value.map(async (item: Record<string, unknown>) => {
           const translatedItem = { ...item };
+          
           for (const key in item) {
+            // Strings übersetzen
             if (typeof item[key] === 'string') {
-              translatedItem[key] = await translateText(item[key], targetLang);
+              translatedItem[key] = await translateText(item[key] as string, targetLang);
+            }
+            // Arrays von Strings (z.B. activities)
+            if (Array.isArray(item[key]) && (item[key] as unknown[]).every(v => typeof v === 'string')) {
+              translatedItem[key] = await translateMultiple(item[key] as string[], targetLang);
             }
           }
+          
           return translatedItem;
         })
       );
+    }
+
+    // Objekt (z.B. accommodation)
+    if (typeof value === 'object' && !Array.isArray(value) && value !== null) {
+      const obj = value as Record<string, unknown>;
+      const translatedObj = { ...obj };
+      
+      for (const key in obj) {
+        if (typeof obj[key] === 'string') {
+          translatedObj[key] = await translateText(obj[key] as string, targetLang);
+        }
+      }
+      
+      translatedDoc[field] = translatedObj;
     }
   }
 
