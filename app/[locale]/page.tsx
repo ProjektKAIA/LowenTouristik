@@ -11,16 +11,22 @@ import { TestimonialsSection } from '@/components/sections/TestimonialsSection';
 import { CTASection } from '@/components/sections/CTASection';
 import { getFeaturedTrips, getAllTrips } from '@/lib/services/trip.service';
 import { getHomepageData } from '@/lib/services/homepage.service';
+import { getLocalizedValue } from '@/lib/types/homepage.types';
+import type { Locale } from '@/lib/types/homepage.types';
 import { Suspense } from 'react';
 import { SEO, SITE_INFO } from '@/lib/constants';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
   const homepage = await getHomepageData();
+  const loc = locale as Locale;
 
-  // SEO aus Sanity oder Fallback
-  const seoTitle = homepage?.seo?.title || SEO.defaultTitle;
-  const seoDescription = homepage?.seo?.description || SEO.description;
+  const seoTitle = homepage?.seo?.title 
+    ? getLocalizedValue(homepage.seo.title, loc) 
+    : SEO.defaultTitle;
+  const seoDescription = homepage?.seo?.description 
+    ? getLocalizedValue(homepage.seo.description, loc) 
+    : SEO.description;
 
   return {
     title: seoTitle,
@@ -32,7 +38,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
       description: seoDescription,
       url: SITE_INFO.url,
       siteName: SITE_INFO.name,
-      locale: locale === 'de' ? 'de_DE' : 'en_US',
+      locale: locale === 'de' ? 'de_DE' : locale === 'en' ? 'en_US' : 'fr_FR',
       type: 'website',
       images: homepage?.seo?.image?.asset?.url 
         ? [{ url: homepage.seo.image.asset.url, width: 1200, height: 630, alt: SITE_INFO.name }]
@@ -47,19 +53,13 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     robots: {
       index: true,
       follow: true,
-      googleBot: {
-        index: true,
-        follow: true,
-        'max-video-preview': -1,
-        'max-image-preview': 'large',
-        'max-snippet': -1,
-      },
     },
     alternates: {
-      canonical: SITE_INFO.url,
+      canonical: `${SITE_INFO.url}/${locale}`,
       languages: {
         'de-DE': `${SITE_INFO.url}/de`,
         'en-US': `${SITE_INFO.url}/en`,
+        'fr-FR': `${SITE_INFO.url}/fr`,
       },
     },
   };
@@ -81,7 +81,6 @@ function FeaturedTripsLoader() {
 async function FeaturedTrips() {
   const trips = await getFeaturedTrips(3);
   
-  // Falls keine Featured Trips, nimm die neuesten 3
   if (!trips || trips.length === 0) {
     const allTrips = await getAllTrips();
     return <FeaturedTripsSection trips={allTrips.slice(0, 3)} />;
@@ -90,7 +89,10 @@ async function FeaturedTrips() {
   return <FeaturedTripsSection trips={trips} />;
 }
 
-export default async function HomePage() {
+export default async function HomePage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  const loc = locale as Locale;
+  
   // Homepage-Daten aus Sanity laden
   const homepage = await getHomepageData();
 
@@ -99,12 +101,12 @@ export default async function HomePage() {
       <Header />
       <WhatsAppButton />
       <main className="min-h-screen">
-        <HeroSection data={homepage?.hero} />
-        <ValuePropositionsSection data={homepage?.valuesSection} />
+        <HeroSection data={homepage?.hero} locale={loc} />
+        <ValuePropositionsSection data={homepage?.valuesSection} locale={loc} />
         <Suspense fallback={<FeaturedTripsLoader />}>
           <FeaturedTrips />
         </Suspense>
-        <AboutPreviewSection data={homepage?.aboutPreview} />
+        <AboutPreviewSection data={homepage?.aboutPreview} locale={loc} />
         <TestimonialsSection />
         <CTASection />
       </main>

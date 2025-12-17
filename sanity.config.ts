@@ -6,6 +6,7 @@ import { documentInternationalization } from '@sanity/document-internationalizat
 import { schemaTypes } from './sanity/schemas';
 import { structure } from './sanity/structure';
 import { translateAction } from './sanity/actions/translateAction';
+import { translateHomepageAction } from './sanity/actions/translateHomepageAction';
 
 const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || '2bs691r5';
 const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET || 'production';
@@ -43,6 +44,20 @@ export default defineConfig({
 
   document: {
     actions: (prev, context) => {
+      // Für Homepage: Translate Action hinzufügen
+      if (context.schemaType === 'homepage') {
+        return [
+          ...prev.filter(
+            (action) =>
+              action.action !== 'delete' &&
+              action.action !== 'duplicate' &&
+              action.action !== 'unpublish'
+          ),
+          translateHomepageAction,
+        ];
+      }
+
+      // Für andere Singletons: Standard-Einschränkungen
       if (SINGLETON_IDS.includes(context.schemaType)) {
         return prev.filter(
           (action) =>
@@ -51,6 +66,8 @@ export default defineConfig({
             action.action !== 'unpublish'
         );
       }
+
+      // Für alle anderen: Translate Action hinzufügen
       return [...prev, translateAction];
     },
     newDocumentOptions: (prev, { creationContext }) => {

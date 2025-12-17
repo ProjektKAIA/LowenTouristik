@@ -2,28 +2,32 @@
 'use client';
 
 import { CONTACT } from '@/lib/constants';
-import type { HeroSection as HeroSectionData } from '@/lib/types/homepage.types';
+import type { HeroSection as HeroSectionData, Locale } from '@/lib/types/homepage.types';
+import { getLocalizedValue } from '@/lib/types/homepage.types';
 
 interface HeroSectionProps {
   data?: HeroSectionData;
+  locale?: Locale;
 }
 
-// Fallback-Daten für den Fall, dass Sanity noch nicht befüllt ist
-const defaultData: HeroSectionData = {
-  badge: 'Über 2.500 zufriedene Afrika-Reisende',
-  title: 'Afrika hat mein Herz erobert',
-  subtitle: 'Über 2.500 Reisende verstehen jetzt, warum',
-  description: 'Authentische Begegnungen. Respektvolle Reisen. Maximal 12 Personen. Jede Route von Agnes persönlich über 10× bereist.',
-  videoUrl: 'https://cdn.coverr.co/videos/coverr-african-sunset-savanna-4145/1080p.mp4',
-  stats: [
-    { value: '2.500+', label: 'Glückliche Reisende' },
-    { value: '12', label: 'Max. Gruppengröße' },
-    { value: '10+', label: 'Jahre Expertise' },
-  ],
-};
+export function HeroSection({ data, locale = 'de' }: HeroSectionProps) {
+  // Helper für diesen Locale
+  const t = (field: any) => getLocalizedValue(field, locale);
 
-export function HeroSection({ data }: HeroSectionProps) {
-  const hero = data || defaultData;
+  // Fallback-Werte falls Sanity noch nicht befüllt
+  const badge = data?.badge ? t(data.badge) : 'Über 2.500 zufriedene Afrika-Reisende';
+  const title = data?.title ? t(data.title) : 'Afrika hat mein Herz erobert';
+  const subtitle = data?.subtitle ? t(data.subtitle) : 'Über 2.500 Reisende verstehen jetzt, warum';
+  const description = data?.description ? t(data.description) : 'Authentische Begegnungen. Respektvolle Reisen. Maximal 12 Personen.';
+  const videoUrl = data?.videoUrl || 'https://cdn.coverr.co/videos/coverr-african-sunset-savanna-4145/1080p.mp4';
+  
+  const stats = data?.stats?.length 
+    ? data.stats.map(s => ({ value: t(s.value), label: t(s.label) }))
+    : [
+        { value: '2.500+', label: 'Glückliche Reisende' },
+        { value: '12', label: 'Max. Gruppengröße' },
+        { value: '10+', label: 'Jahre Expertise' },
+      ];
 
   return (
     <section 
@@ -31,7 +35,7 @@ export function HeroSection({ data }: HeroSectionProps) {
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
     >
       {/* Video Background */}
-      {hero.videoUrl && (
+      {videoUrl && (
         <video
           id="hero-video"
           autoPlay
@@ -40,15 +44,15 @@ export function HeroSection({ data }: HeroSectionProps) {
           playsInline
           className="absolute inset-0 w-full h-full object-cover brightness-[0.7]"
         >
-          <source src={hero.videoUrl} type="video/mp4" />
+          <source src={videoUrl} type="video/mp4" />
         </video>
       )}
 
       {/* Fallback Image */}
-      {!hero.videoUrl && hero.backgroundImage?.asset?.url && (
+      {!videoUrl && data?.backgroundImage?.asset?.url && (
         <div 
           className="absolute inset-0 bg-cover bg-center brightness-[0.7]"
-          style={{ backgroundImage: `url(${hero.backgroundImage.asset.url})` }}
+          style={{ backgroundImage: `url(${data.backgroundImage.asset.url})` }}
         />
       )}
 
@@ -64,37 +68,37 @@ export function HeroSection({ data }: HeroSectionProps) {
       <div className="relative z-10 container mx-auto px-4 md:px-6 text-center">
         <div className="max-w-5xl mx-auto">
           {/* Badge */}
-          {hero.badge && (
+          {badge && (
             <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 px-6 py-3 rounded-full mb-8 animate-fade-in">
               <svg className="w-5 h-5 text-secondary" fill="currentColor" viewBox="0 0 20 20">
                 <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
               </svg>
-              <span className="text-white font-medium">{hero.badge}</span>
+              <span className="text-white font-medium">{badge}</span>
             </div>
           )}
 
           {/* Main Headline */}
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-serif font-black text-white mb-6 leading-tight animate-fade-in-up">
-            {hero.title}
+            {title}
           </h1>
 
           {/* Subheadline */}
-          {hero.subtitle && (
+          {subtitle && (
             <p 
               className="text-2xl md:text-4xl font-handwritten text-secondary mb-4 animate-fade-in-up" 
               style={{ animationDelay: '0.2s' }}
             >
-              {hero.subtitle}
+              {subtitle}
             </p>
           )}
 
           {/* Description */}
-          {hero.description && (
+          {description && (
             <p 
               className="text-lg md:text-xl text-white/90 mb-12 max-w-3xl mx-auto leading-relaxed animate-fade-in-up" 
               style={{ animationDelay: '0.4s' }}
             >
-              {hero.description}
+              {description}
             </p>
           )}
 
@@ -107,7 +111,7 @@ export function HeroSection({ data }: HeroSectionProps) {
               href="#reisen"
               className="btn-primary bg-accent-red hover:bg-accent-red/90 text-white px-10 py-4 rounded-full font-bold text-lg shadow-2xl hover:shadow-accent-red/50 hover:scale-105 transition-all w-full sm:w-auto"
             >
-              Reisen entdecken
+              {locale === 'de' ? 'Reisen entdecken' : locale === 'en' ? 'Discover Trips' : 'Découvrir les voyages'}
             </a>
             <a
               href={CONTACT.phone.href}
@@ -121,17 +125,17 @@ export function HeroSection({ data }: HeroSectionProps) {
                   d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
                 />
               </svg>
-              Jetzt anrufen
+              {locale === 'de' ? 'Jetzt anrufen' : locale === 'en' ? 'Call Now' : 'Appeler maintenant'}
             </a>
           </div>
 
-          {/* Trust Badges / Stats */}
-          {hero.stats && hero.stats.length > 0 && (
+          {/* Stats */}
+          {stats.length > 0 && (
             <div 
               className="grid grid-cols-3 gap-6 max-w-3xl mx-auto animate-fade-in" 
               style={{ animationDelay: '0.8s' }}
             >
-              {hero.stats.map((stat, index) => (
+              {stats.map((stat, index) => (
                 <div key={index} className="text-center">
                   <div className="text-3xl md:text-4xl font-black text-white mb-2">{stat.value}</div>
                   <div className="text-sm text-white/80">{stat.label}</div>

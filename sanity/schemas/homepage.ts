@@ -1,11 +1,45 @@
 // sanity/schemas/homepage.ts
 import { defineField, defineType } from 'sanity';
 
+// Helper für lokalisierte String-Felder
+const localizedString = (name: string, title: string, description?: string) => ({
+  name,
+  title,
+  type: 'object',
+  description,
+  fields: [
+    { name: 'de', title: '🇩🇪 Deutsch', type: 'string', validation: (Rule: any) => Rule.required() },
+    { name: 'en', title: '🇬🇧 English', type: 'string' },
+    { name: 'fr', title: '🇫🇷 Français', type: 'string' },
+  ],
+  options: { collapsible: true, collapsed: false },
+});
+
+// Helper für lokalisierte Text-Felder (mehrzeilig)
+const localizedText = (name: string, title: string, rows: number = 3) => ({
+  name,
+  title,
+  type: 'object',
+  fields: [
+    { name: 'de', title: '🇩🇪 Deutsch', type: 'text', rows, validation: (Rule: any) => Rule.required() },
+    { name: 'en', title: '🇬🇧 English', type: 'text', rows },
+    { name: 'fr', title: '🇫🇷 Français', type: 'text', rows },
+  ],
+  options: { collapsible: true, collapsed: false },
+});
+
 export const homepageSchema = defineType({
   name: 'homepage',
   title: 'Homepage',
   type: 'document',
   icon: () => '🏠',
+  groups: [
+    { name: 'hero', title: '🦁 Hero Section', default: true },
+    { name: 'values', title: '✅ Werte Section' },
+    { name: 'about', title: '👩 Über Agnes' },
+    { name: 'cta', title: '📞 CTA Section' },
+    { name: 'seo', title: '🔍 SEO' },
+  ],
   fields: [
     // ============================================
     // HERO SECTION
@@ -14,35 +48,16 @@ export const homepageSchema = defineType({
       name: 'hero',
       title: 'Hero Section',
       type: 'object',
+      group: 'hero',
       fields: [
-        {
-          name: 'badge',
-          title: 'Badge Text',
-          type: 'string',
-          description: 'z.B. "Über 2.500 zufriedene Afrika-Reisende"',
-        },
-        {
-          name: 'title',
-          title: 'Hauptüberschrift',
-          type: 'string',
-          validation: (Rule) => Rule.required(),
-        },
-        {
-          name: 'subtitle',
-          title: 'Untertitel (Handschrift)',
-          type: 'string',
-        },
-        {
-          name: 'description',
-          title: 'Beschreibung',
-          type: 'text',
-          rows: 3,
-        },
+        localizedString('badge', 'Badge Text', 'z.B. "Über 2.500 zufriedene Afrika-Reisende"'),
+        localizedString('title', 'Hauptüberschrift'),
+        localizedString('subtitle', 'Untertitel (Handschrift)'),
+        localizedText('description', 'Beschreibung'),
         {
           name: 'videoUrl',
           title: 'Hintergrund Video URL',
           type: 'url',
-          description: 'URL zum Hintergrundvideo (MP4)',
         },
         {
           name: 'backgroundImage',
@@ -58,9 +73,12 @@ export const homepageSchema = defineType({
             {
               type: 'object',
               fields: [
-                { name: 'value', title: 'Wert', type: 'string' },
-                { name: 'label', title: 'Label', type: 'string' },
+                localizedString('value', 'Wert'),
+                localizedString('label', 'Label'),
               ],
+              preview: {
+                select: { title: 'value.de', subtitle: 'label.de' },
+              },
             },
           ],
           validation: (Rule) => Rule.max(3),
@@ -76,17 +94,10 @@ export const homepageSchema = defineType({
       name: 'valuesSection',
       title: 'Werte Section',
       type: 'object',
+      group: 'values',
       fields: [
-        {
-          name: 'title',
-          title: 'Titel',
-          type: 'string',
-        },
-        {
-          name: 'subtitle',
-          title: 'Untertitel',
-          type: 'string',
-        },
+        localizedString('title', 'Titel'),
+        localizedString('subtitle', 'Untertitel'),
         {
           name: 'comparisons',
           title: 'Vergleiche (Standard vs. Bei uns)',
@@ -95,21 +106,23 @@ export const homepageSchema = defineType({
             {
               type: 'object',
               fields: [
-                { name: 'standardTitle', title: 'Standard Titel', type: 'string' },
-                { name: 'standardDescription', title: 'Standard Beschreibung', type: 'text', rows: 2 },
-                { name: 'oursTitle', title: 'Bei uns Titel', type: 'string' },
-                { name: 'oursDescription', title: 'Bei uns Beschreibung', type: 'text', rows: 2 },
+                localizedString('standardTitle', 'Standard Titel'),
+                localizedText('standardDescription', 'Standard Beschreibung', 2),
+                localizedString('oursTitle', 'Bei uns Titel'),
+                localizedText('oursDescription', 'Bei uns Beschreibung', 2),
               ],
+              preview: {
+                select: { title: 'standardTitle.de', subtitle: 'oursTitle.de' },
+                prepare: ({ title, subtitle }) => ({
+                  title: `❌ ${title}`,
+                  subtitle: `✅ ${subtitle}`,
+                }),
+              },
             },
           ],
           validation: (Rule) => Rule.max(4),
         },
-        {
-          name: 'badge',
-          title: 'Badge Text',
-          type: 'string',
-          description: 'z.B. "100% CO₂-kompensiert • 80% lokale Wirtschaft"',
-        },
+        localizedString('badge', 'Badge Text'),
       ],
       options: { collapsible: true, collapsed: true },
     }),
@@ -121,18 +134,10 @@ export const homepageSchema = defineType({
       name: 'aboutPreview',
       title: 'Über Agnes Preview',
       type: 'object',
+      group: 'about',
       fields: [
-        {
-          name: 'label',
-          title: 'Label',
-          type: 'string',
-          description: 'z.B. "Die Gründerin"',
-        },
-        {
-          name: 'title',
-          title: 'Titel',
-          type: 'string',
-        },
+        localizedString('label', 'Label', 'z.B. "Die Gründerin"'),
+        localizedString('title', 'Titel'),
         {
           name: 'paragraphs',
           title: 'Absätze',
@@ -141,8 +146,8 @@ export const homepageSchema = defineType({
             {
               type: 'object',
               fields: [
-                { name: 'text', title: 'Text', type: 'text', rows: 3 },
-                { name: 'bold', title: 'Fett gedruckter Teil (optional)', type: 'string' },
+                localizedText('text', 'Text'),
+                localizedString('bold', 'Fett gedruckter Teil (optional)'),
               ],
             },
           ],
@@ -156,18 +161,8 @@ export const homepageSchema = defineType({
             { name: 'alt', title: 'Alt Text', type: 'string' },
           ],
         },
-        {
-          name: 'badgeValue',
-          title: 'Badge Wert',
-          type: 'string',
-          description: 'z.B. "10+"',
-        },
-        {
-          name: 'badgeLabel',
-          title: 'Badge Label',
-          type: 'string',
-          description: 'z.B. "Jahre in Afrika"',
-        },
+        localizedString('badgeValue', 'Badge Wert', 'z.B. "10+"'),
+        localizedString('badgeLabel', 'Badge Label', 'z.B. "Jahre in Afrika"'),
       ],
       options: { collapsible: true, collapsed: true },
     }),
@@ -179,22 +174,11 @@ export const homepageSchema = defineType({
       name: 'ctaSection',
       title: 'CTA Section',
       type: 'object',
+      group: 'cta',
       fields: [
-        {
-          name: 'title',
-          title: 'Titel',
-          type: 'string',
-        },
-        {
-          name: 'subtitle',
-          title: 'Untertitel',
-          type: 'string',
-        },
-        {
-          name: 'description',
-          title: 'Beschreibung',
-          type: 'string',
-        },
+        localizedString('title', 'Titel'),
+        localizedString('subtitle', 'Untertitel'),
+        localizedString('description', 'Beschreibung'),
       ],
       options: { collapsible: true, collapsed: true },
     }),
@@ -206,9 +190,10 @@ export const homepageSchema = defineType({
       name: 'seo',
       title: 'SEO Einstellungen',
       type: 'object',
+      group: 'seo',
       fields: [
-        { name: 'title', title: 'SEO Title', type: 'string' },
-        { name: 'description', title: 'Meta Description', type: 'text', rows: 3 },
+        localizedString('title', 'SEO Title'),
+        localizedText('description', 'Meta Description'),
         { name: 'image', title: 'OG Image', type: 'image' },
       ],
       options: { collapsible: true, collapsed: true },
