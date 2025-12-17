@@ -11,22 +11,18 @@ import { translateHomepageAction } from './sanity/actions/translateHomepageActio
 const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || '2bs691r5';
 const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET || 'production';
 
-// Singleton Document IDs
-const SINGLETON_IDS = ['homepage', 'siteSettings'];
+const SINGLETON_IDS = ['homepage', 'siteSettings', 'aboutPage'];
+const TRANSLATABLE_SINGLETONS = ['homepage', 'aboutPage'];
 
 export default defineConfig({
   name: 'loewentouristik',
   title: 'Loewentouristik CMS',
-
   projectId,
   dataset,
-
   basePath: '/studio',
 
   plugins: [
-    structureTool({
-      structure,
-    }),
+    structureTool({ structure }),
     visionTool(),
     documentInternationalization({
       supportedLanguages: [
@@ -38,14 +34,11 @@ export default defineConfig({
     }),
   ],
 
-  schema: {
-    types: schemaTypes,
-  },
+  schema: { types: schemaTypes },
 
   document: {
     actions: (prev, context) => {
-      // Für Homepage: Translate Action hinzufügen
-      if (context.schemaType === 'homepage') {
+      if (TRANSLATABLE_SINGLETONS.includes(context.schemaType)) {
         return [
           ...prev.filter(
             (action) =>
@@ -57,7 +50,6 @@ export default defineConfig({
         ];
       }
 
-      // Für andere Singletons: Standard-Einschränkungen
       if (SINGLETON_IDS.includes(context.schemaType)) {
         return prev.filter(
           (action) =>
@@ -67,7 +59,6 @@ export default defineConfig({
         );
       }
 
-      // Für alle anderen: Translate Action hinzufügen
       return [...prev, translateAction];
     },
     newDocumentOptions: (prev, { creationContext }) => {

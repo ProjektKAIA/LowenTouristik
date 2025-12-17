@@ -5,39 +5,6 @@ export const structure: StructureResolver = (S) =>
   S.list()
     .title('Inhalt')
     .items([
-      // REISEN
-      S.listItem()
-        .title('Reisen')
-        .icon(() => '✈️')
-        .child(
-          S.documentTypeList('trip')
-            .title('Alle Reisen')
-            .filter('_type == "trip"')
-        ),
-
-      // TESTIMONIALS
-      S.listItem()
-        .title('Testimonials')
-        .icon(() => '💬')
-        .child(
-          S.documentTypeList('testimonial')
-            .title('Alle Testimonials')
-            .filter('_type == "testimonial"')
-        ),
-
-      // SEITEN
-      S.listItem()
-        .title('Seiten')
-        .icon(() => '📄')
-        .child(
-          S.documentTypeList('page')
-            .title('Alle Seiten')
-            .filter('_type == "page"')
-        ),
-
-      S.divider(),
-
-      // HOMEPAGE (Singleton)
       S.listItem()
         .title('Homepage')
         .icon(() => '🏠')
@@ -48,7 +15,35 @@ export const structure: StructureResolver = (S) =>
             .title('Homepage bearbeiten')
         ),
 
-      // SETTINGS (Singleton)
+      S.listItem()
+        .title('Über Agnes')
+        .icon(() => '👩')
+        .child(
+          S.document()
+            .schemaType('aboutPage')
+            .documentId('aboutPage')
+            .title('Über Agnes bearbeiten')
+        ),
+
+      S.divider(),
+
+      S.listItem()
+        .title('Reisen')
+        .icon(() => '✈️')
+        .child(S.documentTypeList('trip').title('Alle Reisen')),
+
+      S.listItem()
+        .title('Testimonials')
+        .icon(() => '💬')
+        .child(S.documentTypeList('testimonial').title('Alle Testimonials')),
+
+      S.listItem()
+        .title('Seiten')
+        .icon(() => '📄')
+        .child(S.documentTypeList('page').title('Alle Seiten')),
+
+      S.divider(),
+
       S.listItem()
         .title('Website Einstellungen')
         .icon(() => '⚙️')

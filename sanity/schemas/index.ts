@@ -4,6 +4,7 @@ import { testimonialSchema } from './testimonial';
 import { pageSchema } from './page';
 import { siteSettingsSchema } from './siteSettings';
 import { homepageSchema } from './homepage';
+import { aboutSchema } from './about';
 
 export const schemaTypes = [
   tripSchema,
@@ -11,4 +12,5 @@ export const schemaTypes = [
   pageSchema,
   siteSettingsSchema,
   homepageSchema,
+  aboutSchema,
 ];

@@ -20,32 +20,20 @@ export function AboutPreviewSection({ data, locale }: AboutPreviewSectionProps) 
   const badgeLabel = t(data.badgeLabel);
   const imageUrl = data.image?.asset?.url;
   const imageAlt = data.image?.alt || title;
-
-  const paragraphs = data.paragraphs?.map(p => ({
-    text: t(p.text),
-    bold: p.bold ? t(p.bold) : undefined,
-  })) || [];
-
-  const ctaText = locale === 'de' ? 'Mehr über Agnes' : locale === 'en' ? 'More about Agnes' : 'En savoir plus sur Agnes';
+  const paragraphs = data.paragraphs?.map((p) => ({ text: t(p.text), bold: p.bold ? t(p.bold) : undefined })) || [];
+  const ctaText = locale === 'de' ? 'Mehr über Agnes' : locale === 'en' ? 'More about Agnes' : 'En savoir plus';
 
   return (
     <section id="agnes" className="py-24 bg-white">
       <div className="container mx-auto px-4 md:px-6">
         <div className="max-w-6xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12 items-center">
-            {/* Image */}
             <div className="order-2 md:order-1">
               <div className="relative">
                 <div className="absolute -top-6 -left-6 w-full h-full bg-secondary/20 rounded-3xl" />
                 <div className="relative rounded-3xl shadow-2xl overflow-hidden aspect-[4/5]">
                   {imageUrl && (
-                    <Image
-                      src={imageUrl}
-                      alt={imageAlt}
-                      fill
-                      sizes="(max-width: 768px) 100vw, 50vw"
-                      className="object-cover"
-                    />
+                    <Image src={imageUrl} alt={imageAlt} fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover" />
                   )}
                 </div>
                 {badgeValue && badgeLabel && (
@@ -59,17 +47,14 @@ export function AboutPreviewSection({ data, locale }: AboutPreviewSectionProps) 
               </div>
             </div>
 
-            {/* Content */}
             <div className="order-1 md:order-2">
               {label && (
                 <div className="inline-block bg-secondary/10 text-accent-red px-4 py-2 rounded-full font-bold text-sm mb-6">
                   {label}
                 </div>
               )}
-              <h2 className="text-4xl md:text-5xl font-serif font-black text-primary mb-6">
-                {title}
-              </h2>
-              
+              <h2 className="text-4xl md:text-5xl font-serif font-black text-primary mb-6">{title}</h2>
+
               {paragraphs.map((paragraph, index) => (
                 <p key={index} className="text-lg text-neutral-brown/90 leading-relaxed mb-6">
                   {paragraph.bold && <strong>{paragraph.bold} </strong>}

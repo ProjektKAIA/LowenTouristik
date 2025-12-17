@@ -26,12 +26,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const homepage = await getHomepageData();
   const loc = locale as Locale;
 
-  const seoTitle = homepage?.seo?.title 
-    ? getLocalizedValue(homepage.seo.title, loc) 
-    : SEO.defaultTitle;
-  const seoDescription = homepage?.seo?.description 
-    ? getLocalizedValue(homepage.seo.description, loc) 
-    : SEO.description;
+  const seoTitle = homepage?.seo?.title ? getLocalizedValue(homepage.seo.title, loc) : SEO.defaultTitle;
+  const seoDescription = homepage?.seo?.description ? getLocalizedValue(homepage.seo.description, loc) : SEO.description;
 
   return {
     title: seoTitle,
@@ -45,27 +41,10 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       siteName: SITE_INFO.name,
       locale: locale === 'de' ? 'de_DE' : locale === 'en' ? 'en_US' : 'fr_FR',
       type: 'website',
-      images: homepage?.seo?.image?.asset?.url 
-        ? [{ url: homepage.seo.image.asset.url, width: 1200, height: 630, alt: SITE_INFO.name }]
-        : [{ url: '/images/og-image.jpg', width: 1200, height: 630, alt: SITE_INFO.name }],
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title: seoTitle,
-      description: seoDescription,
-      images: homepage?.seo?.image?.asset?.url ? [homepage.seo.image.asset.url] : ['/images/og-image.jpg'],
-    },
-    robots: {
-      index: true,
-      follow: true,
     },
     alternates: {
       canonical: `${SITE_INFO.url}/${locale}`,
-      languages: {
-        'de-DE': `${SITE_INFO.url}/de`,
-        'en-US': `${SITE_INFO.url}/en`,
-        'fr-FR': `${SITE_INFO.url}/fr`,
-      },
+      languages: { 'de-DE': `${SITE_INFO.url}/de`, 'en-US': `${SITE_INFO.url}/en`, 'fr-FR': `${SITE_INFO.url}/fr` },
     },
   };
 }
@@ -85,23 +64,18 @@ function FeaturedTripsLoader() {
 
 async function FeaturedTrips() {
   const trips = await getFeaturedTrips(3);
-  
   if (!trips || trips.length === 0) {
     const allTrips = await getAllTrips();
     return <FeaturedTripsSection trips={allTrips.slice(0, 3)} />;
   }
-  
   return <FeaturedTripsSection trips={trips} />;
 }
 
 export default async function HomePage({ params }: PageProps) {
   const { locale } = await params;
   const loc = locale as Locale;
-  
-  // Homepage-Daten aus Sanity laden
   const homepage = await getHomepageData();
 
-  // Wenn keine Daten in Sanity → 404
   if (!homepage?.hero) {
     notFound();
   }
@@ -112,15 +86,11 @@ export default async function HomePage({ params }: PageProps) {
       <WhatsAppButton />
       <main className="min-h-screen">
         <HeroSection data={homepage.hero} locale={loc} />
-        {homepage.valuesSection && (
-          <ValuePropositionsSection data={homepage.valuesSection} locale={loc} />
-        )}
+        {homepage.valuesSection && <ValuePropositionsSection data={homepage.valuesSection} locale={loc} />}
         <Suspense fallback={<FeaturedTripsLoader />}>
           <FeaturedTrips />
         </Suspense>
-        {homepage.aboutPreview && (
-          <AboutPreviewSection data={homepage.aboutPreview} locale={loc} />
-        )}
+        {homepage.aboutPreview && <AboutPreviewSection data={homepage.aboutPreview} locale={loc} />}
         <TestimonialsSection />
         <CTASection />
       </main>
