@@ -25,6 +25,9 @@ export default async function TripDetailPage({ params }: TripDetailPageProps) {
     notFound();
   }
 
+  // Fallback auf 12 wenn maxPersons nicht gesetzt
+  const maxPersons = trip.maxPersons || 12;
+
   return (
     <>
       <Header />
@@ -35,6 +38,7 @@ export default async function TripDetailPage({ params }: TripDetailPageProps) {
           region={trip.region}
           duration={trip.duration}
           price={trip.price}
+          maxPersons={maxPersons}
           shortDescription={trip.shortDescription}
           mainImage={trip.mainImage}
         />
@@ -66,6 +70,7 @@ export default async function TripDetailPage({ params }: TripDetailPageProps) {
         <TripBookingSection
           tripTitle={trip.title}
           price={trip.price}
+          maxPersons={maxPersons}
         />
       </main>
       <Footer />

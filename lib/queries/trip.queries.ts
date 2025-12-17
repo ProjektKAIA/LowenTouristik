@@ -14,6 +14,7 @@ const tripListProjection = `
   region,
   duration,
   price,
+  maxPersons,
   shortDescription,
   mainImage {
     asset->{
@@ -36,6 +37,7 @@ const tripDetailProjection = `
   country,
   duration,
   price,
+  maxPersons,
   shortDescription,
   mainImage {
     asset->{

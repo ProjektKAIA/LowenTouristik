@@ -30,7 +30,7 @@
   },
   "detail": {
     "days": "Jours",
-    "maxPersons": "Max. 12 Personnes",
+    "persons": "Personnes",
     "priceFrom": "à partir de",
     "highlights": {
       "title": "Points Forts du Voyage"
@@ -56,5 +56,22 @@
       "feature2": "Dates Flexibles",
       "feature3": "100% compensé en CO₂"
     }
+  },
+  "custom": {
+    "title": "Voyage Sur Mesure Souhaité?",
+    "subtitle": "Nous concevons votre voyage de rêve selon vos souhaits. Dites-nous ce que vous imaginez!",
+    "feature1": {
+      "title": "Itinéraire Flexible",
+      "description": "Nous adaptons l'itinéraire à vos intérêts"
+    },
+    "feature2": {
+      "title": "Groupes Privés",
+      "description": "Voyagez avec votre famille ou vos amis"
+    },
+    "feature3": {
+      "title": "Conseils Personnels",
+      "description": "Agnes vous conseille directement et honnêtement"
+    },
+    "cta": "Soumettre une Demande Personnalisée"
   }
 }
