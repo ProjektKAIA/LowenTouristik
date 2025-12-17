@@ -188,6 +188,21 @@ export const tripSchema = defineType({
               rows: 4,
             },
             {
+              name: 'image',
+              title: 'Tagesbild',
+              type: 'image',
+              options: {
+                hotspot: true,
+              },
+              fields: [
+                {
+                  name: 'alt',
+                  title: 'Alt Text',
+                  type: 'string',
+                },
+              ],
+            },
+            {
               name: 'activities',
               title: 'Aktivitäten',
               type: 'array',
@@ -216,10 +231,12 @@ export const tripSchema = defineType({
             select: {
               day: 'day',
               title: 'title',
+              media: 'image',
             },
-            prepare({ day, title }) {
+            prepare({ day, title, media }) {
               return {
                 title: `Tag ${day}: ${title}`,
+                media,
               };
             },
           },
@@ -227,7 +244,7 @@ export const tripSchema = defineType({
       ],
     }),
 
-    // MAP STATIONS - NEU!
+    // MAP STATIONS
     defineField({
       name: 'mapStations',
       title: 'Karten-Stationen (für interaktive Karte)',
@@ -338,60 +355,39 @@ export const tripSchema = defineType({
 
     // BEST TIME TO VISIT
     defineField({
-      name: 'bestTimeToVisit',
+      name: 'bestTime',
       title: 'Beste Reisezeit',
       type: 'array',
       of: [{ type: 'string' }],
       options: {
         list: [
-          { title: 'Januar', value: 'januar' },
-          { title: 'Februar', value: 'februar' },
-          { title: 'März', value: 'maerz' },
-          { title: 'April', value: 'april' },
-          { title: 'Mai', value: 'mai' },
-          { title: 'Juni', value: 'juni' },
-          { title: 'Juli', value: 'juli' },
-          { title: 'August', value: 'august' },
-          { title: 'September', value: 'september' },
-          { title: 'Oktober', value: 'oktober' },
-          { title: 'November', value: 'november' },
-          { title: 'Dezember', value: 'dezember' },
+          { title: 'Januar', value: 'jan' },
+          { title: 'Februar', value: 'feb' },
+          { title: 'März', value: 'mar' },
+          { title: 'April', value: 'apr' },
+          { title: 'Mai', value: 'may' },
+          { title: 'Juni', value: 'jun' },
+          { title: 'Juli', value: 'jul' },
+          { title: 'August', value: 'aug' },
+          { title: 'September', value: 'sep' },
+          { title: 'Oktober', value: 'oct' },
+          { title: 'November', value: 'nov' },
+          { title: 'Dezember', value: 'dec' },
         ],
       },
     }),
-
-    // TAGS
-    defineField({
-      name: 'tags',
-      title: 'Tags',
-      type: 'array',
-      of: [{ type: 'string' }],
-      options: {
-        layout: 'tags',
-      },
-    }),
-
-    // PUBLISHING
-    defineField({
-      name: 'publishedAt',
-      title: 'Veröffentlicht am',
-      type: 'datetime',
-      initialValue: () => new Date().toISOString(),
-    }),
   ],
-
   preview: {
     select: {
       title: 'title',
-      country: 'country',
-      duration: 'duration',
-      price: 'price',
+      region: 'region',
       media: 'mainImage',
+      featured: 'featured',
     },
-    prepare({ title, country, duration, price, media }) {
+    prepare({ title, region, media, featured }) {
       return {
-        title,
-        subtitle: `${country} • ${duration} Tage • ab ${price}€`,
+        title: featured ? `⭐ ${title}` : title,
+        subtitle: region,
         media,
       };
     },

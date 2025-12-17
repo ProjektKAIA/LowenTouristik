@@ -30,14 +30,26 @@
   },
   "detail": {
     "days": "Jours",
-    "persons": "Personnes",
+    "maxPersons": "Max. {count} Personnes",
+    "maxGroup": "Max. {count} Personnes",
     "priceFrom": "à partir de",
+    "map": {
+      "title": "Itinéraire",
+      "subtitle": "Votre route à travers {country}",
+      "station": "Étape",
+      "legend": {
+        "stations": "Étapes",
+        "route": "Itinéraire"
+      }
+    },
     "highlights": {
       "title": "Points Forts du Voyage"
     },
     "itinerary": {
       "title": "Itinéraire Jour par Jour",
-      "activities": "Activités"
+      "activities": "Activités",
+      "accommodation": "Hébergement",
+      "meals": "Repas"
     },
     "included": {
       "title": "Services & Inclusions",
@@ -54,7 +66,12 @@
       "requestButton": "Demander Maintenant",
       "feature1": "Consultation Gratuite",
       "feature2": "Dates Flexibles",
-      "feature3": "100% compensé en CO₂"
+      "feature3": "100% compensé en CO₂",
+      "features": {
+        "noDeposit": "Aucun acompte requis",
+        "personalAdvice": "Conseils personnalisés",
+        "flexibleBooking": "Modification flexible"
+      }
     }
   },
   "custom": {

@@ -45,6 +45,12 @@ export interface ItineraryDay {
   day: number;
   title: string;
   description: string;
+  image?: {
+    asset: {
+      url: string;
+    };
+    alt?: string;
+  };
   activities?: string[];
   accommodation?: string;
   meals?: string;

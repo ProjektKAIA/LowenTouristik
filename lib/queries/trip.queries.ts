@@ -57,6 +57,12 @@ const tripDetailProjection = `
     day,
     title,
     description,
+    image {
+      asset->{
+        url
+      },
+      alt
+    },
     activities,
     accommodation,
     meals
@@ -117,6 +123,7 @@ export const TRIPS_BY_REGION_QUERY = `
     ${tripListProjection}
   }
 `;
+
 /**
  * Query: Alle Slugs für SSG (generateStaticParams)
  */
