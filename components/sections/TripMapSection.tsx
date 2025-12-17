@@ -3,24 +3,29 @@
 
 import { useEffect, useRef } from 'react';
 import { useTranslations } from 'next-intl';
-import type { MapStation } from '@/lib/types/trip';
+import type { MapStation, ItineraryDay } from '@/lib/types/trip';
 
 interface TripMapSectionProps {
   stations: MapStation[];
   country: string;
+  itinerary?: ItineraryDay[];
 }
 
-export function TripMapSection({ stations, country }: TripMapSectionProps) {
+export function TripMapSection({ stations, country, itinerary = [] }: TripMapSectionProps) {
   const t = useTranslations('trips.detail.map');
   const mapRef = useRef<HTMLDivElement>(null);
   const mapInstanceRef = useRef<any>(null);
 
+  // Helper: Bild für einen Tag aus dem Itinerary holen
+  const getImageForDay = (day: number): string | null => {
+    const itineraryDay = itinerary.find(i => i.day === day);
+    return itineraryDay?.image?.asset?.url || null;
+  };
+
   useEffect(() => {
-    // Dynamically import Leaflet only on client side
     const initMap = async () => {
       if (typeof window === 'undefined' || !mapRef.current) return;
 
-      // Dynamically import Leaflet
       const L = (await import('leaflet')).default;
 
       // Add Leaflet CSS
@@ -37,7 +42,7 @@ export function TripMapSection({ stations, country }: TripMapSectionProps) {
       const avgLng = stations.reduce((sum, s) => sum + s.lng, 0) / stations.length;
 
       // Create map
-      const map = L.map(mapRef.current).setView([avgLat, avgLng], 7);
+      const map = L.map(mapRef.current).setView([avgLat, avgLng], 6);
       mapInstanceRef.current = map;
 
       // Add tiles
@@ -57,6 +62,8 @@ export function TripMapSection({ stations, country }: TripMapSectionProps) {
 
       // Add markers
       stations.forEach((station) => {
+        const imageUrl = getImageForDay(station.day);
+        
         const customIcon = L.divIcon({
           className: 'custom-marker-wrapper',
           html: `
@@ -82,9 +89,27 @@ export function TripMapSection({ stations, country }: TripMapSectionProps) {
           iconAnchor: [18, 18],
         });
 
-        L.marker([station.lat, station.lng], { icon: customIcon })
-          .bindPopup(
-            `
+        // Popup mit oder ohne Bild
+        const popupContent = imageUrl
+          ? `
+            <div style="text-align: center; min-width: 200px; max-width: 280px;">
+              <img 
+                src="${imageUrl}" 
+                alt="${station.name}"
+                style="width: 100%; height: 120px; object-fit: cover; border-radius: 8px; margin-bottom: 8px;"
+              />
+              <div style="font-weight: bold; color: #2A5F6F; font-size: 16px; margin-bottom: 4px;">
+                ${station.name}
+              </div>
+              <div style="font-size: 12px; color: #4A3C2E; opacity: 0.7; margin-bottom: 4px;">
+                Tag ${station.day}
+              </div>
+              <div style="font-size: 14px; color: #4A3C2E;">
+                ${station.title}
+              </div>
+            </div>
+          `
+          : `
             <div style="text-align: center; padding: 8px; min-width: 150px;">
               <div style="font-weight: bold; color: #2A5F6F; font-size: 16px; margin-bottom: 4px;">
                 ${station.name}
@@ -92,26 +117,26 @@ export function TripMapSection({ stations, country }: TripMapSectionProps) {
               <div style="font-size: 12px; color: #4A3C2E; opacity: 0.7; margin-bottom: 4px;">
                 Tag ${station.day}
               </div>
-              <div style="font-size: 14px; margin-top: 4px;">
+              <div style="font-size: 14px; color: #4A3C2E;">
                 ${station.title}
               </div>
             </div>
-          `,
-            { maxWidth: 250 }
-          )
+          `;
+
+        L.marker([station.lat, station.lng], { icon: customIcon })
+          .bindPopup(popupContent, { maxWidth: 300 })
           .addTo(map);
       });
     };
 
     initMap();
 
-    // Cleanup
     return () => {
       if (mapInstanceRef.current) {
         mapInstanceRef.current.remove();
       }
     };
-  }, [stations]);
+  }, [stations, itinerary]);
 
   return (
     <section className="py-16 px-6 bg-neutral-cream">

@@ -46,6 +46,7 @@ export default async function TripDetailPage({ params }: TripDetailPageProps) {
           <TripMapSection 
             stations={trip.mapStations} 
             country={trip.country}
+            itinerary={trip.itinerary || []}
           />
         )}
         
