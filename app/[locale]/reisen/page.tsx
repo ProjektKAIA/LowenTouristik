@@ -67,7 +67,7 @@ export default function ReisenPage() {
           selectedRegion={selectedRegion}
           onRegionChange={setSelectedRegion}
         />
-        <TripsGridSection trips={filteredTrips} locale="de" />
+        <TripsGridSection trips={filteredTrips} />
         <CustomTripSection />
         <CTASection />
       </main>
