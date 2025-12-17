@@ -1,71 +1,58 @@
-// lib/types/homepage.types.ts
+// lib/types/about.types.ts
 
-export interface HomepageData {
-  hero: HeroSection;
-  valuesSection: ValuesSection;
-  aboutPreview: AboutPreviewSection;
-  ctaSection: CtaSection;
-  seo?: SeoData;
-}
+import type { 
+  Locale, 
+  LocalizedString, 
+  LocalizedText, 
+  SanityImage 
+} from './homepage.types';
 
-export interface HeroSection {
-  badge?: string;
-  title: string;
-  subtitle?: string;
-  description?: string;
-  videoUrl?: string;
-  backgroundImage?: {
-    asset: {
-      url: string;
-    };
-  };
-  stats?: {
-    value: string;
-    label: string;
+// Re-export für einfacheren Import
+export type { Locale, LocalizedString, LocalizedText, SanityImage };
+export { getLocalizedValue } from './homepage.types';
+
+export interface AboutHeroData {
+  label: LocalizedString;
+  title: LocalizedString;
+  subtitle: LocalizedString;
+  description: LocalizedText;
+  backgroundImage: SanityImage;
+  stats: {
+    value: LocalizedString;
+    label: LocalizedString;
   }[];
 }
 
-export interface ValuesSection {
-  title?: string;
-  subtitle?: string;
-  comparisons?: {
-    standardTitle: string;
-    standardDescription: string;
-    oursTitle: string;
-    oursDescription: string;
+export interface AboutStoryData {
+  title: LocalizedString;
+  paragraphs: {
+    text: LocalizedText;
   }[];
-  badge?: string;
+  image: SanityImage;
+  badgeValue: LocalizedString;
+  badgeLabel: LocalizedString;
 }
 
-export interface AboutPreviewSection {
-  label?: string;
-  title?: string;
-  paragraphs?: {
-    text: string;
-    bold?: string;
+export interface AboutMissionData {
+  title: LocalizedString;
+  description: LocalizedText;
+  values: {
+    icon: string;
+    title: LocalizedString;
+    description: LocalizedText;
   }[];
-  image?: {
-    asset: {
-      url: string;
-    };
-    alt?: string;
-  };
-  badgeValue?: string;
-  badgeLabel?: string;
 }
 
-export interface CtaSection {
-  title?: string;
-  subtitle?: string;
-  description?: string;
+export interface AboutSeoData {
+  title?: LocalizedString;
+  description?: LocalizedText;
+  image?: SanityImage;
 }
 
-export interface SeoData {
-  title?: string;
-  description?: string;
-  image?: {
-    asset: {
-      url: string;
-    };
-  };
+export interface AboutPageData {
+  _id: string;
+  hero: AboutHeroData;
+  story: AboutStoryData;
+  mission: AboutMissionData;
+  seo?: AboutSeoData;
 }

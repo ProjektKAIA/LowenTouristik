@@ -1,5 +1,6 @@
 // app/[locale]/page.tsx
 import { Metadata } from 'next';
+import { notFound } from 'next/navigation';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { WhatsAppButton } from '@/components/ui/WhatsAppButton';
@@ -16,7 +17,11 @@ import type { Locale } from '@/lib/types/homepage.types';
 import { Suspense } from 'react';
 import { SEO, SITE_INFO } from '@/lib/constants';
 
-export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+interface PageProps {
+  params: Promise<{ locale: string }>;
+}
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { locale } = await params;
   const homepage = await getHomepageData();
   const loc = locale as Locale;
@@ -70,8 +75,8 @@ function FeaturedTripsLoader() {
     <div className="py-24 bg-gradient-to-br from-primary to-accent-green text-white">
       <div className="container mx-auto px-6 text-center">
         <div className="animate-pulse">
-          <div className="h-12 bg-white/20 rounded-lg w-64 mx-auto mb-4"></div>
-          <div className="h-6 bg-white/10 rounded-lg w-96 mx-auto"></div>
+          <div className="h-12 bg-white/20 rounded-lg w-64 mx-auto mb-4" />
+          <div className="h-6 bg-white/10 rounded-lg w-96 mx-auto" />
         </div>
       </div>
     </div>
@@ -89,24 +94,33 @@ async function FeaturedTrips() {
   return <FeaturedTripsSection trips={trips} />;
 }
 
-export default async function HomePage({ params }: { params: Promise<{ locale: string }> }) {
+export default async function HomePage({ params }: PageProps) {
   const { locale } = await params;
   const loc = locale as Locale;
   
   // Homepage-Daten aus Sanity laden
   const homepage = await getHomepageData();
 
+  // Wenn keine Daten in Sanity → 404
+  if (!homepage?.hero) {
+    notFound();
+  }
+
   return (
     <>
       <Header />
       <WhatsAppButton />
       <main className="min-h-screen">
-        <HeroSection data={homepage?.hero} locale={loc} />
-        <ValuePropositionsSection data={homepage?.valuesSection} locale={loc} />
+        <HeroSection data={homepage.hero} locale={loc} />
+        {homepage.valuesSection && (
+          <ValuePropositionsSection data={homepage.valuesSection} locale={loc} />
+        )}
         <Suspense fallback={<FeaturedTripsLoader />}>
           <FeaturedTrips />
         </Suspense>
-        <AboutPreviewSection data={homepage?.aboutPreview} locale={loc} />
+        {homepage.aboutPreview && (
+          <AboutPreviewSection data={homepage.aboutPreview} locale={loc} />
+        )}
         <TestimonialsSection />
         <CTASection />
       </main>
