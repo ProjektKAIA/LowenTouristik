@@ -2,15 +2,9 @@
 
 import { DocumentActionComponent } from 'sanity';
 
-/**
- * Sanity Document Action: "Translate to EN/FR"
- * 
- * Zeigt einen Button im Studio, der das Document automatisch übersetzt
- */
 export const translateAction: DocumentActionComponent = (props) => {
-  const { id, type, draft, published } = props;
+  const { id, type } = props;
 
-  // Nur für bestimmte Document Types zeigen
   const supportedTypes = ['trip', 'testimonial', 'page'];
   if (!supportedTypes.includes(type)) {
     return null;
@@ -21,7 +15,6 @@ export const translateAction: DocumentActionComponent = (props) => {
     icon: () => '🌍',
     onHandle: async () => {
       try {
-        // API Route aufrufen die die Übersetzung macht
         const response = await fetch('/api/translate', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
@@ -36,12 +29,8 @@ export const translateAction: DocumentActionComponent = (props) => {
           throw new Error('Translation failed');
         }
 
-        const result = await response.json();
-        
-        // Success feedback
+        await response.json();
         props.onComplete();
-        
-        // Optional: Toast notification
         alert(`✅ Document übersetzt nach EN und FR!`);
       } catch (error) {
         console.error('Translation Error:', error);

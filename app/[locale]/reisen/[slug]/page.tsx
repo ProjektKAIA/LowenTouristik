@@ -18,14 +18,13 @@ interface TripDetailPageProps {
 }
 
 export default async function TripDetailPage({ params }: TripDetailPageProps) {
-  const { locale, slug } = await params;
+  const { slug } = await params;
   const trip = await getTripBySlug(slug);
 
   if (!trip) {
     notFound();
   }
 
-  // Fallback auf 12 wenn maxPersons nicht gesetzt
   const maxPersons = trip.maxPersons || 12;
 
   return (
@@ -43,7 +42,6 @@ export default async function TripDetailPage({ params }: TripDetailPageProps) {
           mainImage={trip.mainImage}
         />
         
-        {/* Map nur anzeigen wenn Stationen vorhanden */}
         {trip.mapStations && trip.mapStations.length > 0 && (
           <TripMapSection 
             stations={trip.mapStations} 
@@ -51,7 +49,6 @@ export default async function TripDetailPage({ params }: TripDetailPageProps) {
           />
         )}
         
-        {/* Itinerary nur anzeigen wenn Highlights ODER Itinerary vorhanden */}
         {((trip.highlights && trip.highlights.length > 0) || (trip.itinerary && trip.itinerary.length > 0)) && (
           <TripItinerarySection
             itinerary={trip.itinerary || []}
@@ -59,7 +56,6 @@ export default async function TripDetailPage({ params }: TripDetailPageProps) {
           />
         )}
         
-        {/* Included/Not Included nur anzeigen wenn Daten vorhanden */}
         {((trip.included && trip.included.length > 0) || (trip.notIncluded && trip.notIncluded.length > 0)) && (
           <TripIncludedSection
             included={trip.included || []}
@@ -70,7 +66,6 @@ export default async function TripDetailPage({ params }: TripDetailPageProps) {
         <TripBookingSection
           tripTitle={trip.title}
           price={trip.price}
-          maxPersons={maxPersons}
         />
       </main>
       <Footer />

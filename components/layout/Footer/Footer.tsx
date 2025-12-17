@@ -2,7 +2,7 @@
 'use client';
 
 import { useTranslations } from 'next-intl';
-import { SITE_INFO, FOOTER_LINKS, ADDRESS, CONTACT, SOCIAL_MEDIA } from '@/lib/constants';
+import { FOOTER_LINKS, SOCIAL_MEDIA } from '@/lib/constants';
 import type { FooterProps, FooterSection } from './Footer.types';
 
 export function Footer({ className = '' }: FooterProps) {
@@ -28,7 +28,6 @@ export function Footer({ className = '' }: FooterProps) {
               {t('brand.since')}
             </p>
             <div className="flex items-center gap-4 mt-6">
-              {/* Social Icons */}
               <a
                 href={SOCIAL_MEDIA.facebook.url}
                 target="_blank"
@@ -61,7 +60,7 @@ export function Footer({ className = '' }: FooterProps) {
               <ul className="space-y-2 text-white/70">
                 {section.links.map((link) => (
                   <li key={link.href}>
-                    <a href={link.href} className="hover:text-secondary-ochre transition">
+                    <a href={link.href} className="hover:text-secondary transition">
                       {link.label}
                     </a>
                   </li>
@@ -81,7 +80,7 @@ export function Footer({ className = '' }: FooterProps) {
                 href="https://kaiashapes.de"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-secondary-ochre hover:text-secondary-ochre/80 transition"
+                className="text-secondary hover:text-secondary/80 transition"
               >
                 kaiashapes.de
               </a>

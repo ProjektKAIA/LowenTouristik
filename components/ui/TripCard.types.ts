@@ -17,5 +17,4 @@ export interface TripCardProps {
     availability?: 'available' | 'limited' | 'full';
     spotsLeft?: number;
   };
-  locale: string;
 }

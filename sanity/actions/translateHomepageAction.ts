@@ -2,7 +2,6 @@
 import { DocumentActionComponent, useDocumentOperation } from 'sanity';
 import { useState } from 'react';
 
-// DeepL API Translation
 async function translateWithDeepL(text: string, targetLang: 'EN' | 'FR'): Promise<string> {
   const apiKey = process.env.SANITY_STUDIO_DEEPL_API_KEY;
   
@@ -31,18 +30,15 @@ async function translateWithDeepL(text: string, targetLang: 'EN' | 'FR'): Promis
   return data.translations[0].text;
 }
 
-// Rekursiv alle lokalisierten Felder im Dokument finden und übersetzen
 async function translateLocalizedFields(
   obj: any,
   targetLang: 'EN' | 'FR'
 ): Promise<any> {
   if (!obj || typeof obj !== 'object') return obj;
 
-  // Ist das ein lokalisiertes Feld? (hat 'de' property)
   if ('de' in obj && typeof obj.de === 'string' && obj.de.trim()) {
     const langKey = targetLang.toLowerCase() as 'en' | 'fr';
     
-    // Nur übersetzen wenn noch nicht vorhanden oder leer
     if (!obj[langKey] || obj[langKey].trim() === '') {
       try {
         const translated = await translateWithDeepL(obj.de, targetLang);
@@ -55,7 +51,6 @@ async function translateLocalizedFields(
     return obj;
   }
 
-  // Array durchgehen
   if (Array.isArray(obj)) {
     const results = [];
     for (const item of obj) {
@@ -64,7 +59,6 @@ async function translateLocalizedFields(
     return results;
   }
 
-  // Objekt rekursiv durchgehen
   const result: any = {};
   for (const key of Object.keys(obj)) {
     result[key] = await translateLocalizedFields(obj[key], targetLang);
@@ -74,12 +68,11 @@ async function translateLocalizedFields(
 
 export const translateHomepageAction: DocumentActionComponent = (props) => {
   const { id, type, draft, published } = props;
-  const { patch, publish } = useDocumentOperation(id, type);
+  const { patch } = useDocumentOperation(id, type);
   const [isTranslating, setIsTranslating] = useState(false);
   const [status, setStatus] = useState<string>('');
 
-  // Nur für Homepage anzeigen
-  if (type !== 'homepage') return null;
+  if (type !== 'homepage' && type !== 'aboutPage') return null;
 
   const doc = draft || published;
 
@@ -92,18 +85,14 @@ export const translateHomepageAction: DocumentActionComponent = (props) => {
       setIsTranslating(true);
       
       try {
-        // Nach Englisch übersetzen
         setStatus('Übersetze nach Englisch...');
         let translatedDoc = await translateLocalizedFields(doc, 'EN');
         
-        // Nach Französisch übersetzen
         setStatus('Übersetze nach Französisch...');
         translatedDoc = await translateLocalizedFields(translatedDoc, 'FR');
 
-        // Dokument aktualisieren
         setStatus('Speichere...');
         
-        // Patch das Dokument mit den übersetzten Feldern
         patch.execute([
           { setIfMissing: {} },
           { 
@@ -112,6 +101,8 @@ export const translateHomepageAction: DocumentActionComponent = (props) => {
               valuesSection: translatedDoc.valuesSection,
               aboutPreview: translatedDoc.aboutPreview,
               ctaSection: translatedDoc.ctaSection,
+              story: translatedDoc.story,
+              mission: translatedDoc.mission,
               seo: translatedDoc.seo,
             }
           }

@@ -96,7 +96,7 @@ export const NAV_LINKS = [
 ] as const;
 
 // ============================================
-// FOOTER LINKS
+// FOOTER LINKS (mutable für FooterSection Type)
 // ============================================
 export const FOOTER_LINKS = {
   destinations: [
@@ -109,7 +109,7 @@ export const FOOTER_LINKS = {
     { label: 'Über Agnes', href: '/ueber-agnes' },
     { label: 'Unsere Werte', href: '/unsere-werte' },
     { label: 'Nachhaltigkeit', href: '/nachhaltigkeit' },
-    { label: 'Erfahrungsberichte', href: '/erfahrungen' }, // GEÄNDERT
+    { label: 'Erfahrungsberichte', href: '/erfahrungen' },
   ],
   service: [
     { label: 'Reiseberatung', href: '/kontakt' },
@@ -122,7 +122,7 @@ export const FOOTER_LINKS = {
     { label: 'Datenschutz', href: '/datenschutz' },
     { label: 'AGB', href: '/agb' },
   ],
-} as const;
+};
 
 // ============================================
 // STATS & NUMBERS
@@ -165,7 +165,7 @@ export const VALUES = [
 ] as const;
 
 // ============================================
-// SEO & META
+// SEO & META (mutable keywords Array)
 // ============================================
 export const SEO = {
   defaultTitle: 'Loewentouristik - Authentische Afrika-Reisen',
@@ -182,14 +182,14 @@ export const SEO = {
     'Agnes Kah',
     'Kleine Gruppenreisen',
     'Respektvoller Tourismus',
-  ],
+  ] as string[],
   openGraph: {
     type: 'website',
     locale: 'de_DE',
     url: SITE_INFO.url,
     siteName: SITE_INFO.name,
   },
-} as const;
+};
 
 // ============================================
 // EXTERNAL LINKS

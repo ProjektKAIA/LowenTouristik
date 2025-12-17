@@ -1,9 +1,12 @@
-// Querying with "sanityFetch" will keep content automatically updated
-// Before using it, import and render "<SanityLive />" in your layout, see
-// https://github.com/sanity-io/next-sanity#live-content-api for more information.
-import { defineLive } from "next-sanity/live";
-import { client } from './client'
+// sanity/lib/live.ts
+// Live Content API für Sanity Preview Mode
+// Hinweis: defineLive wurde in next-sanity v9+ entfernt
+// Stattdessen nutzen wir den Standard-Client mit draftMode()
 
-export const { sanityFetch, SanityLive } = defineLive({
-  client,
-});
+import { client } from '@/lib/sanity/client';
+
+// Re-export für Kompatibilität
+export { client };
+
+// Falls Preview Mode benötigt wird, kann hier später
+// eine eigene Implementierung mit draftMode() hinzugefügt werden

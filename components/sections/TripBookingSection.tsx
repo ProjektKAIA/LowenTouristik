@@ -50,31 +50,25 @@ export function TripBookingSection({ tripTitle, price }: TripBookingSectionProps
               {t('requestButton')}
             </Link>
             <a
-              href={`tel:${CONTACT.phone.replace(/\s/g, '')}`}
+              href={CONTACT.phone.href}
               className="bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white px-12 py-5 rounded-full font-bold text-lg transition border-2 border-white/30 shadow-xl"
             >
-              📞 {CONTACT.phone}
+              📞 {CONTACT.phone.display}
             </a>
           </div>
 
           <div className="mt-12 flex items-center justify-center gap-8 text-sm opacity-90 flex-wrap">
             <div className="flex items-center gap-2">
-              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"/>
-              </svg>
-              <span>{t('feature1')}</span>
+              <span>✓</span>
+              <span>{t('features.noDeposit')}</span>
             </div>
             <div className="flex items-center gap-2">
-              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"/>
-              </svg>
-              <span>{t('feature2')}</span>
+              <span>✓</span>
+              <span>{t('features.personalAdvice')}</span>
             </div>
             <div className="flex items-center gap-2">
-              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"/>
-              </svg>
-              <span>{t('feature3')}</span>
+              <span>✓</span>
+              <span>{t('features.flexibleBooking')}</span>
             </div>
           </div>
         </div>

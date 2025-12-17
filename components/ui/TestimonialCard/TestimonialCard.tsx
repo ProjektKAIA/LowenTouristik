@@ -5,7 +5,7 @@ import Image from 'next/image';
 import type { TestimonialCardProps } from './TestimonialCard.types';
 
 export function TestimonialCard({ testimonial }: TestimonialCardProps) {
-  const { name, image, text, rating, trip, date } = testimonial;
+  const { name, image, text, rating, trip } = testimonial;
 
   return (
     <div className="bg-white p-8 rounded-3xl shadow-lg hover:shadow-xl transition-all">
