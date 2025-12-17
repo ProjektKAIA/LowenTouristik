@@ -18,7 +18,8 @@ export default getRequestConfig(async ({ requestLocale }) => {
   let contactMessages = {};
   let valuesMessages = {};
   let tripsMessages = {};
-  let testimonialsMessages = {}; // NEU
+  let testimonialsMessages = {};
+  let aboutMessages = {};
   
   try {
     contactMessages = (await import(`@/messages/${locale}/contact.json`)).default;
@@ -38,11 +39,16 @@ export default getRequestConfig(async ({ requestLocale }) => {
     console.warn(`Trips messages for locale "${locale}" not found`);
   }
 
-  // NEU: Testimonials Messages laden
   try {
     testimonialsMessages = (await import(`@/messages/${locale}/testimonials.json`)).default;
   } catch (error) {
     console.warn(`Testimonials messages for locale "${locale}" not found`);
+  }
+
+  try {
+    aboutMessages = (await import(`@/messages/${locale}/about.json`)).default;
+  } catch (error) {
+    console.warn(`About messages for locale "${locale}" not found`);
   }
 
   return {
@@ -50,9 +56,22 @@ export default getRequestConfig(async ({ requestLocale }) => {
     messages: {
       ...homepageMessages,
       contact: contactMessages,
-      values: valuesMessages,
-      trips: tripsMessages,
-      testimonials: testimonialsMessages, // NEU
+      values: {
+        ...(homepageMessages.values || {}),
+        ...valuesMessages,
+      },
+      trips: {
+        ...(homepageMessages.trips || {}),
+        ...tripsMessages,
+      },
+      testimonials: {
+        ...(homepageMessages.testimonials || {}),  // Alte Keys aus de.json behalten
+        ...testimonialsMessages,                    // Neue Keys aus de/testimonials.json hinzufügen
+      },
+      about: {
+        ...(homepageMessages.about || {}),
+        ...aboutMessages,
+      },
     }
   };
 });

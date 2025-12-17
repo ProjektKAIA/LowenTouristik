@@ -10,6 +10,9 @@ import { translateAction } from './sanity/actions/translateAction';
 const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || '2bs691r5';
 const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET || 'production';
 
+// Singleton Document IDs
+const SINGLETON_IDS = ['homepage', 'siteSettings'];
+
 export default defineConfig({
   name: 'loewentouristik',
   title: 'Loewentouristik CMS',
@@ -31,7 +34,6 @@ export default defineConfig({
         { id: 'fr', title: 'Français' },
       ],
       schemaTypes: ['trip', 'testimonial', 'page'],
-      // weakReferences: true, // Optional: Falls du schwache Referenzen brauchst
     }),
   ],
 
@@ -41,8 +43,26 @@ export default defineConfig({
 
   document: {
     actions: (prev, context) => {
+      // Für Singletons: Nur bestimmte Actions erlauben (kein Löschen, kein Duplizieren)
+      if (SINGLETON_IDS.includes(context.schemaType)) {
+        return prev.filter(
+          (action) =>
+            action.action !== 'delete' &&
+            action.action !== 'duplicate' &&
+            action.action !== 'unpublish'
+        );
+      }
       // Translate Action zu allen Document Actions hinzufügen
       return [...prev, translateAction];
+    },
+    // Singletons: Neue Dokumente erstellen verhindern
+    newDocumentOptions: (prev, { creationContext }) => {
+      if (creationContext.type === 'global') {
+        return prev.filter(
+          (templateItem) => !SINGLETON_IDS.includes(templateItem.templateId)
+        );
+      }
+      return prev;
     },
   },
 });

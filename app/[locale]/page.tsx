@@ -6,42 +6,43 @@ import { WhatsAppButton } from '@/components/ui/WhatsAppButton';
 import { HeroSection } from '@/components/sections/HeroSection';
 import { ValuePropositionsSection } from '@/components/sections/ValuePropositionsSection';
 import { FeaturedTripsSection } from '@/components/sections/FeaturedTripsSection';
-import { getFeaturedTrips, getAllTrips } from '@/lib/services/trip.service';
-import { Suspense } from 'react';
 import { AboutPreviewSection } from '@/components/sections/AboutPreviewSection';
 import { TestimonialsSection } from '@/components/sections/TestimonialsSection';
 import { CTASection } from '@/components/sections/CTASection';
+import { getFeaturedTrips, getAllTrips } from '@/lib/services/trip.service';
+import { getHomepageData } from '@/lib/services/homepage.service';
+import { Suspense } from 'react';
 import { SEO, SITE_INFO } from '@/lib/constants';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
+  const homepage = await getHomepageData();
+
+  // SEO aus Sanity oder Fallback
+  const seoTitle = homepage?.seo?.title || SEO.defaultTitle;
+  const seoDescription = homepage?.seo?.description || SEO.description;
 
   return {
-    title: SEO.defaultTitle,
-    description: SEO.description,
+    title: seoTitle,
+    description: seoDescription,
     keywords: SEO.keywords,
     authors: [{ name: SITE_INFO.name }],
     openGraph: {
-      title: SEO.defaultTitle,
-      description: SEO.description,
+      title: seoTitle,
+      description: seoDescription,
       url: SITE_INFO.url,
       siteName: SITE_INFO.name,
       locale: locale === 'de' ? 'de_DE' : 'en_US',
       type: 'website',
-      images: [
-        {
-          url: '/images/og-image.jpg',
-          width: 1200,
-          height: 630,
-          alt: SITE_INFO.name,
-        },
-      ],
+      images: homepage?.seo?.image?.asset?.url 
+        ? [{ url: homepage.seo.image.asset.url, width: 1200, height: 630, alt: SITE_INFO.name }]
+        : [{ url: '/images/og-image.jpg', width: 1200, height: 630, alt: SITE_INFO.name }],
     },
     twitter: {
       card: 'summary_large_image',
-      title: SEO.defaultTitle,
-      description: SEO.description,
-      images: ['/images/og-image.jpg'],
+      title: seoTitle,
+      description: seoDescription,
+      images: homepage?.seo?.image?.asset?.url ? [homepage.seo.image.asset.url] : ['/images/og-image.jpg'],
     },
     robots: {
       index: true,
@@ -90,17 +91,20 @@ async function FeaturedTrips() {
 }
 
 export default async function HomePage() {
+  // Homepage-Daten aus Sanity laden
+  const homepage = await getHomepageData();
+
   return (
     <>
       <Header />
       <WhatsAppButton />
       <main className="min-h-screen">
-        <HeroSection />
-        <ValuePropositionsSection />
+        <HeroSection data={homepage?.hero} />
+        <ValuePropositionsSection data={homepage?.valuesSection} />
         <Suspense fallback={<FeaturedTripsLoader />}>
           <FeaturedTrips />
         </Suspense>
-        <AboutPreviewSection />
+        <AboutPreviewSection data={homepage?.aboutPreview} />
         <TestimonialsSection />
         <CTASection />
       </main>
