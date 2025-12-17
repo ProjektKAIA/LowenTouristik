@@ -1,5 +1,7 @@
 // app/studio/[[...tool]]/layout.tsx
-export const metadata = {
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
   title: 'Loewentouristik CMS',
   description: 'Content Management System für Loewentouristik',
 };
@@ -9,9 +11,5 @@ export default function StudioLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return (
-    <html lang="de">
-      <body>{children}</body>
-    </html>
-  );
+  return <>{children}</>;
 }
