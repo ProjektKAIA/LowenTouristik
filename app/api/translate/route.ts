@@ -2,28 +2,47 @@
 
 import { NextRequest, NextResponse } from 'next/server';
 import { client } from '@/lib/sanity/client';
+import { writeClient } from '@/lib/sanity/writeClient';
 import { translateDocument } from '@/lib/services/deepl.service';
 
 /**
  * API Route: Document Translation
  * 
  * Übersetzt ein Sanity Document von DE nach EN/FR
+ * Erstellt separate Dokumente für jede Sprache (Document Internationalization)
  */
 export async function POST(request: NextRequest) {
   try {
     const { documentId, documentType, targetLanguages } = await request.json();
 
+    // Validierung
     if (!documentId || !documentType || !targetLanguages) {
       return NextResponse.json(
-        { error: 'Missing required fields' },
+        { error: 'Missing required fields: documentId, documentType, targetLanguages' },
         { status: 400 }
       );
     }
 
-    // Original Document aus Sanity holen
+    // Token check
+    if (!process.env.SANITY_API_TOKEN) {
+      return NextResponse.json(
+        { error: 'SANITY_API_TOKEN not configured' },
+        { status: 500 }
+      );
+    }
+
+    // DeepL Key check
+    if (!process.env.DEEPL_API_KEY) {
+      return NextResponse.json(
+        { error: 'DEEPL_API_KEY not configured' },
+        { status: 500 }
+      );
+    }
+
+    // Original Document aus Sanity holen (mit drafts. Prefix falls vorhanden)
     const originalDoc = await client.fetch(
-      `*[_type == $type && _id == $id][0]`,
-      { type: documentType, id: documentId }
+      `*[_type == $type && (_id == $id || _id == "drafts." + $id)][0]`,
+      { type: documentType, id: documentId.replace('drafts.', '') }
     );
 
     if (!originalDoc) {
@@ -33,46 +52,78 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Fields die übersetzt werden sollen (pro Document Type)
+    // Fields die übersetzt werden sollen
     const fieldsToTranslate = getFieldsToTranslate(documentType);
-
-    // Für jede Zielsprache übersetzen und in Sanity speichern
     const results = [];
 
+    // Für jede Zielsprache übersetzen
     for (const targetLang of targetLanguages) {
+      const langUpper = targetLang.toUpperCase() as 'EN' | 'FR';
+      
+      // Übersetzen
       const translatedDoc = await translateDocument(
         originalDoc,
-        targetLang.toUpperCase() as 'EN' | 'FR',
+        langUpper,
         fieldsToTranslate
       );
 
-      // Neues Document in Sanity mit Sprach-Suffix erstellen
-      const newDocId = `${documentId}__i18n_${targetLang}`;
-      
-      await client.createOrReplace({
+      // Basis-ID ohne drafts. Prefix
+      const baseId = documentId.replace('drafts.', '');
+      const newDocId = `${baseId}__i18n_${targetLang}`;
+
+      // Dokument für Sanity vorbereiten
+      const docToSave = {
         ...translatedDoc,
         _id: newDocId,
         _type: documentType,
-        __i18n_lang: targetLang,
-        __i18n_base: documentId,
-      });
+        // Document Internationalization Metadata
+        language: targetLang,
+        // Referenz zum Original-Dokument
+        __i18n_refs: [
+          {
+            _key: 'base',
+            _type: 'reference',
+            _ref: baseId,
+          }
+        ],
+      };
+
+      // Interne Felder entfernen
+      delete (docToSave as Record<string, unknown>)._rev;
+      delete (docToSave as Record<string, unknown>)._createdAt;
+      delete (docToSave as Record<string, unknown>)._updatedAt;
+
+      // In Sanity speichern mit writeClient
+      await writeClient.createOrReplace(docToSave);
 
       results.push({
         language: targetLang,
         documentId: newDocId,
+        status: 'success',
       });
     }
+
+    // Original-Dokument mit language: 'de' markieren (falls noch nicht)
+    const baseId = documentId.replace('drafts.', '');
+    await writeClient
+      .patch(baseId)
+      .set({ language: 'de' })
+      .commit();
 
     return NextResponse.json({
       success: true,
       originalId: documentId,
       translations: results,
+      message: `Successfully translated to ${targetLanguages.join(', ').toUpperCase()}`,
     });
 
   } catch (error) {
     console.error('Translation API Error:', error);
     return NextResponse.json(
-      { error: 'Translation failed', details: (error as Error).message },
+      { 
+        error: 'Translation failed', 
+        details: error instanceof Error ? error.message : 'Unknown error',
+      },
       { status: 500 }
     );
   }
@@ -87,18 +138,19 @@ function getFieldsToTranslate(documentType: string): string[] {
       'title',
       'shortDescription',
       'highlights',
-      'itinerary', // Array von Objekten
+      'itinerary',
+      'mapStations',
       'included',
       'notIncluded',
+      'accommodation',
     ],
     testimonial: [
       'text',
-      'trip', // Trip-Name
+      'trip',
     ],
     page: [
       'title',
       'description',
-      'content', // Portable Text - komplexer
     ],
   };
 
