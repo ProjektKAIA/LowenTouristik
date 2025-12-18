@@ -55,14 +55,19 @@ export const homepageSchema = defineType({
         localizedString('subtitle', 'Untertitel (Handschrift)'),
         localizedText('description', 'Beschreibung'),
         {
-          name: 'videoUrl',
-          title: 'Hintergrund Video URL',
-          type: 'url',
+          name: 'heroVideo',
+          title: '🎬 Hintergrund Video',
+          type: 'file',
+          description: 'MP4 Video hochladen (max. 50MB empfohlen)',
+          options: {
+            accept: 'video/mp4,video/webm',
+          },
         },
         {
           name: 'backgroundImage',
           title: 'Hintergrundbild (Fallback)',
           type: 'image',
+          description: 'Wird angezeigt wenn kein Video vorhanden ist',
           options: { hotspot: true },
         },
         {

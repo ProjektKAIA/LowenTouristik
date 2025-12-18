@@ -19,6 +19,10 @@ export interface SanityImage {
   alt?: string;
 }
 
+export interface SanityFile {
+  asset: { url: string };
+}
+
 export interface HomepageData {
   _id: string;
   hero: HeroSection;
@@ -33,7 +37,7 @@ export interface HeroSection {
   title: LocalizedString;
   subtitle?: LocalizedString;
   description?: LocalizedText;
-  videoUrl?: string;
+  heroVideo?: SanityFile;
   backgroundImage?: SanityImage;
   stats?: { value: LocalizedString; label: LocalizedString }[];
 }

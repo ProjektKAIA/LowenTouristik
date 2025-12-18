@@ -10,7 +10,11 @@ export const HOMEPAGE_QUERY = `
       title,
       subtitle,
       description,
-      videoUrl,
+      heroVideo {
+        asset->{
+          url
+        }
+      },
       backgroundImage {
         asset->{
           url
