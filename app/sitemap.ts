@@ -30,7 +30,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   });
 
   const tripUrls: MetadataRoute.Sitemap = [];
-  trips.forEach((trip: any) => {
+  trips.forEach((trip: { slug: string; _updatedAt?: string }) => {
     locales.forEach((locale) => {
       tripUrls.push({
         url: `${baseUrl}/${locale}/reisen/${trip.slug}`,

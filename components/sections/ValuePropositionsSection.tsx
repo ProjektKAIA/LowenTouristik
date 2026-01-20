@@ -1,7 +1,7 @@
 // components/sections/ValuePropositionsSection.tsx
 'use client';
 
-import type { ValuesSection, Locale } from '@/lib/types/homepage.types';
+import type { ValuesSection, Locale, LocalizedString, LocalizedText } from '@/lib/types/homepage.types';
 import { getLocalizedValue } from '@/lib/types/homepage.types';
 
 interface ValuePropositionsSectionProps {
@@ -10,7 +10,7 @@ interface ValuePropositionsSectionProps {
 }
 
 export function ValuePropositionsSection({ data, locale }: ValuePropositionsSectionProps) {
-  const t = (field: any) => getLocalizedValue(field, locale);
+  const t = (field: LocalizedString | LocalizedText | undefined) => getLocalizedValue(field, locale);
 
   const title = t(data.title);
   const subtitle = t(data.subtitle);

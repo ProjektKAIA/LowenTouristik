@@ -1,6 +1,7 @@
 // components/ui/TripCard.tsx
 'use client';
 
+import Image from 'next/image';
 import { Link } from '@/i18n/routing';
 import { useTranslations } from 'next-intl';
 import type { TripCardProps } from './TripCard.types';
@@ -43,11 +44,12 @@ export function TripCard({ trip }: TripCardProps) {
   return (
     <div className="trip-card bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
       <div className="relative h-72 overflow-hidden">
-        <img
+        <Image
           src={trip.mainImage.asset.url}
           alt={trip.mainImage.alt || trip.title}
-          className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
-          loading="lazy"
+          fill
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          className="object-cover transition-transform duration-500 hover:scale-110"
         />
         <div className={`absolute top-4 left-4 ${getRegionColor(trip.region)} text-white px-3 py-1 rounded-full text-xs font-bold uppercase`}>
           {trip.region}

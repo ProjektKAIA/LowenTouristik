@@ -45,7 +45,7 @@ export function ContactForm({ className = '' }: ContactFormProps) {
       } else {
         throw new Error('Submission failed');
       }
-    } catch (error) {
+    } catch {
       setFormState({ isSubmitting: false, isSuccess: false, isError: true });
     }
   };

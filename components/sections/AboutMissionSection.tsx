@@ -1,7 +1,7 @@
 // components/sections/AboutMissionSection.tsx
 'use client';
 
-import type { AboutMissionData, Locale } from '@/lib/types/about.types';
+import type { AboutMissionData, Locale, LocalizedString, LocalizedText } from '@/lib/types/about.types';
 import { getLocalizedValue } from '@/lib/types/about.types';
 
 interface AboutMissionSectionProps {
@@ -19,7 +19,7 @@ const colorGradients = [
 ];
 
 export function AboutMissionSection({ data, locale }: AboutMissionSectionProps) {
-  const t = (field: any) => getLocalizedValue(field, locale);
+  const t = (field: LocalizedString | LocalizedText | undefined) => getLocalizedValue(field, locale);
 
   return (
     <section className="py-24 bg-white">

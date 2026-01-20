@@ -1,7 +1,7 @@
 // components/sections/AboutHeroSection.tsx
 'use client';
 
-import type { AboutHeroData, Locale } from '@/lib/types/about.types';
+import type { AboutHeroData, Locale, LocalizedString, LocalizedText } from '@/lib/types/about.types';
 import { getLocalizedValue } from '@/lib/types/about.types';
 
 interface AboutHeroSectionProps {
@@ -10,7 +10,7 @@ interface AboutHeroSectionProps {
 }
 
 export function AboutHeroSection({ data, locale }: AboutHeroSectionProps) {
-  const t = (field: any) => getLocalizedValue(field, locale);
+  const t = (field: LocalizedString | LocalizedText | undefined) => getLocalizedValue(field, locale);
 
   return (
     <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden">

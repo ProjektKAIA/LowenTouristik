@@ -20,7 +20,7 @@ export function TestimonialCard({ testimonial }: TestimonialCardProps) {
 
       {/* Text */}
       <p className="text-lg text-neutral-brown/90 leading-relaxed mb-6 italic">
-        "{text}"
+        &ldquo;{text}&rdquo;
       </p>
 
       {/* Author */}

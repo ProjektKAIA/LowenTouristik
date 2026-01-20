@@ -2,7 +2,7 @@
 'use client';
 
 import Image from 'next/image';
-import type { AboutStoryData, Locale } from '@/lib/types/about.types';
+import type { AboutStoryData, Locale, LocalizedString, LocalizedText } from '@/lib/types/about.types';
 import { getLocalizedValue } from '@/lib/types/about.types';
 
 interface AboutStorySectionProps {
@@ -11,7 +11,7 @@ interface AboutStorySectionProps {
 }
 
 export function AboutStorySection({ data, locale }: AboutStorySectionProps) {
-  const t = (field: any) => getLocalizedValue(field, locale);
+  const t = (field: LocalizedString | LocalizedText | undefined) => getLocalizedValue(field, locale);
 
   return (
     <section className="py-24 bg-neutral-cream">

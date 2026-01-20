@@ -3,7 +3,7 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import type { AboutPreviewSection as AboutPreviewData, Locale } from '@/lib/types/homepage.types';
+import type { AboutPreviewSection as AboutPreviewData, Locale, LocalizedString, LocalizedText } from '@/lib/types/homepage.types';
 import { getLocalizedValue } from '@/lib/types/homepage.types';
 
 interface AboutPreviewSectionProps {
@@ -12,7 +12,7 @@ interface AboutPreviewSectionProps {
 }
 
 export function AboutPreviewSection({ data, locale }: AboutPreviewSectionProps) {
-  const t = (field: any) => getLocalizedValue(field, locale);
+  const t = (field: LocalizedString | LocalizedText | undefined) => getLocalizedValue(field, locale);
 
   const label = t(data.label);
   const title = t(data.title);

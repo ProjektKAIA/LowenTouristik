@@ -2,7 +2,7 @@
 'use client';
 
 import { CONTACT } from '@/lib/constants';
-import type { HeroSection as HeroSectionData, Locale } from '@/lib/types/homepage.types';
+import type { HeroSection as HeroSectionData, Locale, LocalizedString, LocalizedText } from '@/lib/types/homepage.types';
 import { getLocalizedValue } from '@/lib/types/homepage.types';
 
 interface HeroSectionProps {
@@ -11,7 +11,7 @@ interface HeroSectionProps {
 }
 
 export function HeroSection({ data, locale }: HeroSectionProps) {
-  const t = (field: any) => getLocalizedValue(field, locale);
+  const t = (field: LocalizedString | LocalizedText | undefined) => getLocalizedValue(field, locale);
 
   const badge = t(data.badge);
   const title = t(data.title);
@@ -56,7 +56,7 @@ export function HeroSection({ data, locale }: HeroSectionProps) {
             <a href="#reisen" className="btn-primary bg-accent-red hover:bg-accent-red/90 text-white px-10 py-4 rounded-full font-bold text-lg shadow-2xl hover:scale-105 transition-all w-full sm:w-auto">
               {locale === 'de' ? 'Reisen entdecken' : locale === 'en' ? 'Discover Trips' : 'Découvrir les voyages'}
             </a>
-            <a href={`tel:${CONTACT.phone.raw}`} className="btn-secondary border-2 border-white/30 hover:border-white/50 text-white px-10 py-4 rounded-full font-bold text-lg hover:bg-white/10 transition-all w-full sm:w-auto">
+            <a href={CONTACT.phone.href} className="btn-secondary border-2 border-white/30 hover:border-white/50 text-white px-10 py-4 rounded-full font-bold text-lg hover:bg-white/10 transition-all w-full sm:w-auto">
               {locale === 'de' ? 'Jetzt anrufen' : locale === 'en' ? 'Call Now' : 'Appeler maintenant'}
             </a>
           </div>

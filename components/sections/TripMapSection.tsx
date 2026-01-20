@@ -1,8 +1,9 @@
 // components/sections/TripMapSection.tsx
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useCallback } from 'react';
 import { useTranslations } from 'next-intl';
+import type L from 'leaflet';
 import type { MapStation, ItineraryDay } from '@/lib/types/trip';
 
 interface TripMapSectionProps {
@@ -14,13 +15,13 @@ interface TripMapSectionProps {
 export function TripMapSection({ stations, country, itinerary = [] }: TripMapSectionProps) {
   const t = useTranslations('trips.detail.map');
   const mapRef = useRef<HTMLDivElement>(null);
-  const mapInstanceRef = useRef<any>(null);
+  const mapInstanceRef = useRef<L.Map | null>(null);
 
   // Helper: Bild für einen Tag aus dem Itinerary holen
-  const getImageForDay = (day: number): string | null => {
+  const getImageForDay = useCallback((day: number): string | null => {
     const itineraryDay = itinerary.find(i => i.day === day);
     return itineraryDay?.image?.asset?.url || null;
-  };
+  }, [itinerary]);
 
   useEffect(() => {
     const initMap = async () => {
@@ -136,7 +137,7 @@ export function TripMapSection({ stations, country, itinerary = [] }: TripMapSec
         mapInstanceRef.current.remove();
       }
     };
-  }, [stations, itinerary]);
+  }, [stations, getImageForDay]);
 
   return (
     <section className="py-16 px-6 bg-neutral-cream">
